@@ -1,4 +1,3 @@
-local M = {}
 -- "..." will be provided by require() function
 local parent_module_name = ... 
 local module_functions = {
@@ -6,7 +5,5 @@ local module_functions = {
     "head",
 }
 local TK = require("PackageToolkit")
-
-TK.subfunctions(M, parent_module_name, module_functions)
-
+local  M = TK.subfunctions(parent_module_name, module_functions)
 return M

@@ -1,11 +1,7 @@
-local M = {}
-local TM = "FunctionalX"
+local parent = "FunctionalX"
 local TK = require("PackageToolkit")
-
 local submodule_names = {
     "lists",
 }
-
-TK.submodules(M, "FunctionalX", submodule_names)
-
+local  M = TK.submodules(parent, submodule_names)
 return M

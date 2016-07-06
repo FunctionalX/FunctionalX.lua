@@ -6,27 +6,55 @@ M.tail = (list, start_index=1) ->
     return {} if #list <= 1
     return [list[i] for i = (start_index+1), #list]
 
-M.submodules = (target_module, parent_name, module_names) ->
-    return {} if (type target_module) != 'table'
-    for i, name in ipairs(module_names) do
-        target_module[name] = require(string.format("%s.%s", parent_name, name))
-    return target_module
+-- merge two hash tables (nil values will be removed)
+M.merge = (table1, table2) ->
+    condition1 = (type table1) == "table"
+    condition2 = (type table2) == "table"
+    return {} if (not condition1) and (not condition2)
+    return table1 if not condition2
+    return table2 if not condition1
+    output = {}
+    for k, v in pairs table1
+        output[k] = v if v != nil 
+    for k, v in pairs table2
+        output[k] = v if v != nil
+    return output
 
-M.subfunctions = (target_module, parent_name, function_names) ->
-    return {} if (type target_module) != 'table'
-    for i, name in ipairs(function_names) do
-        submodule_name = string.format("%s.%s", parent_name, name)
-        submodule = require(submodule_name)
-        if type(submodule) == "table"
-            target_module[name] = submodule[name] 
+M.submodules = (parent_name, name_list) ->
+    return {} if (type name_list) != 'table'
+    aux = (name_list, accum) ->
+        if #name_list == 0
+            return accum
         else
-            print string.format "ERROR HINT: %s cannot be found", submodule_name
-    return target_module
+            name = string.format "%s.%s", parent_name, name_list[1]
+            print "module name: ", name
+            m = (require name)
+            if m == nil
+                print "ERROR: cannot import module "..name
+            else
+                return aux (M.tail name_list), (M.merge accum, {[name]: m})
+    
+    return aux name_list, {}
 
-M.test = (host, submodules) ->
-    for name in *submodules
-        for k, f in pairs(host[name])
-            f()
+M.subfunctions = (target_module, parent_name, name_list) ->
+    return {} if (type name_list) != 'table'
+    aux = (name_list, accum) ->
+        if #name_list == 0
+            return accum
+        else
+            name = string.format "%s.%s", parent_name, name_list[1]
+            m = (require name)
+            print "name: ", name
+            if m == nil
+                print "ERROR: cannot import module "..name
+            else
+                return aux (M.tail name_list), (M.merge accum, {[name]: m[name]})
+                            
+    return aux name_list, {}
+
+M.test_all = (test_module) ->
+    for k, f in pairs(test_module)
+        f()
 
 
 M.dashed_line = (n, symbol="-") ->

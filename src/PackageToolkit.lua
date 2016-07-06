@@ -17,36 +17,80 @@ M.tail = function(list, start_index)
   end
   return _accum_0
 end
-M.submodules = function(target_module, parent_name, module_names)
-  if (type(target_module)) ~= 'table' then
+M.merge = function(table1, table2)
+  local condition1 = (type(table1)) == "table"
+  local condition2 = (type(table2)) == "table"
+  if (not condition1) and (not condition2) then
     return { }
   end
-  for i, name in ipairs(module_names) do
-    target_module[name] = require(string.format("%s.%s", parent_name, name))
+  if not condition2 then
+    return table1
   end
-  return target_module
+  if not condition1 then
+    return table2
+  end
+  local output = { }
+  for k, v in pairs(table1) do
+    if v ~= nil then
+      output[k] = v
+    end
+  end
+  for k, v in pairs(table2) do
+    if v ~= nil then
+      output[k] = v
+    end
+  end
+  return output
 end
-M.subfunctions = function(target_module, parent_name, function_names)
-  if (type(target_module)) ~= 'table' then
+M.submodules = function(parent_name, name_list)
+  if (type(name_list)) ~= 'table' then
     return { }
   end
-  for i, name in ipairs(function_names) do
-    local submodule_name = string.format("%s.%s", parent_name, name)
-    local submodule = require(submodule_name)
-    if type(submodule) == "table" then
-      target_module[name] = submodule[name]
+  local aux
+  aux = function(name_list, accum)
+    if #name_list == 0 then
+      return accum
     else
-      print(string.format("ERROR HINT: %s cannot be found", submodule_name))
+      local name = string.format("%s.%s", parent_name, name_list[1])
+      print("module name: ", name)
+      local m = (require(name))
+      if m == nil then
+        return print("ERROR: cannot import module " .. name)
+      else
+        return aux((M.tail(name_list)), (M.merge(accum, {
+          [name] = m
+        })))
+      end
     end
   end
-  return target_module
+  return aux(name_list, { })
 end
-M.test = function(host, submodules)
-  for _index_0 = 1, #submodules do
-    local name = submodules[_index_0]
-    for k, f in pairs(host[name]) do
-      f()
+M.subfunctions = function(target_module, parent_name, name_list)
+  if (type(name_list)) ~= 'table' then
+    return { }
+  end
+  local aux
+  aux = function(name_list, accum)
+    if #name_list == 0 then
+      return accum
+    else
+      local name = string.format("%s.%s", parent_name, name_list[1])
+      local m = (require(name))
+      print("name: ", name)
+      if m == nil then
+        return print("ERROR: cannot import module " .. name)
+      else
+        return aux((M.tail(name_list)), (M.merge(accum, {
+          [name] = m[name]
+        })))
+      end
     end
+  end
+  return aux(name_list, { })
+end
+M.test_all = function(test_module)
+  for k, f in pairs(test_module) do
+    f()
   end
 end
 M.dashed_line = function(n, symbol)

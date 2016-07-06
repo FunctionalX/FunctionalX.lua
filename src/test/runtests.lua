@@ -4,11 +4,13 @@ local FX = require("FunctionalX")
 local tests = {
     "lists",
 }
-local parent = ...
-local M = {}
-TK.submodules(M, "test", tests)
+local parent = "test"
+local M = TK.submodules(parent, tests)
 
-
-TK.test(M, tests)
+print(require("test.lists"))
+for k, v in pairs(M) do
+    print(k,v)
+end
+-- TK.test_all(M["lists"])
 
 return M

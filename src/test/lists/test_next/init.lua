@@ -1,17 +1,13 @@
-local M = { }
+local parent = ...
 local TK = require("PackageToolkit")
-local test
-test = function(input, solution)
-  print(TK.dashed_line(80, '-'))
-  print("test next()")
-  assert((next(input)) == solution)
-  print("VERIFIED!")
-  return print(TK.dashed_line(90, '-'))
-end
+local test_case = TK.subfunctions(parent, {
+  "test_case"
+})["test_case"]
 M.test_next = function()
-  return test({
+  test_case({
     1,
     2
-  }, 1)
+  }, 1, "test case 1")
+  return true
 end
 return M

@@ -1,8 +1,7 @@
-local M = {}
 local parent = ...
 local TK = require("PackageToolkit")
 local tests = {
     "test_next"
 }
-TK.subfunctions(M, parent, tests)
+local  M = TK.subfunctions(parent, tests)
 return M
