@@ -20,19 +20,22 @@ M.merge = (table1, table2) ->
         output[k] = v if v != nil
     return output
 
+-- return the full module name with qualifier prefix
+M.full_module_name = (parent, name) -> string.format("%s.%s", parent, name)
+
 M.submodules = (parent_name, name_list) ->
     return {} if (type name_list) != 'table'
     aux = (name_list, accum) ->
         if #name_list == 0
             return accum
         else
-            name = string.format "%s.%s", parent_name, name_list[1]
-            print "module name: ", name
-            m = (require name)
+            bare_name = name_list[1]
+            full_name = M.full_module_name parent_name, bare_name
+            m = (require full_name)
             if m == nil
-                print "ERROR: cannot import module "..name
+                print "ERROR: cannot import module "..full_name
             else
-                return aux (M.tail name_list), (M.merge accum, {[name]: m})
+                return aux (M.tail name_list), (M.merge accum, {[bare_name]: m})
     
     return aux name_list, {}
 
@@ -42,20 +45,25 @@ M.subfunctions = (target_module, parent_name, name_list) ->
         if #name_list == 0
             return accum
         else
-            name = string.format "%s.%s", parent_name, name_list[1]
-            m = (require name)
-            print "name: ", name
+            bare_name = name_list[1]
+            full_name = M.full_module_name parent_name, bare_name
+            m = (require full_name)
             if m == nil
-                print "ERROR: cannot import module "..name
+                print "ERROR: cannot import module "..full_name
             else
-                return aux (M.tail name_list), (M.merge accum, {[name]: m[name]})
+                return aux (M.tail name_list), (M.merge accum, {[bare_name]: m[name]})
                             
     return aux name_list, {}
 
-M.test_all = (test_module) ->
-    for k, f in pairs(test_module)
-        f()
+M.test_module = (target_module) ->
+    for name, test in pairs(target_module)
+        result = test[name]()
+        return false if result == false
+    return true
 
+
+-- return the function inside a module with the same name
+M.require_function = (module_name) -> require(module_name)[module_name]
 
 M.dashed_line = (n, symbol="-") ->
     aux = (n, symbol, accum) ->

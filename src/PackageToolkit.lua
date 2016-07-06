@@ -42,6 +42,9 @@ M.merge = function(table1, table2)
   end
   return output
 end
+M.full_module_name = function(parent, name)
+  return string.format("%s.%s", parent, name)
+end
 M.submodules = function(parent_name, name_list)
   if (type(name_list)) ~= 'table' then
     return { }
@@ -51,14 +54,14 @@ M.submodules = function(parent_name, name_list)
     if #name_list == 0 then
       return accum
     else
-      local name = string.format("%s.%s", parent_name, name_list[1])
-      print("module name: ", name)
-      local m = (require(name))
+      local bare_name = name_list[1]
+      local full_name = M.full_module_name(parent_name, bare_name)
+      local m = (require(full_name))
       if m == nil then
-        return print("ERROR: cannot import module " .. name)
+        return print("ERROR: cannot import module " .. full_name)
       else
         return aux((M.tail(name_list)), (M.merge(accum, {
-          [name] = m
+          [bare_name] = m
         })))
       end
     end
@@ -74,24 +77,31 @@ M.subfunctions = function(target_module, parent_name, name_list)
     if #name_list == 0 then
       return accum
     else
-      local name = string.format("%s.%s", parent_name, name_list[1])
-      local m = (require(name))
-      print("name: ", name)
+      local bare_name = name_list[1]
+      local full_name = M.full_module_name(parent_name, bare_name)
+      local m = (require(full_name))
       if m == nil then
-        return print("ERROR: cannot import module " .. name)
+        return print("ERROR: cannot import module " .. full_name)
       else
         return aux((M.tail(name_list)), (M.merge(accum, {
-          [name] = m[name]
+          [bare_name] = m[name]
         })))
       end
     end
   end
   return aux(name_list, { })
 end
-M.test_all = function(test_module)
-  for k, f in pairs(test_module) do
-    f()
+M.test_module = function(target_module)
+  for name, test in pairs(target_module) do
+    local result = test[name]()
+    if result == false then
+      return false
+    end
   end
+  return true
+end
+M.require_function = function(module_name)
+  return require(module_name)[module_name]
 end
 M.dashed_line = function(n, symbol)
   if symbol == nil then
