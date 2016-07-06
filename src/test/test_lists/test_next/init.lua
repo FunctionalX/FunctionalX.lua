@@ -6,7 +6,7 @@ M.test_next = function()
   test_case({
     1,
     2
-  }, 1, "case 1")
+  }, 2, "case 1")
   return true
 end
 return M

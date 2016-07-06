@@ -7,9 +7,6 @@ local tests = {
 local parent = "test"
 local M = TK.submodules(parent, tests)
 
-for k, v in pairs(M.test_lists) do
-    print(k,v)
-end
 TK.test_module(M)
 
 return M

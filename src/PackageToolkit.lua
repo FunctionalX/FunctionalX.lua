@@ -1,4 +1,19 @@
 local M = { }
+M.split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+M.module_prefix = function(full_module_name)
+  return (select('1', (string.match(full_module_name, ".+%.")))) or ""
+end
 M.tail = function(list, start_index)
   if start_index == nil then
     start_index = 1
@@ -56,6 +71,7 @@ M.submodules = function(parent_name, name_list)
     else
       local bare_name = name_list[1]
       local full_name = M.full_module_name(parent_name, bare_name)
+      print("import " .. full_name)
       local m = (require(full_name))
       if m == nil then
         return print("ERROR: cannot import module " .. full_name)
@@ -68,7 +84,7 @@ M.submodules = function(parent_name, name_list)
   end
   return aux(name_list, { })
 end
-M.subfunctions = function(target_module, parent_name, name_list)
+M.subfunctions = function(parent_name, name_list)
   if (type(name_list)) ~= 'table' then
     return { }
   end
@@ -80,11 +96,12 @@ M.subfunctions = function(target_module, parent_name, name_list)
       local bare_name = name_list[1]
       local full_name = M.full_module_name(parent_name, bare_name)
       local m = (require(full_name))
+      print("import function " .. full_name)
       if m == nil then
         return print("ERROR: cannot import module " .. full_name)
       else
         return aux((M.tail(name_list)), (M.merge(accum, {
-          [bare_name] = m[name]
+          [bare_name] = m[bare_name]
         })))
       end
     end
