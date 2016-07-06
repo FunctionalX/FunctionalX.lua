@@ -1,18 +1,6 @@
-package.path = package.path .. ";?.lua"
-local config = {
-  module = "autoscript"
-}
-local legal_flags = {
-  "-a",
-  "-f",
-  "-t"
-}
-local usage = [[Usage: auto target1 
-       auto target1 -f my_autoscript 
-       auto target1 -f my_autoscript -a arg1 arg2
-]]
-local head
-head = function(list)
+local M = { }
+
+M.head = function(list)
   if (type(list)) ~= "table" then
     return nil
   end
@@ -21,8 +9,7 @@ head = function(list)
   end
   return list[1]
 end
-local tail
-tail = function(list, start_index)
+M.tail = function(list, start_index)
   if start_index == nil then
     start_index = 1
   end
@@ -40,8 +27,7 @@ tail = function(list, start_index)
   end
   return _accum_0
 end
-local init
-init = function(list)
+M.init = function(list)
   if (type(list)) ~= "table" then
     return { }
   end
@@ -56,8 +42,7 @@ init = function(list)
   end
   return _accum_0
 end
-local concat
-concat = function(list1, list2)
+M.concat = function(list1, list2)
   local ondition1 = (type(list1)) == "table"
   local condition2 = (type(list2)) == "table"
   if (not condition1) and (not condition2) then
@@ -85,8 +70,7 @@ concat = function(list1, list2)
   end
   return output
 end
-local merge
-merge = function(table1, table2)
+M.merge = function(table1, table2)
   local condition1 = (type(table1)) == "table"
   local condition2 = (type(table2)) == "table"
   if (not condition1) and (not condition2) then
@@ -111,8 +95,7 @@ merge = function(table1, table2)
   end
   return output
 end
-local append
-append = function(list, item)
+M.append = function(list, item)
   if (type(list)) ~= "table" and item ~= nil then
     return {
       item
@@ -138,8 +121,7 @@ append = function(list, item)
   output[#output + 1] = item
   return output
 end
-local prepend
-prepend = function(item, list)
+M.prepend = function(item, list)
   if (type(list)) ~= "table" then
     return { }
   end
@@ -155,89 +137,99 @@ prepend = function(item, list)
   end
   return output
 end
-local is_flag
-is_flag = function(str)
-  if str == nil then
-    return false
-  end
-  for _index_0 = 1, #legal_flags do
-    local x = legal_flags[_index_0]
-    if str == x then
-      return true
+M.formated_strings = function(format_template, variable_list)
+  local aux
+  aux = function(format_template, variable_list, accum)
+    if #variable_list == 0 then
+      return accum
+    else
+      local item = string.format(format_template, variable_list[1])
+      return aux(format_template, (M.tail(variable_list)), (M.append(accum, item)))
     end
   end
-  return false
+  return aux(format_template, variable_list, { })
 end
-local is_not_flag
-is_not_flag = function(str)
-  return not (is_flag(str))
+M.string_cart2 = function(list1, list2)
+  local aux
+  aux = function(list1, list2, accum)
+    if #list2 == 0 or #list1 == 0 then
+      return accum
+    elseif #list1 == 1 then
+      return aux(list1, (M.tail(list2)), (M.append(accum, list1[1] .. list2[1])))
+    else
+      return aux((M.tail(list1)), list2, (aux({
+        list1[1]
+      }, list2, accum)))
+    end
+  end
+  if type(list1) ~= "table" then
+    return { }
+  end
+  if type(list2) ~= "table" then
+    return { }
+  end
+  return aux(list1, list2, { })
 end
-local next
-next = function(list)
-  if (type(list)) ~= "table" then
-    return nil
+M.string_cartn = function(...)
+  local aux
+  aux = function(list1, other_lists)
+    if #other_lists == 0 then
+      return list1
+    else
+      if type(other_lists[1]) ~= "table" then
+        return aux(list1, { })
+      end
+      return aux((M.string_cart2(list1, other_lists[1])), (M.tail(other_lists)))
+    end
   end
-  if #list >= 2 then
-    return list[2]
-  else
-    return nil
+  local args = {
+    ...
+  }
+  if type(args) ~= "table" then
+    return { }
   end
+  if #args == 0 then
+    return { }
+  end
+  if type(args[1]) ~= "table" then
+    return { }
+  end
+  if #args <= 1 then
+    return args[1]
+  end
+  return aux(args[1], (M.tail(args)))
 end
-local parse
-parse = function(input, config, targets, args, flag)
-  if flag == nil then
-    flag = "-t"
-  end
-  if #input == 0 then
-    return config, targets, args
-  end
-  if is_flag((head(input))) then
-    return parse((tail(input)), config, targets, args, (head(input)))
-  end
-  local _exp_0 = flag
-  if "-t" == _exp_0 then
-    return parse((tail(input)), config, (append(targets, (head(input)))), args, "-t")
-  elseif "-f" == _exp_0 then
-    return parse((tail(input)), (merge(config, {
-      module = (head(input))
-    })), targets, args, "-t")
-  elseif "-a" == _exp_0 then
-    return parse((tail(input)), config, targets, (append(args, (head(input)))), "-a")
-  else
-    return parse({ }, config, targets, args)
-  end
-end
-local dashed_line
-dashed_line = function(n, symbol, accum)
+M.string_split = function(str, symbol)
   if symbol == nil then
-    symbol = "-"
+    symbol = "%s"
   end
-  if accum == nil then
-    accum = ""
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
   end
-  if n == 0 then
-    return accum
-  else
-    return dashed_line(n - 1, symbol, symbol .. accum)
-  end
+  return _accum_0
 end
-local work
-work = function(module_name, targets, args)
-  local M = require(module_name)
-  for _index_0 = 1, #targets do
-    local target = targets[_index_0]
-    if M[target] ~= nil then
-      M[target](unpack(args))
+M.dir_path = function(...)
+  local dir_separator = M.head(M.string_split(package.config))
+  local aux
+  aux = function(subdirs, accum)
+    if #subdirs == 0 then
+      return accum
+    else
+      return aux((M.tail(subdirs)), accum .. dir_separator .. tostring(subdirs[1]))
     end
   end
-end
-local main
-main = function(input, default_config)
-  if #input == 0 then
-    return usage
+  local args = {
+    ...
+  }
+  if #args == 0 then
+    return ""
   end
-  local user_config, user_targets, user_args = parse(input, default_config, { }, { })
-  work(user_config.module, user_targets, user_args)
-  return dashed_line(80)
+  if #args == 1 then
+    return args[1]
+  end
+  return aux((M.tail(args)), (tostring(args[1])))
 end
-return print(main(arg, config))
+return M
