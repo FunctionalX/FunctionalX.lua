@@ -4,7 +4,8 @@ M = {}
 M.split = (str, symbol="%s") -> [x for x in string.gmatch(str, "([^"..symbol.."]+)")]
 
 -- return the prefix of a module
-M.module_prefix = (full_module_name) -> (select '1', (string.match full_module_name, ".+%.")) or ""
+M.module_prefix = (full_module_name) -> (string.gsub (string.match full_module_name, ".+%."), ".$", "") or ""
+M.module_root = (full_module_name) -> (M.split full_module_name, ".")[1] or ""
 
 -- return the tail of a list
 M.tail = (list, start_index=1) ->
@@ -30,14 +31,17 @@ M.merge = (table1, table2) ->
 -- return the full module name with qualifier prefix
 M.full_module_name = (parent, name) -> string.format("%s.%s", parent, name)
 
+M.remove_prefix = (str, symbol) -> string.gsub(str, "^_+", "")
+
 M.submodules = (parent_name, name_list) ->
     return {} if (type name_list) != 'table'
     aux = (name_list, accum) ->
         if #name_list == 0
             return accum
         else
-            bare_name = name_list[1]
-            full_name = M.full_module_name parent_name, bare_name
+            raw_name = name_list[1]
+            bare_name = M.remove_prefix raw_name, "_"
+            full_name = M.full_module_name parent_name, raw_name
             m = (require full_name)
             if m == nil
                 print "ERROR: cannot import module "..full_name
@@ -52,8 +56,9 @@ M.subfunctions = (parent_name, name_list) ->
         if #name_list == 0
             return accum
         else
-            bare_name = name_list[1]
-            full_name = M.full_module_name parent_name, bare_name
+            raw_name = name_list[1]
+            bare_name = M.remove_prefix raw_name, "_"
+            full_name = M.full_module_name parent_name, raw_name
             m = (require full_name)
             if m == nil
                 print "ERROR: cannot import module "..full_name
@@ -61,6 +66,9 @@ M.subfunctions = (parent_name, name_list) ->
                 return aux (M.tail name_list), (M.merge accum, {[bare_name]: m[bare_name]})
                             
     return aux name_list, {}
+
+-- extract a member from a module
+M.module_member = (full_module_name, member_name) -> (require full_module_name)[member_name]
 
 M.test_module = (target_module) ->
     for name, test in pairs(target_module)

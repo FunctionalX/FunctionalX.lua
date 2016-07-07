@@ -12,7 +12,10 @@ M.split = function(str, symbol)
   return _accum_0
 end
 M.module_prefix = function(full_module_name)
-  return (select('1', (string.match(full_module_name, ".+%.")))) or ""
+  return (string.gsub((string.match(full_module_name, ".+%.")), ".$", "")) or ""
+end
+M.module_root = function(full_module_name)
+  return (M.split(full_module_name, "."))[1] or ""
 end
 M.tail = function(list, start_index)
   if start_index == nil then
@@ -60,6 +63,9 @@ end
 M.full_module_name = function(parent, name)
   return string.format("%s.%s", parent, name)
 end
+M.remove_prefix = function(str, symbol)
+  return string.gsub(str, "^_+", "")
+end
 M.submodules = function(parent_name, name_list)
   if (type(name_list)) ~= 'table' then
     return { }
@@ -69,9 +75,9 @@ M.submodules = function(parent_name, name_list)
     if #name_list == 0 then
       return accum
     else
-      local bare_name = name_list[1]
-      local full_name = M.full_module_name(parent_name, bare_name)
-      print("import " .. full_name)
+      local raw_name = name_list[1]
+      local bare_name = M.remove_prefix(raw_name, "_")
+      local full_name = M.full_module_name(parent_name, raw_name)
       local m = (require(full_name))
       if m == nil then
         return print("ERROR: cannot import module " .. full_name)
@@ -93,10 +99,10 @@ M.subfunctions = function(parent_name, name_list)
     if #name_list == 0 then
       return accum
     else
-      local bare_name = name_list[1]
-      local full_name = M.full_module_name(parent_name, bare_name)
+      local raw_name = name_list[1]
+      local bare_name = M.remove_prefix(raw_name, "_")
+      local full_name = M.full_module_name(parent_name, raw_name)
       local m = (require(full_name))
-      print("import function " .. full_name)
       if m == nil then
         return print("ERROR: cannot import module " .. full_name)
       else
@@ -107,6 +113,9 @@ M.subfunctions = function(parent_name, name_list)
     end
   end
   return aux(name_list, { })
+end
+M.module_member = function(full_module_name, member_name)
+  return (require(full_module_name))[member_name]
 end
 M.test_module = function(target_module)
   for name, test in pairs(target_module) do
