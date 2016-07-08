@@ -2,10 +2,7 @@ local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
 local root_parent = TK.module_root(parent)
-local L = require(root_parent .. "._lists")
-print(root_parent)
-print(L.tail)
-print("--===========-")
+local L = require(root_parent .. "." .. "_lists")
 M.cart2 = function(list1, list2)
   local aux
   aux = function(list1, list2, accum)

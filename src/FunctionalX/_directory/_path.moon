@@ -1,9 +1,9 @@
 M = {}
 TK = require("PackageToolkit")
 parent = ...
-root_parent = TK.split(parent)[1]
-L = require(root_parent..".lists")
-S = require(root_parent..".strings")
+root_parent = TK.module_root parent
+L = require(root_parent.."._lists")
+S = require(root_parent.."._strings")
 -- return a path string given the subdirectories
 M.path = (...) ->
     dir_separator = L.head S.split package.config
