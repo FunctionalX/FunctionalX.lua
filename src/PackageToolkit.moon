@@ -72,6 +72,7 @@ M.module_member = (full_module_name, member_name) -> (require full_module_name)[
 
 M.test_module = (target_module) ->
     for name, test in pairs(target_module)
+        print string.format "ERROR HINT: %s() doesn't exist", name if test[name]== nil
         result = test[name]()
         return false if result == false
     return true
@@ -87,5 +88,18 @@ M.dashed_line = (n, symbol="-") ->
         else
             return aux (n-1), symbol, accum..symbol
     return aux n, symbol, ""
+
+M.equal_lists = (list1, list2) ->
+    return false if (type list1) != "table"
+    return false if (type list2) != "table"
+    condition1 = #list1 == 0
+    condition2 = #list2 == 0
+    return false if condition1 and not condition2
+    return false if condition2 and not condition1
+    return true  if condition1 and condition2
+    if list1[1] == list2[1]
+        return M.equal_lists (M.tail list1), (M.tail list2)
+    else
+        return false
 
 return M

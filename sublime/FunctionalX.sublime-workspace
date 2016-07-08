@@ -260,10 +260,13 @@
 	"buffers":
 	[
 		{
-			"file": "/F/DEVELOP/FunctionalX.lua/src/PackageToolkit.moon",
+			"contents": "",
+			"file": "/F/DEVELOP/cs421su16/practice/combinator.hs",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 2172,
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		}
@@ -309,29 +312,70 @@
 		"/F/DEVELOP/FunctionalX.lua",
 		"/F/DEVELOP/FunctionalX.lua/src",
 		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_directory",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_lists",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_strings",
 		"/F/DEVELOP/FunctionalX.lua/src/test",
-		"/F/DEVELOP/FunctionalX.lua/src/test/lists",
-		"/F/DEVELOP/FunctionalX.lua/src/test/lists/test_next"
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_lists",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_lists/test_next",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2"
 	],
 	"file_history":
 	[
-		"/F/DEVELOP/FunctionalX.lua/src/test/lists/test_next/test_case.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/init.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_strings/_cart2.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/tmp.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_strings/_cartn.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/PackageToolkit.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_strings/_cart2.moon",
 		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/init.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_lists/init.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_lists/_initial.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_lists/_initial.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_strings/_cartn.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/strings/_all.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/strings/_cartn.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/strings/init.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/strings/_cart2.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_lists/test_next/init.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/init.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/test/runtests.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/strings/cartn.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/strings/_init.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/strings/cart2.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/strings/_all.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/A.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/B.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_lists/test_next/test_case.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2/init.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2/test_case.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_lists/test_next/test_case.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/init.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/FunctionalX.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/strings/split.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/directory/path.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/strings/batch_format.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/cart2.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/formated_strings.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/prepend.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/append.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/merge.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/initial.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/tail.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/concat.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_lists/init.moon",
+		"/F/DEVELOP/FunctionalX.lua/src/test/test_lists/init.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/PackageToolkit.lua",
+		"/F/DEVELOP/FunctionalX.lua/src/test/lists/test_next/test_case.moon",
 		"/F/DEVELOP/FunctionalX.lua/src/test/lists/init.lua",
 		"/F/DEVELOP/FunctionalX.lua/src/test/lists/test_next/init.lua",
 		"/F/DEVELOP/FunctionalX.lua/src/test/lists/test_next/init.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/PackageToolkit.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/test/runtests.lua",
 		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/next.moon",
 		"/F/DEVELOP/FunctionalX.lua/src/test/lists/test_next/test_case.lua",
 		"/F/DEVELOP/FunctionalX.lua/src/test/lists/next/init.moon",
 		"/F/DEVELOP/FunctionalX.lua/src/test/lists/test_next.moon",
 		"/F/DEVELOP/FunctionalX.lua/src/test/lists/test_next.lua",
 		"/F/DEVELOP/FunctionalX.lua/src/runtests.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/PackageToolkit.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/FunctionalX.moon",
 		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/head.moon",
 		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/core.lua",
 		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/next.lua",
@@ -406,44 +450,7 @@
 		"/I/DEVELOP/stat400/src/draw_items.py",
 		"/I/DEVELOP/LearnJavaScript/src/FunctionalJavaScript/p0/hello.html",
 		"/I/DEVELOP/LearnJavaScript/src/FunctionalJavaScript/p0/use_map.js",
-		"/I/DEVELOP/LearnJavaScript/src/FunctionalJavaScript/p0/show_student.js",
-		"/I/DEVELOP/FunctionalPython/src/cart2.py",
-		"/I/DEVELOP/FunctionalPython/src/cartn.py",
-		"/I/DEVELOP/cs421su16/assignments/mp1-haskell/app/Main.hs",
-		"/C/Users/steven/Downloads/ball.py",
-		"/I/DEVELOP/stat400/src/coin.py",
-		"/I/DEVELOP/stat400/src/draw_numbers.py",
-		"/C/Users/steven/Downloads/coin.py",
-		"/I/DEVELOP/LearnHaskell/src/short/guards.hs",
-		"/I/DEVELOP/LearnHaskell/src/c2/higher.hs",
-		"/I/DEVELOP/LearnHaskell/src/c2/lift.hs",
-		"/I/DEVELOP/cs421su16/assignments/mp0-setup/README.md",
-		"/C/Users/steven/AppData/Local/Temp/subs_srt_L01-2.srt",
-		"/I/DEVELOP/LearnHaskell/src/c1/hydra.hs",
-		"/I/DEVELOP/LearnHaskell/src/c1/there_and_back.hs",
-		"/I/DEVELOP/learnR/src/c6/c6.R",
-		"/I/develop/LearnR/src/c6/hw6-1.R",
-		"/I/DEVELOP/LearnR/src/c6/Unit6_Netflix.R",
-		"/J/Courses/CS421_Su16/week_1/p1.hs",
-		"/I/DEVELOP/LearnHaskell/src/short/hello.hs",
-		"/I/DEVELOP/LearnR/src/c6/r6.R",
-		"/I/DEVELOP/LearnR/src/c6/dailykos.csv",
-		"/I/DEVELOP/learnR/src/c6/h_cluster.png",
-		"/I/develop/LearnR/src/c6/la_auto.lua",
-		"/I/DEVELOP/learnR/src/c6/u.item",
-		"/I/DEVELOP/learnR/src/c6/la_auto.lua",
-		"/I/DEVELOP/LearnR/src/c5/c5.R",
-		"/I/DEVELOP/LearnR/src/c5/cart.png",
-		"/I/DEVELOP/LearnR/src/c5/la_auto.lua",
-		"/I/DEVELOP/LearnNim/src/ChatApp/src/protocol.nim",
-		"/C/Users/steven/Downloads/DeDRM_tools-6.4.3/DeDRM_tools-6.4.3/DeDRM_Windows_Application/DeDRM_App/DeDRM_lib/lib/adobekey.py",
-		"/C/Users/steven/Downloads/DeDRM_tools-6.4.3/DeDRM_tools-6.4.3/DeDRM_Windows_Application/DeDRM_App_ReadMe.txt",
-		"/C/Users/steven/Downloads/DeDRM_tools-6.4.3/DeDRM_tools-6.4.3/DeDRM_Windows_Application/DeDRM_App/DeDRM_lib/lib/alfcrypto.py",
-		"/I/DEVELOP/LearnNim/src/ChatApp/src/tmp.nim",
-		"/I/DEVELOP/LearnNim/src/ChatApp/src/client.nim",
-		"/I/DEVELOP/LearnNim/src/ChatApp/src/client.nim.cfg",
-		"/I/DEVELOP/GridShape/.gitignore",
-		"/I/DEVELOP/LearnRust/src/c0/hello.rs"
+		"/I/DEVELOP/LearnJavaScript/src/FunctionalJavaScript/p0/show_student.js"
 	],
 	"find":
 	{
@@ -462,6 +469,15 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"root_parent",
+			"cartn",
+			"string_",
+			"prefix",
+			"M",
+			"formated_strings",
+			"string_cart2",
+			"test_module",
+			"local ",
 			"name",
 			"function_names",
 			"module_names",
@@ -580,16 +596,7 @@
 			"system_name",
 			"R2",
 			"R1",
-			"Atom",
-			"segment",
-			"Atom",
-			"Residue",
-			"residue",
-			"Residue",
-			"residue",
-			"segment_dict",
-			"residue",
-			"atom_dict"
+			"Atom"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -614,29 +621,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/F/DEVELOP/FunctionalX.lua/src/PackageToolkit.moon",
+					"file": "/F/DEVELOP/cs421su16/practice/combinator.hs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2172,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1890,
-								1890
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Moonscripty/Syntaxes/MoonScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Haskell/Haskell.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 510.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -722,7 +727,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 238.0,
+	"side_bar_width": 349.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

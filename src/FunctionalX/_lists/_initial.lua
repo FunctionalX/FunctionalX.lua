@@ -1,5 +1,5 @@
 local M = { }
-M.init = function(list)
+M.initial = function(list)
   if (type(list)) ~= "table" then
     return { }
   end

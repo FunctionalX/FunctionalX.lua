@@ -119,6 +119,9 @@ M.module_member = function(full_module_name, member_name)
 end
 M.test_module = function(target_module)
   for name, test in pairs(target_module) do
+    if test[name] == nil then
+      print(string.format("ERROR HINT: %s() doesn't exist", name))
+    end
     local result = test[name]()
     if result == false then
       return false
@@ -142,5 +145,29 @@ M.dashed_line = function(n, symbol)
     end
   end
   return aux(n, symbol, "")
+end
+M.equal_lists = function(list1, list2)
+  if (type(list1)) ~= "table" then
+    return false
+  end
+  if (type(list2)) ~= "table" then
+    return false
+  end
+  local condition1 = #list1 == 0
+  local condition2 = #list2 == 0
+  if condition1 and not condition2 then
+    return false
+  end
+  if condition2 and not condition1 then
+    return false
+  end
+  if condition1 and condition2 then
+    return true
+  end
+  if list1[1] == list2[1] then
+    return M.equal_lists((M.tail(list1)), (M.tail(list2)))
+  else
+    return false
+  end
 end
 return M

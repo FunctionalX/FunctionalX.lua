@@ -12,3 +12,10 @@ print(unpack(T.cartn({"a"},{"1","2"})))
 -- for k, v in pairs(L.lists) do
 --     print(k,v)
 -- end
+
+equal_lists = function(list1, list2)
+  print(unpack(list1))
+  print(unpack(list2))
+end
+
+print(TK.equal_lists({1},{1}))

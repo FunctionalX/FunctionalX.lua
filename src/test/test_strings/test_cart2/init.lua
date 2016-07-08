@@ -2,7 +2,7 @@ local parent = ...
 local TK = require("PackageToolkit")
 local test_case = (require(parent .. ".test_case"))["test_case"]
 local M = { }
-M.test_next = function()
+M.test_cart2 = function()
   test_case({
     "a",
     "b"
