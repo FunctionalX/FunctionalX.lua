@@ -7,6 +7,12 @@ M.split = (str, symbol="%s") -> [x for x in string.gmatch(str, "([^"..symbol.."]
 M.module_prefix = (full_module_name) -> (string.gsub (string.match full_module_name, ".+%."), ".$", "") or ""
 M.module_root = (full_module_name) -> (M.split full_module_name, ".")[1] or ""
 
+-- return the head of a list
+M.head = (list) ->
+    return nil if (type list) != "table"
+    return nil if #list == 0
+    return list[1]
+
 -- return the tail of a list
 M.tail = (list, start_index=1) ->
     return {} if (type list) != "table"

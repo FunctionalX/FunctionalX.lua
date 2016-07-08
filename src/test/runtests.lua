@@ -4,6 +4,7 @@ local FX = require("FunctionalX")
 local tests = {
     "test_lists",
     'test_strings',
+    "test_directory",
 }
 local parent = "test"
 local M = TK.submodules(parent, tests)

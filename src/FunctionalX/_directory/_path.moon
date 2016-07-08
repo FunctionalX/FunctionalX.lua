@@ -6,6 +6,7 @@ L = require(root_parent.."._lists")
 S = require(root_parent.."._strings")
 -- return a path string given the subdirectories
 M.path = (...) ->
+    print "input to path: ", ...
     dir_separator = L.head S.split package.config
     aux = (subdirs, accum) ->
         if #subdirs == 0

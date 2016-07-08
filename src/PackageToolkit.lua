@@ -17,6 +17,15 @@ end
 M.module_root = function(full_module_name)
   return (M.split(full_module_name, "."))[1] or ""
 end
+M.head = function(list)
+  if (type(list)) ~= "table" then
+    return nil
+  end
+  if #list == 0 then
+    return nil
+  end
+  return list[1]
+end
 M.tail = function(list, start_index)
   if start_index == nil then
     start_index = 1
