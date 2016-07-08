@@ -263,6 +263,7 @@ local parent_module_name = ...
 local module_functions = {
     "_append",
     "_concat",
+    "_concatn",
     "_head",
     "_initial",
     "_merge",
@@ -316,7 +317,7 @@ local _ENV = _ENV
 package.preload[ "raw_FunctionalX._lists._concat" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.concat = function(list1, list2)
-  local ondition1 = (type(list1)) == "table"
+  local condition1 = (type(list1)) == "table"
   local condition2 = (type(list2)) == "table"
   if (not condition1) and (not condition2) then
     return { }
@@ -342,6 +343,33 @@ M.concat = function(list1, list2)
     output[#output + 1] = item
   end
   return output
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "raw_FunctionalX._lists._concatn" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+local parent = ...
+local root_parent = TK.module_root(parent)
+local tail = TK.module_member(root_parent .. "._lists._tail", "tail")
+local concat = TK.module_member(root_parent .. "._lists._concat", "concat")
+M.concatn = function(...)
+  local args = {
+    ...
+  }
+  local aux
+  aux = function(input, accum)
+    if #input == 0 then
+      return accum
+    end
+    return aux((tail(input)), (concat(accum, input[1])))
+  end
+  return aux(args, { })
 end
 return M
 
