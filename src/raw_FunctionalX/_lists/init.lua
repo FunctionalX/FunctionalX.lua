@@ -3,6 +3,7 @@ local parent_module_name = ...
 local module_functions = {
     "_append",
     "_concat",
+    "_concatn",
     "_head",
     "_initial",
     "_merge",

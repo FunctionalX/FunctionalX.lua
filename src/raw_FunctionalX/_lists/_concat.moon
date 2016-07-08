@@ -1,7 +1,7 @@
 M = {}
 -- concatenate two lists
 M.concat = (list1, list2) ->
-    ondition1 = (type list1) == "table"
+    condition1 = (type list1) == "table"
     condition2 = (type list2) == "table"
     return {} if (not condition1) and (not condition2)
     return list1 if not condition2

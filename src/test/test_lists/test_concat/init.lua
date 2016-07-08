@@ -1,13 +1,25 @@
-local name = "test_next"
+local name = "test_concat"
 local parent = ...
 local TK = require("PackageToolkit")
 local test_case = (require(parent .. ".test_case"))["test_case"]
 local M = { }
 M[name] = function()
-  test_case({
+  local solution = {
     1,
-    2
-  }, 2, "case 1")
+    2,
+    3,
+    4
+  }
+  test_case({
+    {
+      1,
+      2
+    },
+    {
+      3,
+      4
+    }
+  }, solution, "case 1")
   return true
 end
 return M

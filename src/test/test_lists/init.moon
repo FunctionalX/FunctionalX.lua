@@ -1,7 +1,9 @@
 parent = ...
 TK = require "PackageToolkit"
 tests = {
-    "test_next"
+    "test_next",
+    "test_concat",
+    "test_concatn",
 }
 T = TK.submodules(parent, tests)
 M = {}

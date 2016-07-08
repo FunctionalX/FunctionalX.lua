@@ -1,6 +1,6 @@
 local M = { }
 M.concat = function(list1, list2)
-  local ondition1 = (type(list1)) == "table"
+  local condition1 = (type(list1)) == "table"
   local condition2 = (type(list2)) == "table"
   if (not condition1) and (not condition2) then
     return { }
