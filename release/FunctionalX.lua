@@ -1,3 +1,7 @@
+#!/usr/bin/env lua
+
+do
+
 do
 local _ENV = _ENV
 package.preload[ "FunctionalX" ] = function( ... ) local arg = _G.arg;
@@ -631,3 +635,7 @@ return M
 end
 end
 
+end
+
+local M = require("FunctionalX")
+return M
