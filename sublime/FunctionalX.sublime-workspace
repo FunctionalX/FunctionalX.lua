@@ -263,14 +263,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/F/DEVELOP/Automagical/src/automagical.moon",
-			"settings":
-			{
-				"buffer_size": 1796,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -310,23 +302,19 @@
 	},
 	"expanded_folders":
 	[
-		"/F/DEVELOP/FunctionalX.lua",
-		"/F/DEVELOP/FunctionalX.lua/src",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_directory",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_lists",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_strings",
-		"/F/DEVELOP/FunctionalX.lua/src/test",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_directory",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_lists",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_batch_format",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_split"
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/raw_FunctionalX"
 	],
 	"file_history":
 	[
+		"/C/Users/Steven/DEVELOP/Automagical/src/automagical.lua",
+		"/C/Users/Steven/DEVELOP/luapower/automagical.lua",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/release/FunctionalX.lua",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/main.lua",
+		"/F/DEVELOP/Automagical/src/automagical.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/sublime/FunctionalX.sublime-project",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/raw_FunctionalX/init.lua",
 		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_directory/_path.moon",
 		"/F/DEVELOP/FunctionalX.lua/src/PackageToolkit.moon",
 		"/F/DEVELOP/FunctionalX.lua/src/tmp.lua",
@@ -447,14 +435,7 @@
 		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/setup.py",
 		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/src/list/cart2.py",
 		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/src/list/__init__.py",
-		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/__init__.py",
-		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/src/__init__.py",
-		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/README.rst",
-		"/I/DEVELOP/FunctionalPython/src/.gitignore",
-		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/src/lists/__init__.py",
-		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/tests/__init__.py",
-		"/I/DEVELOP/FunctionalPython/src/runtests.py",
-		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/tests/list/__init__.py"
+		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/__init__.py"
 	],
 	"find":
 	{
@@ -620,37 +601,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/F/DEVELOP/Automagical/src/automagical.moon",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1796,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								117,
-								117
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Moonscripty/Syntaxes/MoonScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
