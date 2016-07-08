@@ -5,7 +5,6 @@ local root_parent = TK.module_root(parent)
 local L = require(root_parent .. "._lists")
 local S = require(root_parent .. "._strings")
 M.path = function(...)
-  print("input to path: ", ...)
   local dir_separator = L.head(S.split(package.config))
   local aux
   aux = function(subdirs, accum)
