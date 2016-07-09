@@ -5,25 +5,35 @@ do
 do
 local _ENV = _ENV
 package.preload[ "PackageToolkit" ] = function( ... ) local arg = _G.arg;
+
+
+do
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit" ] = function( ... ) local arg = _G.arg;
+local parent = "core_PackageToolkit"
+local submodule_names = {
+  "lists",
+  "strings",
+  "module",
+  "test",
+  "ui"
+}
 local M = { }
-M.split = function(str, symbol)
-  if symbol == nil then
-    symbol = "%s"
-  end
-  local _accum_0 = { }
-  local _len_0 = 1
-  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
-    _accum_0[_len_0] = x
-    _len_0 = _len_0 + 1
-  end
-  return _accum_0
+for _index_0 = 1, #submodule_names do
+  local name = submodule_names[_index_0]
+  M[name] = require(parent .. "._" .. name)
 end
-M.module_prefix = function(full_module_name)
-  return (string.gsub((string.match(full_module_name, ".+%.")), ".$", "")) or ""
+return M
+
 end
-M.module_root = function(full_module_name)
-  return (M.split(full_module_name, "."))[1] or ""
 end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit.._lists._head" ] = function( ... ) local arg = _G.arg;
+local M = { }
 M.head = function(list)
   if (type(list)) ~= "table" then
     return nil
@@ -33,24 +43,15 @@ M.head = function(list)
   end
   return list[1]
 end
-M.tail = function(list, start_index)
-  if start_index == nil then
-    start_index = 1
-  end
-  if (type(list)) ~= "table" then
-    return { }
-  end
-  if #list <= 1 then
-    return { }
-  end
-  local _accum_0 = { }
-  local _len_0 = 1
-  for i = (start_index + 1), #list do
-    _accum_0[_len_0] = list[i]
-    _len_0 = _len_0 + 1
-  end
-  return _accum_0
+return M
+
 end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit.._lists._merge" ] = function( ... ) local arg = _G.arg;
+local M = { }
 M.merge = function(table1, table2)
   local condition1 = (type(table1)) == "table"
   local condition2 = (type(table2)) == "table"
@@ -76,36 +77,251 @@ M.merge = function(table1, table2)
   end
   return output
 end
-M.full_module_name = function(parent, name)
-  return string.format("%s.%s", parent, name)
+return M
+
 end
-M.remove_prefix = function(str, symbol)
-  return string.gsub(str, "^_+", "")
 end
-M.submodules = function(parent_name, name_list)
-  if (type(name_list)) ~= 'table' then
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit.._lists._tail" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.tail = function(list, start_index)
+  if start_index == nil then
+    start_index = 1
+  end
+  if (type(list)) ~= "table" then
     return { }
   end
-  local aux
-  aux = function(name_list, accum)
-    if #name_list == 0 then
-      return accum
-    else
-      local raw_name = name_list[1]
-      local bare_name = M.remove_prefix(raw_name, "_")
-      local full_name = M.full_module_name(parent_name, raw_name)
-      local m = (require(full_name))
-      if m == nil then
-        return print("ERROR: cannot import module " .. full_name)
-      else
-        return aux((M.tail(name_list)), (M.merge(accum, {
-          [bare_name] = m
-        })))
-      end
+  if #list <= 1 then
+    return { }
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for i = (start_index + 1), #list do
+    _accum_0[_len_0] = list[i]
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._lists" ] = function( ... ) local arg = _G.arg;
+local parent = ...
+local members = {
+  "head",
+  "tail",
+  "merge"
+}
+local M = { }
+for _index_0 = 1, #members do
+  local name = members[_index_0]
+  M[name] = require(parent .. "._" .. name)[name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._lists._head" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.head = function(list)
+  if (type(list)) ~= "table" then
+    return nil
+  end
+  if #list == 0 then
+    return nil
+  end
+  return list[1]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._lists._merge" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.merge = function(table1, table2)
+  local condition1 = (type(table1)) == "table"
+  local condition2 = (type(table2)) == "table"
+  if (not condition1) and (not condition2) then
+    return { }
+  end
+  if not condition2 then
+    return table1
+  end
+  if not condition1 then
+    return table2
+  end
+  local output = { }
+  for k, v in pairs(table1) do
+    if v ~= nil then
+      output[k] = v
     end
   end
-  return aux(name_list, { })
+  for k, v in pairs(table2) do
+    if v ~= nil then
+      output[k] = v
+    end
+  end
+  return output
 end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._lists._tail" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.tail = function(list, start_index)
+  if start_index == nil then
+    start_index = 1
+  end
+  if (type(list)) ~= "table" then
+    return { }
+  end
+  if #list <= 1 then
+    return { }
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for i = (start_index + 1), #list do
+    _accum_0[_len_0] = list[i]
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module" ] = function( ... ) local arg = _G.arg;
+local parent = ...
+local members = {
+  "root",
+  "full_name",
+  "remove_prefix",
+  "require",
+  "subfunctions",
+  "submodules"
+}
+local M = { }
+for _index_0 = 1, #members do
+  local name = members[_index_0]
+  M[name] = require(parent .. "._" .. name)[name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module._full_name" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.full_name = function(parent, name)
+  return string.format("%s.%s", parent, name)
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module._remove_prefix" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.remove_prefix = function(str, symbol)
+  if symbol == nil then
+    symbol = "_"
+  end
+  local pattern = string.format("^%s+", symbol)
+  return string.gsub(str, pattern, "")
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module._require" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.require = function(module_name, function_name)
+  if function_name == nil then
+    return require(module_name)[module_name]
+  end
+  return require(module_name)[function_name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module._root" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+M.root = function(full_module_name)
+  return (split(full_module_name, "."))[1] or ""
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module._subfunctions" ] = function( ... ) local arg = _G.arg;
+local parent = ...
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+local root1 = (split(parent, "."))[1]
+local root2 = (split(parent, "."))[2]
+local module_root = root1 .. "." .. root2
+local get_full_name = require(module_root .. "._full_name")["full_name"]
+local remove_prefix = require(module_root .. "._remove_prefix")["remove_prefix"]
+local tail = require(root1 .. "." .. "._lists._tail")["tail"]
+local merge = require(root1 .. "." .. "._lists._merge")["merge"]
+local M = { }
 M.subfunctions = function(parent_name, name_list)
   if (type(name_list)) ~= 'table' then
     return { }
@@ -116,13 +332,13 @@ M.subfunctions = function(parent_name, name_list)
       return accum
     else
       local raw_name = name_list[1]
-      local bare_name = M.remove_prefix(raw_name, "_")
-      local full_name = M.full_module_name(parent_name, raw_name)
+      local bare_name = remove_prefix(raw_name, "_")
+      local full_name = get_full_name(parent_name, raw_name)
       local m = (require(full_name))
       if m == nil then
         return print("ERROR: cannot import module " .. full_name)
       else
-        return aux((M.tail(name_list)), (M.merge(accum, {
+        return aux((tail(name_list)), (merge(accum, {
           [bare_name] = m[bare_name]
         })))
       end
@@ -130,10 +346,176 @@ M.subfunctions = function(parent_name, name_list)
   end
   return aux(name_list, { })
 end
-M.module_member = function(full_module_name, member_name)
-  return (require(full_module_name))[member_name]
+return M
+
 end
-M.test_module = function(target_module)
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module._submodules" ] = function( ... ) local arg = _G.arg;
+local parent = ...
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+local root1 = (split(parent, "."))[1]
+local root2 = (split(parent, "."))[2]
+local module_root = root1 .. "." .. root2
+local get_full_name = require(module_root .. "._full_name")["full_name"]
+local remove_prefix = require(module_root .. "._remove_prefix")["remove_prefix"]
+local tail = require(root1 .. "." .. "._lists._tail")["tail"]
+local merge = require(root1 .. "." .. "._lists._merge")["merge"]
+local M = { }
+M.submodules = function(parent_name, name_list)
+  if (type(name_list)) ~= 'table' then
+    return { }
+  end
+  local aux
+  aux = function(name_list, accum)
+    if #name_list == 0 then
+      return accum
+    else
+      local raw_name = name_list[1]
+      local bare_name = remove_prefix(raw_name, "_")
+      local full_name = get_full_name(parent_name, raw_name)
+      local m = (require(full_name))
+      if m == nil then
+        return print("ERROR: cannot import module " .. full_name)
+      else
+        return aux((tail(name_list)), (merge(accum, {
+          [bare_name] = m
+        })))
+      end
+    end
+  end
+  return aux(name_list, { })
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._strings" ] = function( ... ) local arg = _G.arg;
+local parent = ...
+local members = {
+  "split"
+}
+local M = { }
+for _index_0 = 1, #members do
+  local name = members[_index_0]
+  M[name] = require(parent .. "._" .. name)[name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._strings._split" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._test" ] = function( ... ) local arg = _G.arg;
+local parent = ...
+local members = {
+  "self",
+  "equal_lists"
+}
+local M = { }
+for _index_0 = 1, #members do
+  local name = members[_index_0]
+  M[name] = require(parent .. "._" .. name)[name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._test._equal_lists" ] = function( ... ) local arg = _G.arg;
+local parent = ...
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+local root1 = (split(parent, "."))[1]
+local tail = require(root1 .. "." .. "._lists._tail")["tail"]
+local head = require(root1 .. "." .. "._lists._head")["head"]
+local M = { }
+M.equal_lists = function(list1, list2)
+  local condition1 = (type(list1)) == 'table'
+  local condition2 = (type(list2)) == 'table'
+  if condition1 and not condition2 then
+    return false
+  end
+  if condition2 and not condition1 then
+    return false
+  end
+  if (not condition1) and (not condition2) then
+    return (list1 == list2)
+  end
+  if #list1 ~= #list2 then
+    return false
+  end
+  if #list1 == 0 and #list2 == 0 then
+    return true
+  end
+  if M.equal_lists((head(list1)), (head(list2))) then
+    return M.equal_lists((tail(list1)), (tail(list2)))
+  else
+    return false
+  end
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._test._self" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.self = function(target_module)
   for name, test in pairs(target_module) do
     if test[name] == nil then
       print(string.format("ERROR HINT: %s() doesn't exist", name))
@@ -145,9 +527,32 @@ M.test_module = function(target_module)
   end
   return true
 end
-M.require_function = function(module_name)
-  return require(module_name)[module_name]
+return M
+
 end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._ui" ] = function( ... ) local arg = _G.arg;
+local parent = ...
+local submodule_names = {
+  "dashed_line"
+}
+local M = { }
+for _index_0 = 1, #submodule_names do
+  local name = submodule_names[_index_0]
+  M[name] = require(parent .. "._" .. name)[name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._ui._dashed_line" ] = function( ... ) local arg = _G.arg;
+local M = { }
 M.dashed_line = function(n, symbol)
   if symbol == nil then
     symbol = "-"
@@ -162,30 +567,15 @@ M.dashed_line = function(n, symbol)
   end
   return aux(n, symbol, "")
 end
-M.equal_lists = function(list1, list2)
-  if (type(list1)) ~= "table" then
-    return false
-  end
-  if (type(list2)) ~= "table" then
-    return false
-  end
-  local condition1 = #list1 == 0
-  local condition2 = #list2 == 0
-  if condition1 and not condition2 then
-    return false
-  end
-  if condition2 and not condition1 then
-    return false
-  end
-  if condition1 and condition2 then
-    return true
-  end
-  if list1[1] == list2[1] then
-    return M.equal_lists((M.tail(list1)), (M.tail(list2)))
-  else
-    return false
-  end
+return M
+
 end
+end
+
+end
+
+package.path = package.path .. ";?/init.lua"
+local M = require("core_PackageToolkit")
 return M
 
 end
@@ -193,40 +583,41 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX" ] = function( ... ) local arg = _G.arg;
-local parent = "raw_FunctionalX"
+package.preload[ "core_FunctionalX" ] = function( ... ) local arg = _G.arg;
+local parent = "core_FunctionalX"
 local TK = require("PackageToolkit")
 local submodule_names = {
-    "_lists",
-    "_strings",
-    "_directory",
+  "_lists",
+  "_strings",
+  "_directory"
 }
-local  M = TK.submodules(parent, submodule_names)
+local M = TK.module.submodules(parent, submodule_names)
 return M
+
 end
 end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._directory" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._directory" ] = function( ... ) local arg = _G.arg;
 -- "..." will be provided by require() function
 local parent_module_name = ... 
 local module_functions = {
     "_path"
 }
 local TK = require("PackageToolkit")
-local  M = TK.subfunctions(parent_module_name, module_functions)
+local  M = TK.module.subfunctions(parent_module_name, module_functions)
 return M
 end
 end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._directory._path" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._directory._path" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
-local root_parent = TK.module_root(parent)
+local root_parent = TK.module.root(parent)
 local L = require(root_parent .. "._lists")
 local S = require(root_parent .. "._strings")
 M.path = function(...)
@@ -257,29 +648,29 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._lists" ] = function( ... ) local arg = _G.arg;
--- "..." will be provided by require() function
-local parent_module_name = ... 
+package.preload[ "core_FunctionalX._lists" ] = function( ... ) local arg = _G.arg;
+local parent_module_name = ...
 local module_functions = {
-    "_append",
-    "_concat",
-    "_concatn",
-    "_head",
-    "_initial",
-    "_merge",
-    "_next",
-    "_prepend",
-    "_tail",
+  "_append",
+  "_cart2",
+  "_concat",
+  "_concatn",
+  "_head",
+  "_initial",
+  "_merge",
+  "_next",
+  "_prepend",
+  "_tail"
 }
 local TK = require("PackageToolkit")
-local  M = TK.subfunctions(parent_module_name, module_functions)
-return M
+return TK.module.subfunctions(parent_module_name, module_functions)
+
 end
 end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._lists._append" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._lists._append" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.append = function(list, item)
   if (type(list)) ~= "table" and item ~= nil then
@@ -314,7 +705,45 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._lists._concat" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._lists._cart2" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+local parent = ...
+local root_parent = TK.module.root(parent)
+local append = TK.module.require(root_parent .. "._lists._append", "append")
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+M.cart2 = function(list1, list2)
+  local aux
+  aux = function(list1, list2, accum)
+    if #list2 == 0 or #list1 == 0 then
+      return accum
+    elseif #list1 == 1 then
+      return aux(list1, (tail(list2)), (append(accum, {
+        list1[1],
+        list2[1]
+      })))
+    else
+      return aux((tail(list1)), list2, (aux({
+        list1[1]
+      }, list2, accum)))
+    end
+  end
+  if type(list1) ~= "table" then
+    return { }
+  end
+  if type(list2) ~= "table" then
+    return { }
+  end
+  return aux(list1, list2, { })
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._lists._concat" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.concat = function(list1, list2)
   local condition1 = (type(list1)) == "table"
@@ -351,13 +780,13 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._lists._concatn" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._lists._concatn" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
-local root_parent = TK.module_root(parent)
-local tail = TK.module_member(root_parent .. "._lists._tail", "tail")
-local concat = TK.module_member(root_parent .. "._lists._concat", "concat")
+local root_parent = TK.module.root(parent)
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local concat = TK.module.require(root_parent .. "._lists._concat", "concat")
 M.concatn = function(...)
   local args = {
     ...
@@ -378,7 +807,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._lists._head" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._lists._head" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.head = function(list)
   if (type(list)) ~= "table" then
@@ -396,7 +825,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._lists._initial" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._lists._initial" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.init = function(list)
   if (type(list)) ~= "table" then
@@ -420,7 +849,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._lists._merge" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._lists._merge" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.merge = function(table1, table2)
   local condition1 = (type(table1)) == "table"
@@ -454,7 +883,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._lists._next" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._lists._next" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.next = function(list)
   if (type(list)) ~= "table" then
@@ -473,7 +902,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._lists._prepend" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._lists._prepend" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.prepend = function(item, list)
   if (type(list)) ~= "table" then
@@ -498,7 +927,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._lists._tail" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._lists._tail" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.tail = function(list, start_index)
   if start_index == nil then
@@ -525,28 +954,28 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._strings" ] = function( ... ) local arg = _G.arg;
--- "..." will be provided by require() function
-local parent_module_name = ... 
+package.preload[ "core_FunctionalX._strings" ] = function( ... ) local arg = _G.arg;
+local parent_module_name = ...
 local module_functions = {
-    "_cart2",
-    "_cartn",
-    "_split",
-    "_batch_format",
+  "_cart2",
+  "_cartn",
+  "_split",
+  "_batch_format"
 }
 local TK = require("PackageToolkit")
-local  M = TK.subfunctions(parent_module_name, module_functions)
+local M = TK.module.subfunctions(parent_module_name, module_functions)
 return M
+
 end
 end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._strings._batch_format" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._strings._batch_format" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local parent = ...
 local TK = require("PackageToolkit")
-local root_parent = TK.module_root(parent)
+local root_parent = TK.module.root(parent)
 local L = require(root_parent .. "." .. "_lists")
 M.batch_format = function(format_template, variable_list)
   local aux
@@ -567,12 +996,13 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._strings._cart2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._strings._cart2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
-local root_parent = TK.module_root(parent)
-local L = require(root_parent .. "." .. "_lists")
+local root_parent = TK.module.root(parent)
+print(root_parent .. "._lists")
+local L = require(root_parent .. "._lists")
 M.cart2 = function(list1, list2)
   local aux
   aux = function(list1, list2, accum)
@@ -601,13 +1031,13 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._strings._cartn" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._strings._cartn" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
-local root_parent = TK.module_root(parent)
+local root_parent = TK.module.root(parent)
 local L = require(root_parent .. "." .. "_lists")
-local cart2 = TK.module_member(root_parent .. "._strings._cart2", "cart2")
+local cart2 = TK.module.require(root_parent .. "._strings._cart2", "cart2")
 M.cartn = function(...)
   local aux
   aux = function(list1, other_lists)
@@ -644,7 +1074,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "raw_FunctionalX._strings._split" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._strings._split" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.split = function(str, symbol)
   if symbol == nil then
@@ -666,5 +1096,5 @@ end
 end
 
 package.path = package.path..";?/init.lua"
-local M = require("raw_FunctionalX")
+local M = require("core_FunctionalX")
 return M
