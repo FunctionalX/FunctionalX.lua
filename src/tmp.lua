@@ -1,2 +1,3 @@
-local FX = require("FX")
-print(FX.lists.head({1,2}))
+package.path = package.path .. ";?/init.lua"
+local TK = require("raw_PackageToolkit._lists")
+print(TK.head({1,2}))

@@ -2,6 +2,7 @@
 local parent_module_name = ... 
 local module_functions = {
     "_append",
+    "_cart2",
     "_concat",
     "_concatn",
     "_head",
