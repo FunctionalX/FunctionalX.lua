@@ -263,14 +263,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/test_case.moon",
-			"settings":
-			{
-				"buffer_size": 372,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -313,12 +305,64 @@
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_fn",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path"
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_fn",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_fn/test_map",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists"
 	],
 	"file_history":
 	[
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_cart2.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_concat.moon",
+		"/C/Users/Steven/DEVELOP/luapower/build.bat",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_fn/test_map/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_fn/test_map/case.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/runtests.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_fn/_map.moon",
+		"/C/Users/Steven/DEVELOP/luapower/FunctionalX.lua",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_fn/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_functional/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_functional/_map.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/PackageToolkit.lua",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/build.bat",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_split/case.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/case.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_next/case.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/init.lua",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_split/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_cart2.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_cartn.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_concatn.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_batch_format/case.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2/case.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_batch_format/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_next/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concatn/case.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concat/case.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concatn/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concat/test_case.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/init.lua",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/_path.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_batch_format.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_cart2/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concat/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/case.lua",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_cart2/case.moon",
 		"/C/Users/Steven/DEVELOP/Automagical/src/automagical.lua",
 		"/C/Users/Steven/DEVELOP/luapower/automagical.lua",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/release/FunctionalX.lua",
@@ -401,52 +445,7 @@
 		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/core.lua",
 		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/lists/next.lua",
 		"/C/Users/Steven/.bashrc",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/packagetk.lua",
-		"/F/DEVELOP/Automagical/README.md",
-		"/F/DEVELOP/FunctionalX.py/FunctionalX/src/lists/_cart2.py",
-		"/C/Users/Steven/Downloads/LuaJIT-2.0.4/Makefile",
-		"/C/Users/Steven/Downloads/LuaJIT-2.0.4/src/Makefile",
-		"/C/Users/Steven/hi.moon",
-		"/C/Users/Steven/hi.lua",
-		"/D/install/luarocks/2.3.0/lua/luarocks/loader.lua",
-		"/F/DEVELOP/Automagical/LICENSE",
-		"/F/DEVELOP/FunctionalX.lua/LICENSE",
-		"/C/Users/Steven/Downloads/LuaJIT-2.0.4/READE",
-		"/C/Users/Steven/Downloads/LuaJIT-2.0.4/README",
-		"/D/install/luarocks/2.3.0/config-5.1.lua",
-		"/I/DEVELOP/stat400/src/hw2/prob.py",
-		"/I/DEVELOP/LearnHaskell/src/c4/monad.hs",
-		"/I/DEVELOP/LearnHaskell/src/c0/p2.hs",
-		"/I/DEVELOP/FunctionalX.py/doc/lists/cart2.rst",
-		"/I/DEVELOP/FunctionalX.py/doc/lists/cartn.rst",
-		"/I/DEVELOP/FunctionalX.py/doc/lists/cart_append.rst",
-		"/I/DEVELOP/FunctionalX.py/doc/lists/toc.rst",
-		"/I/DEVELOP/FunctionalX.py/doc/lists/tail.rst",
-		"/I/DEVELOP/FunctionalX.py/doc/lists/head.rst",
-		"/I/DEVELOP/FunctionalX.py/doc/lists/dict2list.rst",
-		"/I/DEVELOP/FunctionalX.py/doc/index.rst",
-		"/I/DEVELOP/FunctionalX.py/.gitignore",
-		"/I/DEVELOP/FunctionalX.py/doc/conf.py",
-		"/I/DEVELOP/FunctionalX.py/doc/make.bat",
-		"/I/DEVELOP/FunctionalX.py/setup.py",
-		"/I/DEVELOP/FunctionalX.py/FunctionalX/tests/__init__.py",
-		"/I/DEVELOP/FunctionalX.py/FunctionalX/tests/lists/__init__.py",
-		"/I/DEVELOP/FunctionalX.py/FunctionalX/tests/lists/cart2/__init__.py",
-		"/I/DEVELOP/FunctionalX.py/FunctionalX/tests/lists/cart2/test_1.py",
-		"/I/DEVELOP/FunctionalX.py/FunctionalX/tests/_dashed_line.py",
-		"/I/DEVELOP/FunctionalX.py/pylintrc",
-		"/I/DEVELOP/FunctionalX.py/FunctionalX/src/lists/__init__.py",
-		"/I/DEVELOP/FunctionalX.py/FunctionalX/LICENSE",
-		"/I/DEVELOP/FunctionalX.py/FunctionalX/src/__init__.py",
-		"/I/DEVELOP/FunctionalX.py/runtests.py",
-		"/I/DEVELOP/FunctionalX.py/READMD.md",
-		"/I/DEVELOP/FunctionalX.py/README.rst",
-		"/I/DEVELOP/FunctionalX.py/README.md",
-		"/I/DEVELOP/FunctionalPython/README.md",
-		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/setup.py",
-		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/src/list/cart2.py",
-		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/src/list/__init__.py",
-		"/I/DEVELOP/FunctionalPython/src/FunctionalPython/__init__.py"
+		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/packagetk.lua"
 	],
 	"find":
 	{
@@ -465,6 +464,29 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"map",
+			"tail",
+			"parent",
+			"tests",
+			"parent",
+			"module_functions",
+			"parent_module_name",
+			"module_functions",
+			"parent_module_name",
+			"submodule_names",
+			"module_functions",
+			"parent",
+			"parent_module_name",
+			"module_functions",
+			"parent_module_name",
+			"PackageToolkit",
+			"strings",
+			"test_case",
+			"local ",
+			"extract_member",
+			"test_case",
+			"local ",
+			"local  ",
 			"FX.lists",
 			"FX.append",
 			"FX.tail",
@@ -569,30 +591,7 @@
 			"mean",
 			"Over60",
 			"Under15",
-			"hello",
-			"grid",
-			"false",
-			"println(\"--------------------------------------\")",
-			"grid",
-			"parallelogram",
-			"0.7071067811865475",
-			"high",
-			"reverse",
-			"coordinates",
-			"Array",
-			"distance",
-			"geometric_center",
-			"principal_axes",
-			"PrincipalAxes",
-			"geometric_rincenter",
-			"geometric_center",
-			"Array",
-			"{AbstractFloat}",
-			"Move",
-			"Dict{Symbol,Residue}",
-			"residue_dict",
-			"convert_to_residue_dict",
-			"dict"
+			"hello"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -612,37 +611,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/test_case.moon",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 372,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								261,
-								261
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Moonscripty/Syntaxes/MoonScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
