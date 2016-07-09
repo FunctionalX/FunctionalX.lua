@@ -1,9 +1,9 @@
 M = {}
 TK = require("PackageToolkit")
 parent = ...
-root_parent = TK.module_root parent
-tail = TK.module_member root_parent.."._lists._tail", "tail"
-concat = TK.module_member root_parent.."._lists._concat", "concat"
+root_parent = TK.module.root parent
+tail = TK.module.require root_parent.."._lists._tail", "tail"
+concat = TK.module.require root_parent.."._lists._concat", "concat"
 
 -- concatenate two lists
 M.concatn = (...) ->

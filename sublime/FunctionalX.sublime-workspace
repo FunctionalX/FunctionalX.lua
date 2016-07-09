@@ -263,6 +263,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/test_case.moon",
+			"settings":
+			{
+				"buffer_size": 372,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -304,7 +312,10 @@
 	[
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/raw_FunctionalX"
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path"
 	],
 	"file_history":
 	[
@@ -601,8 +612,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/test_case.moon",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 372,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								261,
+								261
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Moonscripty/Syntaxes/MoonScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],

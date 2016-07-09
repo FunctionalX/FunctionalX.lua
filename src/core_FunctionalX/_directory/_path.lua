@@ -1,7 +1,7 @@
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
-local root_parent = TK.module_root(parent)
+local root_parent = TK.module.root(parent)
 local L = require(root_parent .. "._lists")
 local S = require(root_parent .. "._strings")
 M.path = function(...)

@@ -4,5 +4,5 @@ local module_functions = {
     "_path"
 }
 local TK = require("PackageToolkit")
-local  M = TK.subfunctions(parent_module_name, module_functions)
+local  M = TK.module.subfunctions(parent_module_name, module_functions)
 return M

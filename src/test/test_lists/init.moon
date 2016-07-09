@@ -5,7 +5,7 @@ tests = {
     "test_concat",
     "test_concatn",
 }
-T = TK.submodules(parent, tests)
+T = TK.module.submodules(parent, tests)
 M = {}
-M.test_lists = () -> TK.test_module(T)
+M.test_lists = () -> TK.test.self(T)
 return M

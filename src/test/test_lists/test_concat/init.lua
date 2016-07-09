@@ -1,7 +1,6 @@
 local name = "test_concat"
 local parent = ...
-local TK = require("PackageToolkit")
-local test_case = (require(parent .. ".test_case"))["test_case"]
+local case = (require(parent .. ".case"))["case"]
 local M = { }
 M[name] = function()
   local solution = {
@@ -10,7 +9,7 @@ M[name] = function()
     3,
     4
   }
-  test_case({
+  case({
     {
       1,
       2

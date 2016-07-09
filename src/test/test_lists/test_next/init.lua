@@ -1,10 +1,10 @@
 local name = "test_next"
 local parent = ...
 local TK = require("PackageToolkit")
-local test_case = (require(parent .. ".test_case"))["test_case"]
+local case = (require(parent .. ".case"))["case"]
 local M = { }
 M[name] = function()
-  test_case({
+  case({
     1,
     2
   }, 2, "case 1")

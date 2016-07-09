@@ -13,5 +13,4 @@ module_functions = {
     "_tail",
 }
 TK = require("PackageToolkit")
- M = TK.subfunctions parent_module_name, module_functions)
-return 
+return TK.module.subfunctions parent_module_name, module_functions

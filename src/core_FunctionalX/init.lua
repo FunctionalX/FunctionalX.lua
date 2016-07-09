@@ -5,5 +5,5 @@ local submodule_names = {
   "_strings",
   "_directory"
 }
-local M = TK.submodules(parent, submodule_names)
+local M = TK.module.submodules(parent, submodule_names)
 return M

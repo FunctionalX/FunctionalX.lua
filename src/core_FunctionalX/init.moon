@@ -5,5 +5,5 @@ submodule_names = {
     "_strings",
     "_directory",
 }
-M = TK.submodules parent, submodule_names
+M = TK.module.submodules parent, submodule_names
 return M

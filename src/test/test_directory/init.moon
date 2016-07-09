@@ -4,7 +4,7 @@ tests = {
 }
 parent = ...
 TK = require "PackageToolkit"
-T = TK.submodules(parent, tests)
+T = TK.module.submodules(parent, tests)
 M = {}
-M[name] = () -> TK.test_module(T)
+M[name] = () -> TK.test.self(T)
 return M

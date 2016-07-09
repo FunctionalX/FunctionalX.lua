@@ -4,9 +4,9 @@ local tests = {
 }
 local parent = ...
 local TK = require("PackageToolkit")
-local T = TK.submodules(parent, tests)
+local T = TK.module.submodules(parent, tests)
 local M = { }
 M[name] = function()
-  return TK.test_module(T)
+  return TK.test.self(T)
 end
 return M

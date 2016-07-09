@@ -1,7 +1,7 @@
 M = {}
 parent = ...
 TK = require("PackageToolkit")
-root_parent = TK.module_root parent
+root_parent = TK.module.root parent
 L = require root_parent..".".."_lists"
 
 -- return a list of strings for a given template using a variable list

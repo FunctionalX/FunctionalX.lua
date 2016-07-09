@@ -5,9 +5,9 @@ local tests = {
   "test_concat",
   "test_concatn"
 }
-local T = TK.submodules(parent, tests)
+local T = TK.module.submodules(parent, tests)
 local M = { }
 M.test_lists = function()
-  return TK.test_module(T)
+  return TK.test.self(T)
 end
 return M

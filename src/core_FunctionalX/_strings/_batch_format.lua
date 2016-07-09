@@ -1,7 +1,7 @@
 local M = { }
 local parent = ...
 local TK = require("PackageToolkit")
-local root_parent = TK.module_root(parent)
+local root_parent = TK.module.root(parent)
 local L = require(root_parent .. "." .. "_lists")
 M.batch_format = function(format_template, variable_list)
   local aux

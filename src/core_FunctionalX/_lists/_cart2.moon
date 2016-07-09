@@ -1,9 +1,9 @@
 M = {}
 TK = require("PackageToolkit")
 parent = ...
-root_parent = TK.module_root parent
-append = TK.module_member  root_parent.."._lists._append", "append"
-tail   = TK.module_member  root_parent.."._lists._tail", "tail"
+root_parent = TK.module.root parent
+append = TK.module.require  root_parent.."._lists._append", "append"
+tail   = TK.module.require  root_parent.."._lists._tail", "tail"
 
 -- take a the Cartesian product of two lists
 M.cart2 = (list1, list2) -> 
