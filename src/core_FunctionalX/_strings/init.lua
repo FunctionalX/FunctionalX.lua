@@ -1,10 +1,9 @@
-local parent_module_name = ...
-local module_functions = {
+local TK = require("PackageToolkit")
+local parent = ...
+local members = {
   "_cart2",
   "_cartn",
   "_split",
   "_batch_format"
 }
-local TK = require("PackageToolkit")
-local M = TK.module.subfunctions(parent_module_name, module_functions)
-return M
+return TK.module.subfunctions(parent, members)

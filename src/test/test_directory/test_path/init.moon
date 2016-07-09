@@ -1,7 +1,7 @@
 name = "test_path"
-parent = ...
+me = ...
 TK = require("PackageToolkit")
-case = (require parent..".case")["case"]
+case = (require me..".case")["case"]
 M = {}
 M[name] = -> 
     separator = TK.lists.head TK.strings.split package.config

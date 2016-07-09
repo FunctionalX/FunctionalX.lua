@@ -1,5 +1,6 @@
-local parent_module_name = ...
-local module_functions = {
+local TK = require("PackageToolkit")
+local parent = ...
+local members = {
   "_append",
   "_cart2",
   "_concat",
@@ -11,5 +12,4 @@ local module_functions = {
   "_prepend",
   "_tail"
 }
-local TK = require("PackageToolkit")
-return TK.module.subfunctions(parent_module_name, module_functions)
+return TK.module.subfunctions(parent, members)

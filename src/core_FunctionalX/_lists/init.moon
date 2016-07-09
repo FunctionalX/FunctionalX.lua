@@ -1,6 +1,6 @@
--- "..." will be provided by require() function
-parent_module_name = ... 
-module_functions = {
+TK = require("PackageToolkit")
+parent = ... 
+members = {
     "_append",
     "_cart2",
     "_concat",
@@ -12,5 +12,4 @@ module_functions = {
     "_prepend",
     "_tail",
 }
-TK = require("PackageToolkit")
-return TK.module.subfunctions parent_module_name, module_functions
+return TK.module.subfunctions parent, members

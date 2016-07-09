@@ -329,7 +329,9 @@ M.subfunctions = function(parent_name, name_list)
       local full_name = get_full_name(parent_name, raw_name)
       local m = (require(full_name))
       if m == nil then
-        return print("ERROR: cannot import module " .. full_name)
+        return error("ERROR: cannot import module " .. full_name)
+      elseif (type(m)) == "boolean" then
+        return error(string.format("ERROR HINT: module %s doesn't reutrn a module table", full_name))
       else
         return aux((tail(name_list)), (merge(accum, {
           [bare_name] = m[bare_name]
@@ -383,7 +385,9 @@ M.submodules = function(parent_name, name_list)
       local full_name = get_full_name(parent_name, raw_name)
       local m = (require(full_name))
       if m == nil then
-        return print("ERROR: cannot import module " .. full_name)
+        return error("ERROR: cannot import module " .. full_name)
+      elseif (type(m)) == "boolean" then
+        return error(string.format("ERROR HINT: module %s doesn't reutrn a module table", full_name))
       else
         return aux((tail(name_list)), (merge(accum, {
           [bare_name] = m

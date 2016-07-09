@@ -1,13 +1,13 @@
-local parent = ...
-local name = "test_strings"
 local TK = require("PackageToolkit")
-local tests = {
+local M = { }
+local me = ...
+local name = "test_strings"
+local members = {
   "test_cart2",
   "test_split",
   "test_batch_format"
 }
-local T = TK.module.submodules(parent, tests)
-local M = { }
+local T = TK.module.submodules(me, members)
 M[name] = function()
   return TK.test.self(T)
 end

@@ -1,8 +1,6 @@
--- "..." will be provided by require() function
-local parent_module_name = ... 
-local module_functions = {
-    "_path"
-}
 local TK = require("PackageToolkit")
-local  M = TK.module.subfunctions(parent_module_name, module_functions)
-return M
+local parent = ...
+local members = {
+  "_path"
+}
+return TK.module.subfunctions(parent, members)

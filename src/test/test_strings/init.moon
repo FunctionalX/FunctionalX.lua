@@ -1,12 +1,12 @@
-parent = ...
-name = "test_strings"
 TK = require "PackageToolkit"
-tests = {
+M = {}
+me = ...
+name = "test_strings"
+members = {
     "test_cart2",
     "test_split",
     "test_batch_format",
 }
-T = TK.module.submodules(parent, tests)
-M = {}
-M[name] = () -> TK.test.self(T)
+T = TK.module.submodules me, members
+M[name] = () -> TK.test.self T
 return M

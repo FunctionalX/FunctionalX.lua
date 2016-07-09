@@ -1,9 +1,9 @@
-parent = "core_FunctionalX"
 TK = require("PackageToolkit")
-submodule_names = {
+parent = "core_FunctionalX"
+members = {
     "_lists",
     "_strings",
     "_directory",
+    "_fn",
 }
-M = TK.module.submodules parent, submodule_names
-return M
+return TK.module.submodules parent, members

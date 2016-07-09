@@ -1,10 +1,10 @@
+TK = require "PackageToolkit"
+M = {}
+me = ...
 name = "test_directory"
-tests = {
+members = {
     "test_path"
 }
-parent = ...
-TK = require "PackageToolkit"
-T = TK.module.submodules(parent, tests)
-M = {}
-M[name] = () -> TK.test.self(T)
+T = TK.module.submodules me, members
+M[name] = () -> TK.test.self T
 return M
