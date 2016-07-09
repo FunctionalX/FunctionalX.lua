@@ -2,7 +2,6 @@ M = {}
 TK = require("PackageToolkit")
 parent = ...
 root_parent = TK.module.root parent
-print root_parent.."._lists"
 L = require  root_parent.."._lists"
 -- take a the Cartesian product of two lists
 M.cart2 = (list1, list2) -> 
