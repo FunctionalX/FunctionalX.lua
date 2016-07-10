@@ -12,5 +12,6 @@ members = {
     "_prepend",
     "_tail",
     "_take",
+    "_drop",
 }
 return TK.module.subfunctions parent, members

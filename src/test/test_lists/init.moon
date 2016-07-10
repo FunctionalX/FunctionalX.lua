@@ -7,6 +7,7 @@ members = {
     "test_concat",
     "test_concatn",
     "test_take",
+    'test_drop',
 }
 T = TK.module.submodules me, members
 M[name] = () -> TK.test.self T
