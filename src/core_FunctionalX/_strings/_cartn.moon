@@ -1,7 +1,7 @@
 M = {}
 TK = require("PackageToolkit")
-parent = ...
-root_parent = TK.module.root parent
+me = ...
+root_parent = TK.module.root me
 L = require root_parent..".".."_lists"
 cart2 = TK.module.require root_parent.."._strings._cart2", "cart2"
 

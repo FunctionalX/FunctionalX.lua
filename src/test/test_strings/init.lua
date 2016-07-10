@@ -5,7 +5,8 @@ local name = "test_strings"
 local members = {
   "test_cart2",
   "test_split",
-  "test_batch_format"
+  "test_batch_format",
+  "test_join"
 }
 local T = TK.module.submodules(me, members)
 M[name] = function()

@@ -1068,7 +1068,8 @@ local members = {
   "_cart2",
   "_cartn",
   "_split",
-  "_batch_format"
+  "_batch_format",
+  "_join"
 }
 return TK.module.subfunctions(parent, members)
 
@@ -1139,8 +1140,8 @@ local _ENV = _ENV
 package.preload[ "core_FunctionalX._strings._cartn" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
-local parent = ...
-local root_parent = TK.module.root(parent)
+local me = ...
+local root_parent = TK.module.root(me)
 local L = require(root_parent .. "." .. "_lists")
 local cart2 = TK.module.require(root_parent .. "._strings._cart2", "cart2")
 M.cartn = function(...)
@@ -1171,6 +1172,39 @@ M.cartn = function(...)
     return args[1]
   end
   return aux(args[1], (L.tail(args)))
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._strings._join" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local head = TK.module.require(root_parent .. "._lists._head", "head")
+M.join = function(...)
+  local args = {
+    ...
+  }
+  local separator = head(args)
+  local list = tail(args)
+  local aux
+  aux = function(list, accum)
+    if #list == 0 then
+      return accum
+    else
+      return aux((tail(list)), accum .. separator .. (tostring(head(list))))
+    end
+  end
+  if #list == 0 then
+    return ""
+  end
+  return aux((tail(list)), (tostring(head(list))))
 end
 return M
 
