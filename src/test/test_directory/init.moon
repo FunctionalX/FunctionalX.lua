@@ -5,6 +5,7 @@ name = "test_directory"
 members = {
     "test_path",
     "test_cart2",
+    "test_cartn",
 }
 T = TK.module.submodules me, members
 M[name] = () -> TK.test.self T

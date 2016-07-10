@@ -2,7 +2,7 @@ M = {}
 TK = require("PackageToolkit")
 me = ...
 root_parent = TK.module.root me
-cart2 = TK.module.require root_parent.."._strings._cart2", "cart2"
+cart2 = TK.module.require root_parent.."._directory._cart2", "cart2"
 tail = TK.module.require root_parent.."._lists._tail", "tail"
 
 -- take a the Cartesian product for more than two lists
