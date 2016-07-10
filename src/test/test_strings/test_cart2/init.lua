@@ -16,6 +16,15 @@ M[name] = function()
     "b1",
     "b2"
   }, "case 1")
+  case({
+    {
+      "a"
+    }
+  }, {
+    "b"
+  }, {
+    "strings.cart2() ERROR HINT: input cannot be list of lists"
+  }, "case error handling")
   return true
 end
 return M
