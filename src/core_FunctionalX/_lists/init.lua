@@ -10,6 +10,7 @@ local members = {
   "_merge",
   "_next",
   "_prepend",
-  "_tail"
+  "_tail",
+  "_take"
 }
 return TK.module.subfunctions(parent, members)

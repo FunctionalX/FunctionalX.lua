@@ -1,7 +1,7 @@
 M = {}
 TK = require("PackageToolkit")
-parent = ...
-root_parent = TK.module.root parent
+me = ...
+root_parent = TK.module.root me
 tail = TK.module.require root_parent.."._lists._tail", "tail"
 concat = TK.module.require root_parent.."._lists._concat", "concat"
 

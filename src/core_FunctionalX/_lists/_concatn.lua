@@ -1,7 +1,7 @@
 local M = { }
 local TK = require("PackageToolkit")
-local parent = ...
-local root_parent = TK.module.root(parent)
+local me = ...
+local root_parent = TK.module.root(me)
 local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
 local concat = TK.module.require(root_parent .. "._lists._concat", "concat")
 M.concatn = function(...)

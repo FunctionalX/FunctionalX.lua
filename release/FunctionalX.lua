@@ -706,7 +706,8 @@ local members = {
   "_merge",
   "_next",
   "_prepend",
-  "_tail"
+  "_tail",
+  "_take"
 }
 return TK.module.subfunctions(parent, members)
 
@@ -828,8 +829,8 @@ local _ENV = _ENV
 package.preload[ "core_FunctionalX._lists._concatn" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
-local parent = ...
-local root_parent = TK.module.root(parent)
+local me = ...
+local root_parent = TK.module.root(me)
 local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
 local concat = TK.module.require(root_parent .. "._lists._concat", "concat")
 M.concatn = function(...)
@@ -991,6 +992,37 @@ M.tail = function(list, start_index)
     _len_0 = _len_0 + 1
   end
   return _accum_0
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._lists._take" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local me = ...
+local TK = require("PackageToolkit")
+local root_parent = TK.module.root(me)
+local append = TK.module.require(root_parent .. "._lists._append", "append")
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local head = TK.module.require(root_parent .. "._lists._head", "head")
+M.take = function(n, list)
+  if (type(list)) ~= "table" then
+    return { }
+  end
+  local aux
+  aux = function(n, list, accum)
+    if n == 0 then
+      return accum
+    elseif #list == 0 then
+      return accum
+    else
+      return aux((n - 1), (tail(list)), (append(accum, (head(list)))))
+    end
+  end
+  return aux(n, list, { })
 end
 return M
 
