@@ -1,4 +1,4 @@
-local name = "test_concatn"
+local name = "test_concat2"
 local parent = ...
 local case = (require(parent .. ".case"))["case"]
 local M = { }
@@ -7,8 +7,7 @@ M[name] = function()
     1,
     2,
     3,
-    4,
-    5
+    4
   }
   case({
     {
@@ -18,9 +17,6 @@ M[name] = function()
     {
       3,
       4
-    },
-    {
-      5
     }
   }, solution, "case 1")
   return true

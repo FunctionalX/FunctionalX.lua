@@ -609,9 +609,52 @@ local parent = ...
 local members = {
   "_path",
   "_cart2",
-  "_cartn"
+  "_cart"
 }
 return TK.module.subfunctions(parent, members)
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._directory._cart" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local cart2 = TK.module.require(root_parent .. "._directory._cart2", "cart2")
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+M.cart = function(...)
+  local aux
+  aux = function(list1, other_lists)
+    if #other_lists == 0 then
+      return list1
+    else
+      if type(other_lists[1]) ~= "table" then
+        return aux(list1, { })
+      end
+      return aux((cart2(list1, other_lists[1])), (tail(other_lists)))
+    end
+  end
+  local args = {
+    ...
+  }
+  if type(args) ~= "table" then
+    return { }
+  end
+  if #args == 0 then
+    return { }
+  end
+  if type(args[1]) ~= "table" then
+    return { }
+  end
+  if #args <= 1 then
+    return args[1]
+  end
+  return aux(args[1], (tail(args)))
+end
+return M
 
 end
 end
@@ -646,49 +689,6 @@ M.cart2 = function(list1, list2)
     return { }
   end
   return aux(list1, list2, { })
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_FunctionalX._directory._cartn" ] = function( ... ) local arg = _G.arg;
-local M = { }
-local TK = require("PackageToolkit")
-local me = ...
-local root_parent = TK.module.root(me)
-local cart2 = TK.module.require(root_parent .. "._directory._cart2", "cart2")
-local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
-M.cartn = function(...)
-  local aux
-  aux = function(list1, other_lists)
-    if #other_lists == 0 then
-      return list1
-    else
-      if type(other_lists[1]) ~= "table" then
-        return aux(list1, { })
-      end
-      return aux((cart2(list1, other_lists[1])), (tail(other_lists)))
-    end
-  end
-  local args = {
-    ...
-  }
-  if type(args) ~= "table" then
-    return { }
-  end
-  if #args == 0 then
-    return { }
-  end
-  if type(args[1]) ~= "table" then
-    return { }
-  end
-  if #args <= 1 then
-    return args[1]
-  end
-  return aux(args[1], (tail(args)))
 end
 return M
 
@@ -780,8 +780,8 @@ local parent = ...
 local members = {
   "_append",
   "_cart2",
+  "_concat2",
   "_concat",
-  "_concatn",
   "_head",
   "_initial",
   "_merge",
@@ -873,7 +873,34 @@ do
 local _ENV = _ENV
 package.preload[ "core_FunctionalX._lists._concat" ] = function( ... ) local arg = _G.arg;
 local M = { }
-M.concat = function(list1, list2)
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local concat2 = TK.module.require(root_parent .. "._lists._concat2", "concat2")
+M.concat = function(...)
+  local args = {
+    ...
+  }
+  local aux
+  aux = function(input, accum)
+    if #input == 0 then
+      return accum
+    end
+    return aux((tail(input)), (concat2(accum, input[1])))
+  end
+  return aux(args, { })
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._lists._concat2" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.concat2 = function(list1, list2)
   local condition1 = (type(list1)) == "table"
   local condition2 = (type(list2)) == "table"
   if (not condition1) and (not condition2) then
@@ -900,33 +927,6 @@ M.concat = function(list1, list2)
     output[#output + 1] = item
   end
   return output
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._concatn" ] = function( ... ) local arg = _G.arg;
-local M = { }
-local TK = require("PackageToolkit")
-local me = ...
-local root_parent = TK.module.root(me)
-local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
-local concat = TK.module.require(root_parent .. "._lists._concat", "concat")
-M.concatn = function(...)
-  local args = {
-    ...
-  }
-  local aux
-  aux = function(input, accum)
-    if #input == 0 then
-      return accum
-    end
-    return aux((tail(input)), (concat(accum, input[1])))
-  end
-  return aux(args, { })
 end
 return M
 
@@ -1147,7 +1147,7 @@ local TK = require("PackageToolkit")
 local parent = ...
 local members = {
   "_cart2",
-  "_cartn",
+  "_cart",
   "_split",
   "_batch_format",
   "_join"
@@ -1184,49 +1184,14 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._strings._cart2" ] = function( ... ) local arg = _G.arg;
-local M = { }
-local TK = require("PackageToolkit")
-local me = ...
-local root_parent = TK.module.root(me)
-local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
-local append = TK.module.require(root_parent .. "._lists._append", "append")
-M.cart2 = function(list1, list2)
-  local aux
-  aux = function(list1, list2, accum)
-    if #list2 == 0 or #list1 == 0 then
-      return accum
-    elseif #list1 == 1 then
-      return aux(list1, (tail(list2)), (append(accum, tostring(list1[1]) .. tostring(list2[1]))))
-    else
-      return aux((tail(list1)), list2, (aux({
-        list1[1]
-      }, list2, accum)))
-    end
-  end
-  if type(list1) ~= "table" then
-    return { }
-  end
-  if type(list2) ~= "table" then
-    return { }
-  end
-  return aux(list1, list2, { })
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_FunctionalX._strings._cartn" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_FunctionalX._strings._cart" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
 local root_parent = TK.module.root(me)
 local cart2 = TK.module.require(root_parent .. "._strings._cart2", "cart2")
 local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
-M.cartn = function(...)
+M.cart = function(...)
   local aux
   aux = function(list1, other_lists)
     if #other_lists == 0 then
@@ -1254,6 +1219,41 @@ M.cartn = function(...)
     return args[1]
   end
   return aux(args[1], (tail(args)))
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._strings._cart2" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local append = TK.module.require(root_parent .. "._lists._append", "append")
+M.cart2 = function(list1, list2)
+  local aux
+  aux = function(list1, list2, accum)
+    if #list2 == 0 or #list1 == 0 then
+      return accum
+    elseif #list1 == 1 then
+      return aux(list1, (tail(list2)), (append(accum, tostring(list1[1]) .. tostring(list2[1]))))
+    else
+      return aux((tail(list1)), list2, (aux({
+        list1[1]
+      }, list2, accum)))
+    end
+  end
+  if type(list1) ~= "table" then
+    return { }
+  end
+  if type(list2) ~= "table" then
+    return { }
+  end
+  return aux(list1, list2, { })
 end
 return M
 

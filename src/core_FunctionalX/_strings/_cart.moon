@@ -7,7 +7,7 @@ tail = TK.module.require root_parent.."._lists._tail", "tail"
 
 -- take a the Cartesian product for more than two lists
 -- The input is a list of lists
-M.cartn = (...) ->
+M.cart = (...) ->
     aux = (list1, other_lists) ->
         if #other_lists == 0
             return list1

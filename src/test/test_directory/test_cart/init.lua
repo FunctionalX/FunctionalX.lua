@@ -1,5 +1,5 @@
 local M = { }
-local name = "test_cartn"
+local name = "test_cart"
 local me = ...
 local TK = require("PackageToolkit")
 local case = (require(me .. ".case"))["case"]

@@ -1,6 +1,6 @@
 M = {}
 name1 = "lists"
-name2 = "concatn"
+name2 = "concat2"
 TK = require("PackageToolkit")
 FX = require("FunctionalX")
 M.case = (input1, solution, msg="") -> 

@@ -1,6 +1,6 @@
 M = {}
 name1 = "directory"
-name2 = "cartn"
+name2 = "cart"
 TK = require("PackageToolkit")
 FX = require("FunctionalX")
 M.case = (inputs, solution, msg="") -> 

@@ -4,8 +4,8 @@ me = ...
 name = "test_lists"
 members = {
     "test_next",
+    "test_concat2",
     "test_concat",
-    "test_concatn",
     "test_take",
     'test_drop',
 }

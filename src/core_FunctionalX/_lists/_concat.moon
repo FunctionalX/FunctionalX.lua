@@ -1,13 +1,17 @@
 M = {}
+TK = require("PackageToolkit")
+me = ...
+root_parent = TK.module.root me
+tail = TK.module.require root_parent.."._lists._tail", "tail"
+concat2 = TK.module.require root_parent.."._lists._concat2", "concat2"
+
 -- concatenate two lists
-M.concat = (list1, list2) ->
-    condition1 = (type list1) == "table"
-    condition2 = (type list2) == "table"
-    return {} if (not condition1) and (not condition2)
-    return list1 if not condition2
-    return list2 if not condition1
-    output = [list1[i] for i = 1, #list1]
-    for item in *list2
-        output[#output+1] = item
-    return output
+M.concat = (...) ->
+    args = {...}
+    aux = (input, accum) ->
+        return accum if #input == 0
+        return aux (tail input), (concat2 accum, input[1])
+
+    return aux args, {}
+
 return M

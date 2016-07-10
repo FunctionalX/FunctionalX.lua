@@ -1,5 +1,5 @@
 M = {}
-name = "test_cartn"
+name = "test_cart"
 me = ...
 TK = require("PackageToolkit")
 case = (require me..".case")["case"]

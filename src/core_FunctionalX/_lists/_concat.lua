@@ -1,30 +1,20 @@
 local M = { }
-M.concat = function(list1, list2)
-  local condition1 = (type(list1)) == "table"
-  local condition2 = (type(list2)) == "table"
-  if (not condition1) and (not condition2) then
-    return { }
-  end
-  if not condition2 then
-    return list1
-  end
-  if not condition1 then
-    return list2
-  end
-  local output
-  do
-    local _accum_0 = { }
-    local _len_0 = 1
-    for i = 1, #list1 do
-      _accum_0[_len_0] = list1[i]
-      _len_0 = _len_0 + 1
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local concat2 = TK.module.require(root_parent .. "._lists._concat2", "concat2")
+M.concat = function(...)
+  local args = {
+    ...
+  }
+  local aux
+  aux = function(input, accum)
+    if #input == 0 then
+      return accum
     end
-    output = _accum_0
+    return aux((tail(input)), (concat2(accum, input[1])))
   end
-  for _index_0 = 1, #list2 do
-    local item = list2[_index_0]
-    output[#output + 1] = item
-  end
-  return output
+  return aux(args, { })
 end
 return M

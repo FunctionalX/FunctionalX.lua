@@ -4,8 +4,8 @@ local me = ...
 local name = "test_lists"
 local members = {
   "test_next",
+  "test_concat2",
   "test_concat",
-  "test_concatn",
   "test_take",
   'test_drop'
 }

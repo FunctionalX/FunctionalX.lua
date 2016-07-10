@@ -5,7 +5,7 @@ local name = "test_directory"
 local members = {
   "test_path",
   "test_cart2",
-  "test_cartn"
+  "test_cart"
 }
 local T = TK.module.submodules(me, members)
 M[name] = function()
