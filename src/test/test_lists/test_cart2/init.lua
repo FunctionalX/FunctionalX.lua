@@ -32,6 +32,40 @@ M[name] = function()
       4
     }
   }, solution, "case 1")
+  solution = {
+    {
+      1,
+      2,
+      'a'
+    },
+    {
+      1,
+      2,
+      'b'
+    },
+    {
+      3,
+      'a'
+    },
+    {
+      3,
+      'b'
+    }
+  }
+  case({
+    {
+      {
+        1,
+        2
+      },
+      3
+    },
+    {
+      'a',
+      'b'
+    },
+    true
+  }, solution, "case 2")
   return true
 end
 return M

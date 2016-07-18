@@ -3,6 +3,7 @@ local parent = ...
 local members = {
   "_append",
   "_cart2",
+  "_cart",
   "_concat2",
   "_concat",
   "_head",
@@ -12,6 +13,7 @@ local members = {
   "_prepend",
   "_tail",
   "_take",
-  "_drop"
+  "_drop",
+  "_flatten"
 }
 return TK.module.subfunctions(parent, members)

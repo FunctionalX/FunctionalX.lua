@@ -8,7 +8,8 @@ M.case = (input1, solution, msg="") ->
     print string.format "test %s.%s()", name1, name2
     print msg
     result = FX[name1][name2] unpack input1
-    print "Result: ", unpack result
+    for r in *result
+        print "Result: ", unpack r
     assert TK.test.equal_lists result, solution
     print "VERIFIED!"
     print TK.ui.dashed_line 80, '-'

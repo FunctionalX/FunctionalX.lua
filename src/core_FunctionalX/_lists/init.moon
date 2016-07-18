@@ -3,6 +3,7 @@ parent = ...
 members = {
     "_append",
     "_cart2",
+    "_cart",
     "_concat2",
     "_concat",
     "_head",
@@ -13,5 +14,6 @@ members = {
     "_tail",
     "_take",
     "_drop",
+    "_flatten"
 }
 return TK.module.subfunctions parent, members
