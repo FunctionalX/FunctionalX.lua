@@ -780,6 +780,7 @@ local parent = ...
 local members = {
   "_append",
   "_cart2",
+  "_cart",
   "_concat2",
   "_concat",
   "_head",
@@ -789,7 +790,8 @@ local members = {
   "_prepend",
   "_tail",
   "_take",
-  "_drop"
+  "_drop",
+  "_flatten"
 }
 return TK.module.subfunctions(parent, members)
 
@@ -833,6 +835,49 @@ end
 
 do
 local _ENV = _ENV
+package.preload[ "core_FunctionalX._lists._cart" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local cart2 = TK.module.require(root_parent .. "._lists._cart2", "cart2")
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+M.cart = function(...)
+  local aux
+  aux = function(list1, other_lists)
+    if #other_lists == 0 then
+      return list1
+    else
+      if type(other_lists[1]) ~= "table" then
+        return aux(list1, { })
+      end
+      return aux((cart2(list1, other_lists[1], true)), (tail(other_lists)))
+    end
+  end
+  local args = {
+    ...
+  }
+  if type(args) ~= "table" then
+    return { }
+  end
+  if #args == 0 then
+    return { }
+  end
+  if type(args[1]) ~= "table" then
+    return { }
+  end
+  if #args <= 1 then
+    return args[1]
+  end
+  return aux(args[1], (tail(args)))
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
 package.preload[ "core_FunctionalX._lists._cart2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
@@ -840,16 +885,24 @@ local parent = ...
 local root_parent = TK.module.root(parent)
 local append = TK.module.require(root_parent .. "._lists._append", "append")
 local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
-M.cart2 = function(list1, list2)
+local flatten = TK.module.require(root_parent .. "._lists._flatten", "flatten")
+M.cart2 = function(list1, list2, merge)
+  if merge == nil then
+    merge = false
+  end
   local aux
   aux = function(list1, list2, accum)
     if #list2 == 0 or #list1 == 0 then
       return accum
     elseif #list1 == 1 then
-      return aux(list1, (tail(list2)), (append(accum, {
-        list1[1],
-        list2[1]
-      })))
+      if merge then
+        return aux(list1, (tail(list2)), (append(accum, (flatten(list1[1], list2[1])))))
+      else
+        return aux(list1, (tail(list2)), (append(accum, {
+          list1[1],
+          list2[1]
+        })))
+      end
     else
       return aux((tail(list1)), list2, (aux({
         list1[1]
@@ -956,6 +1009,37 @@ M.drop = function(n, list)
     end
   end
   return aux(n, list, { })
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._lists._flatten" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local head = TK.module.require(root_parent .. "._lists._head", "head")
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local append = TK.module.require(root_parent .. "._lists._append", "append")
+M.flatten = function(...)
+  local args = {
+    ...
+  }
+  local aux
+  aux = function(lists, accum)
+    if #lists == 0 then
+      return accum
+    elseif (type(lists[1])) == "table" then
+      return aux((tail(lists)), (aux(lists[1], accum)))
+    else
+      return aux((tail(lists)), (append(accum, lists[1])))
+    end
+  end
+  return aux(args, { })
 end
 return M
 
