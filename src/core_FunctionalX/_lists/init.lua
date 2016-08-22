@@ -8,6 +8,7 @@ local members = {
   "_concat",
   "_head",
   "_initial",
+  "_merge2",
   "_merge",
   "_next",
   "_prepend",

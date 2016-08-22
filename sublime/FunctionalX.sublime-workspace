@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-size"
+			],
+			[
+				"is",
+				"is_divisible"
+			],
+			[
+				"new",
+				"new_bool"
+			],
+			[
+				"proce",
+				"process_result"
+			],
+			[
+				"number",
+				"number_samples"
+			],
+			[
+				"vali",
+				"valid_moves"
+			],
+			[
+				"random",
+				"random_move"
+			],
+			[
+				"as",
+				"assert"
+			],
+			[
+				"candi",
+				"candidate_moves"
+			],
+			[
+				"cond",
+				"condition2"
+			],
+			[
 				"test_",
 				"test_directory"
 			],
@@ -66,10 +106,6 @@
 			[
 				"se",
 				"seed_array"
-			],
-			[
-				"new",
-				"new_index"
 			],
 			[
 				"n",
@@ -271,7 +307,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 246.0,
+		"height": 490.0,
 		"last_filter": "pack",
 		"selected_items":
 		[
@@ -302,44 +338,83 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_cart",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_cart2",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concat2",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_flatten"
+		"/G/DEVELOP/FunctionalX.lua",
+		"/G/DEVELOP/FunctionalX.lua/src",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory"
 	],
 	"file_history":
 	[
+		"/G/DEVELOP/DataStructuresX.C/LICENSE",
+		"/G/DEVELOP/Algorithms.Java/src/linked_list/Node.java",
+		"/G/DEVELOP/LearnHaskell/src/tutorial/p1/lam.hs",
+		"/G/DEVELOP/LearnHaskell/src/tutorial/p0/fp.hs",
+		"/G/DEVELOP/LearnHaskell/src/tutorial/p0/cost.hs",
+		"/G/DEVELOP/LearnHaskell/src/tutorial/p0/ex0.hs",
+		"/G/DEVELOP/LearnNim/src/ffi/p.nim",
+		"/G/DEVELOP/LearnNim/src/ffi/t.nim",
+		"/G/DEVELOP/LearnNim/src/ffi/hi.nim",
+		"/G/DEVELOP/LearnNim/src/ffi/print.nim",
+		"/G/DEVELOP/Algorithms.Java/src/stack/Stack.java",
+		"/G/DEVELOP/LearnHaskell/src/short/mail.hs",
+		"/G/DEVELOP/Logos/README.md",
+		"/G/DEVELOP/Logos/LICENSE",
+		"/G/DEVELOP/AlgorithmX.hs/README.md",
+		"/G/DEVELOP/AlgorithmX.hs/LICENSE",
+		"/D/install/cntk/Examples/README.md",
+		"/G/DEVELOP/LearnHaskell/src/short/hello.hs",
+		"/D/install/cntk/Examples/Other/Simple2d/Data/SimpleDataTest_cntk_text.txt",
+		"/G/DEVELOP/stat420/homeworks/project/data/parkinsons_updrs.csv",
+		"/G/DEVELOP/stat420/homeworks/project/data/parkinsons.csv",
+		"/G/DEVELOP/stat420/homeworks/project/data/parkinsons_updrs.names",
+		"/G/DEVELOP/stat420/homeworks/project/data/parkinsons_updrs.data",
 		"/C/Users/Steven/DEVELOP/DataIncu/src/q1.py",
 		"/C/Users/Steven/DEVELOP/DataIncu/src/Q2.R",
 		"/C/Users/Steven/DEVELOP/DataIncu/src/submit.md",
-		"/C/Users/Steven/DEVELOP/DataIncu/src/attr_air.txt",
-		"/C/Users/Steven/DEVELOP/DataIncu/src/subject101.dat",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_cart.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_cart/case.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_flatten.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_cart2.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_cart2/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_cart2/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_flatten/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_flatten/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_cart/init.moon",
-		"/C/Users/Steven/DEVELOP/DataIncu/src/attr.txt",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_cart/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/init.moon",
+		"/H/MacOS1/stevenw/Class/2013_MachineLearning/Project/Code/dataTransform2.m",
+		"/H/MacOS1/stevenw/Class/2013_MachineLearning/Project/Code/TrackNN_v4.m",
+		"/H/MacOS1/stevenw/Class/2013_MachineLearning/Project/Code/TrackNN_v2.m",
+		"/H/MacOS1/stevenw/Class/2013_MachineLearning/Project/Code/getData.m",
+		"/H/MacOS1/stevenw/Class/2013_MachineLearning/Project/Code/doNeuralNetClassify.m",
+		"/H/MacOS1/stevenw/Class/2013_MachineLearning/Project/Code/NeuralNet.m",
+		"/H/MacOS1/stevenw/Class/2013_MachineLearning/Project/Code/NeuralNetClassifier.m",
+		"/C/Users/Steven/DEVELOP/data_insight_app/views/pages/index.ejs",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/index.html",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/slides/facts/crystals.md",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/fig/fun/science_hypothesis.jpg",
+		"/C/Users/Steven/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Steven/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Steven/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Steven/Meetings/group_meeting/reveal/css/yhw_style.css",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/slides/problem/key_questions.md",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/slides/problem/problem.md",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/note.md",
+		"/C/Users/Steven/DEVELOP/DataIncu/src/q2.R",
+		"/C/Users/Steven/DEVELOP/DataIncu/data/physical_activity/PAMAP2_Dataset/Optional/subject105.dat",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/slides/crystals.md",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/slides/quotes/Tukey.md",
+		"/C/Users/Steven/DEVELOP/node-js-getting-started/package.json",
+		"/C/Users/Steven/DEVELOP/node-js-getting-started/index.js",
+		"/C/Users/Steven/DEVELOP/node-js-getting-started/views/pages/index.ejs",
+		"/C/Users/Steven/DEVELOP/DataIncu/src/submit.txt",
+		"/C/Users/Steven/DEVELOP/challenge_app/views/pages/index.ejs",
+		"/C/Users/Steven/DEVELOP/node-js-getting-started/Procfile",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/slides/methods/SMFS.md",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/slides/goals/goals.md",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/slides/facts/K_binding_effects.md",
+		"/C/Users/Steven/DEVELOP/DataIncu/src/is_divisible.py",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/slides/FS.md",
+		"/C/Users/Steven/DEVELOP/Manuscript/betpx/2016/outline.md",
+		"/C/Users/Steven/DEVELOP/LearnGo/src/p0/hello.go",
+		"/C/Users/Steven/Downloads/hello.nim",
+		"/C/Users/Steven/Meetings/group_meeting/research/2016-07-12/slides/EPR_1.md",
 		"/C/Users/Steven/DEVELOP/Meetings/group_meeting/research/2016-07-12/index.html",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concat2/init.moon",
 		"/C/Users/Steven/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1",
 		"/C/Users/Steven/DEVELOP/Meetings/.gitignore",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_concat.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/init.moon",
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/init.moon",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_cart/init.moon",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/init.moon",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/init.moon",
@@ -397,58 +472,11 @@
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_split/case.moon",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_next/case.moon",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/init.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_split/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_batch_format/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_batch_format/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_next/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concatn/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concatn/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concat/test_case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/_path.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_batch_format.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/case.lua",
-		"/C/Users/Steven/DEVELOP/Automagical/src/automagical.lua",
-		"/C/Users/Steven/DEVELOP/luapower/automagical.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/release/FunctionalX.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/main.lua",
-		"/F/DEVELOP/Automagical/src/automagical.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/sublime/FunctionalX.sublime-project",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/raw_FunctionalX/init.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_directory/_path.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/PackageToolkit.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/tmp.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2/test_case.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/init.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_strings/init.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_batch_format/init.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_strings/_batch_format.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_batch_format/test_case.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_batch_format/test_case.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_split/init.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_split/test_case.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/init.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/init.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/test/runtests.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_batch_format/init.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_directory/init.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_directory/_path.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_directory/init.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/init.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_lists/init.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/test_case.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/test_case.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/PackageToolkit.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2/init.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2/test_case.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_lists/init.lua",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_lists/_initial.moon",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_lists/_initial.lua",
-		"/F/DEVELOP/cs421su16/practice/combinator.hs",
-		"/F/DEVELOP/FunctionalX.lua/src/FunctionalX/_strings/_cart2.lua"
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_split/init.moon"
 	],
 	"find":
 	{
-		"height": 43.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -463,11 +491,18 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"1",
-			"tail",
-			"concat2",
-			"tail",
-			"input1",
+			"permease",
+			"is_divis",
+			"mod_base",
+			"simulate",
+			"process_result",
+			"mod_base",
+			"301415",
+			"seed",
+			"0",
+			": list",
+			"crystal",
+			"font",
 			"L.tail",
 			"path",
 			"tail",
@@ -583,14 +618,7 @@
 			"IBBM",
 			"IBM",
 			"summary",
-			"IBM",
-			"ProcterGamble",
-			"CocaCola",
-			"GE",
-			"IBM",
-			"CocaCola",
-			"ProcterGamble",
-			"GE"
+			"IBM"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -692,7 +720,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 349.0,
+	"side_bar_width": 264.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

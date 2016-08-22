@@ -1,27 +1,25 @@
 local M = { }
-M.merge = function(table1, table2)
-  local condition1 = (type(table1)) == "table"
-  local condition2 = (type(table2)) == "table"
-  if (not condition1) and (not condition2) then
-    return { }
-  end
-  if not condition2 then
-    return table1
-  end
-  if not condition1 then
-    return table2
-  end
-  local output = { }
-  for k, v in pairs(table1) do
-    if v ~= nil then
-      output[k] = v
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local merge2 = TK.module.require(root_parent .. "._lists._merge2", "merge2")
+M.merge = function(...)
+  local tables = {
+    ...
+  }
+  local aux
+  aux = function(tables, accum)
+    if #tables == 0 then
+      return accum
+    else
+      return (aux((tail(tables)), (merge2(accum, tables[1]))))
     end
   end
-  for k, v in pairs(table2) do
-    if v ~= nil then
-      output[k] = v
-    end
+  if #tables == 1 then
+    return tables[1]
+  else
+    return aux(tables, { })
   end
-  return output
 end
 return M
