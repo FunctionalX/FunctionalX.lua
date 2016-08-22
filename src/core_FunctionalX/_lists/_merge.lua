@@ -16,7 +16,9 @@ M.merge = function(...)
       return (aux((tail(tables)), (merge2(accum, tables[1]))))
     end
   end
-  if #tables == 1 then
+  if #tables == 0 then
+    return { }
+  elseif #tables == 1 then
     return tables[1]
   else
     return aux(tables, { })

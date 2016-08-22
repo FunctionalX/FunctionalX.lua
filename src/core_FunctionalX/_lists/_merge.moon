@@ -14,7 +14,9 @@ M.merge = (...) ->
         else
             return (aux (tail tables), (merge2 accum, tables[1]))
 
-    if #tables == 1
+    if #tables == 0
+        return {}
+    elseif #tables == 1
         return tables[1]
     else
         return aux tables, {}
