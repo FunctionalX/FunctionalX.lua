@@ -13,6 +13,7 @@ members = {
     "test_flatten"
     "test_merge2"
     "test_merge"
+    "test_reverse"
 }
 T = TK.module.submodules me, members
 M[name] = () -> TK.test.self T

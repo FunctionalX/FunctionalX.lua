@@ -12,7 +12,8 @@ local members = {
   "test_cart",
   "test_flatten",
   "test_merge2",
-  "test_merge"
+  "test_merge",
+  "test_reverse"
 }
 local T = TK.module.submodules(me, members)
 M[name] = function()

@@ -341,10 +341,24 @@
 		"/G/DEVELOP/FunctionalX.lua",
 		"/G/DEVELOP/FunctionalX.lua/src",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX",
-		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory"
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists",
+		"/G/DEVELOP/FunctionalX.lua/src/test",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_merge",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_merge2"
 	],
 	"file_history":
 	[
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_merge2.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_merge.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_merge2/case.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_merge/case.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_merge/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_merge2/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_merge2/init.lua",
 		"/G/DEVELOP/DataStructuresX.C/LICENSE",
 		"/G/DEVELOP/Algorithms.Java/src/linked_list/Node.java",
 		"/G/DEVELOP/LearnHaskell/src/tutorial/p1/lam.hs",
@@ -463,16 +477,7 @@
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/runtests.moon",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_fn/_map.moon",
 		"/C/Users/Steven/DEVELOP/luapower/FunctionalX.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_fn/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_functional/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_functional/_map.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/PackageToolkit.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/build.bat",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_split/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_next/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/init.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_split/init.moon"
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_fn/init.moon"
 	],
 	"find":
 	{
@@ -491,6 +496,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			",",
+			"concat",
 			"permease",
 			"is_divis",
 			"mod_base",
@@ -616,8 +623,6 @@
 			"IBM",
 			"CocaCola",
 			"IBBM",
-			"IBM",
-			"summary",
 			"IBM"
 		],
 		"highlight": true,
