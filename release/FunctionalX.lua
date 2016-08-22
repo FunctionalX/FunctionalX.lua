@@ -785,6 +785,7 @@ local members = {
   "_concat",
   "_head",
   "_initial",
+  "_merge2",
   "_merge",
   "_next",
   "_prepend",
@@ -1092,7 +1093,41 @@ do
 local _ENV = _ENV
 package.preload[ "core_FunctionalX._lists._merge" ] = function( ... ) local arg = _G.arg;
 local M = { }
-M.merge = function(table1, table2)
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local merge2 = TK.module.require(root_parent .. "._lists._merge2", "merge2")
+M.merge = function(...)
+  local tables = {
+    ...
+  }
+  local aux
+  aux = function(tables, accum)
+    if #tables == 0 then
+      return accum
+    else
+      return (aux((tail(tables)), (merge2(accum, tables[1]))))
+    end
+  end
+  if #tables == 0 then
+    return { }
+  elseif #tables == 1 then
+    return tables[1]
+  else
+    return aux(tables, { })
+  end
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._lists._merge2" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.merge2 = function(table1, table2)
   local condition1 = (type(table1)) == "table"
   local condition2 = (type(table2)) == "table"
   if (not condition1) and (not condition2) then
