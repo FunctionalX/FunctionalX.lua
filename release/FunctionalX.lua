@@ -793,7 +793,8 @@ local members = {
   "_take",
   "_drop",
   "_flatten",
-  "_reverse"
+  "_reverse",
+  "_replicate"
 }
 return TK.module.subfunctions(parent, members)
 
@@ -1196,6 +1197,31 @@ M.prepend = function(item, list)
     output[#output + 1] = x
   end
   return output
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._lists._replicate" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+local parent = ...
+local root_parent = TK.module.root(parent)
+local append = TK.module.require(root_parent .. "._lists._append", "append")
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+M.replicate = function(n, item)
+  local aux
+  aux = function(n, item, accum)
+    if n <= 0 then
+      return accum
+    else
+      return aux((n - 1), item, (append(accum, item)))
+    end
+  end
+  return aux(n, item, { })
 end
 return M
 

@@ -16,6 +16,7 @@ local members = {
   "_take",
   "_drop",
   "_flatten",
-  "_reverse"
+  "_reverse",
+  "_replicate"
 }
 return TK.module.subfunctions(parent, members)
