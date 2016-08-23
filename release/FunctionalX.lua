@@ -805,16 +805,24 @@ do
 local _ENV = _ENV
 package.preload[ "core_FunctionalX._lists._append" ] = function( ... ) local arg = _G.arg;
 local M = { }
-M.append = function(list, item)
-  if (type(list)) ~= "table" and item ~= nil then
-    return {
-      item
-    }
+local TK = require("PackageToolkit")
+local parent = ...
+local root_parent = TK.module.root(parent)
+local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+M.append = function(list, ...)
+  local items = {
+    ...
+  }
+  if #items == 0 then
+    return list
   end
-  if (type(list)) == "table" and item == nil then
+  if (type(list)) ~= "table" and #items ~= 0 then
+    return items
+  end
+  if (type(list)) == "table" and #items == 0 then
     return table
   end
-  if (type(list)) ~= "table" and item == nil then
+  if (type(list)) ~= "table" and #items == 0 then
     return { }
   end
   local output
@@ -828,7 +836,10 @@ M.append = function(list, item)
     end
     output = _accum_0
   end
-  output[#output + 1] = item
+  for _index_0 = 1, #items do
+    local item = items[_index_0]
+    output[#output + 1] = item
+  end
   return output
 end
 return M
