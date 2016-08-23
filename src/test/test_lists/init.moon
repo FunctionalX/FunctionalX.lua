@@ -3,6 +3,7 @@ M = {}
 me = ...
 name = "test_lists"
 members = {
+    "test_append"
     "test_next"
     "test_concat2"
     "test_concat"

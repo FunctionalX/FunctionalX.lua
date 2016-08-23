@@ -3,6 +3,7 @@ local M = { }
 local me = ...
 local name = "test_lists"
 local members = {
+  "test_append",
   "test_next",
   "test_concat2",
   "test_concat",
