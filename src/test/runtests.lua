@@ -6,7 +6,8 @@ local tests = {
   "test_lists",
   'test_strings',
   "test_directory",
-  "test_fn"
+  "test_fn",
+  "test_table"
 }
 local M = TK.module.submodules(parent, tests)
 TK.test.self(M)

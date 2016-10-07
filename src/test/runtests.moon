@@ -7,6 +7,7 @@ tests = {
     'test_strings'
     "test_directory"
     "test_fn"
+    "test_table"
 }
 M = TK.module.submodules parent, tests
 
