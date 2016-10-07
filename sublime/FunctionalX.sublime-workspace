@@ -300,6 +300,24 @@
 	"buffers":
 	[
 		{
+			"file": "/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/_str.moon",
+			"settings":
+			{
+				"buffer_size": 1131,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/G/DEVELOP/FunctionalX.lua/src/tmp.moon",
+			"settings":
+			{
+				"buffer_size": 44,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_append.moon",
 			"settings":
 			{
@@ -349,17 +367,33 @@
 		"/G/DEVELOP/FunctionalX.lua",
 		"/G/DEVELOP/FunctionalX.lua/src",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX",
-		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table",
 		"/G/DEVELOP/FunctionalX.lua/src/test",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_append",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_replicate",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_reverse"
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_fn",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table"
 	],
 	"file_history":
 	[
+		"/G/DEVELOP/FunctionalX.lua/src/tmp.lua",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/_keys.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_keys/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/PackageToolkit.lua",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/runtests.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_keys/init.lua",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/tmp.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_concat.moon",
+		"/G/DEVELOP/AppliedStochasticProcesses/seminar/Legget_lecture.txt",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_fn/test_map/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_keys/case.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/init.moon",
+		"/G/DEVELOP/PackageToolkit.lua/sublime/PackageToolkit.sublime-workspace",
+		"/G/DEVELOP/PackageToolkit.lua/sublime/PackageToolkit.sublime-project",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_table2str.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_append.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_reverse/case.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_replicate.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/temp.lua",
@@ -368,7 +402,6 @@
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_append/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_reverse/init.moon",
-		"/G/DEVELOP/FunctionalX.lua/src/test/runtests.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_lists/test_replicate/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_reverse.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/init.moon",
@@ -470,24 +503,7 @@
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/_cartn.moon",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_cartn/init.moon",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_cartn/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/init.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_cartn/init.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_cart2/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_cart2/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_join/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_join.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_cartn.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_path/case.moon",
-		"/C/Users/Steven/DEVELOP/FitCert/README.md",
-		"/C/Users/Steven/DEVELOP/FitCert/LICENSE",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_take/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_take/case.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_concatn.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_take/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/init.lua"
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/init.lua"
 	],
 	"find":
 	{
@@ -506,6 +522,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"concat",
+			"head",
+			"name",
+			",",
 			"new_accum",
 			"output",
 			"append",
@@ -629,11 +649,7 @@
 			"ProcterGamble",
 			"CocaCola",
 			"GE",
-			"IBM",
-			"purple",
-			"ProcterGamble",
-			"orange",
-			"GE"
+			"IBM"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -658,8 +674,64 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_append.moon",
+					"file": "/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/_str.moon",
 					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1131,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								403,
+								403
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Moonscripty/Syntaxes/MoonScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/G/DEVELOP/FunctionalX.lua/src/tmp.moon",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 44,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								44,
+								44
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Moonscripty/Syntaxes/MoonScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_append.moon",
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 664,
@@ -669,19 +741,21 @@
 						"selection":
 						[
 							[
-								529,
-								529
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Moonscripty/Syntaxes/MoonScript.tmLanguage"
+							"syntax": "Packages/Moonscripty/Syntaxes/MoonScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -768,7 +842,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 264.0,
+	"side_bar_width": 430.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

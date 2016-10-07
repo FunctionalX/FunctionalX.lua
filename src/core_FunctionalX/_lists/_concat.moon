@@ -1,3 +1,4 @@
+-- concatenate many lists into one
 M = {}
 TK = require("PackageToolkit")
 me = ...
@@ -5,7 +6,7 @@ root_parent = TK.module.root me
 tail = TK.module.require root_parent.."._lists._tail", "tail"
 concat2 = TK.module.require root_parent.."._lists._concat2", "concat2"
 
--- concatenate two lists
+-- concatenate many lists
 M.concat = (...) ->
     args = {...}
     aux = (input, accum) ->

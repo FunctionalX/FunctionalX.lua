@@ -16,7 +16,7 @@ M[name] = function()
     "k",
     "k2",
     "k3"
-  }, "case 1")
+  }, "table.keys case 1")
   return true
 end
 return M
