@@ -3,11 +3,12 @@ parent = "test"
 TK = require "PackageToolkit"
 FX = require "FunctionalX"
 tests = {
-    "test_lists"
-    'test_strings'
-    "test_directory"
-    "test_fn"
-    "test_table"
+    -- "test_lists"
+    -- 'test_strings'
+    -- "test_directory"
+    -- "test_fn"
+    -- "test_table"
+    "test_numeric"
 }
 M = TK.module.submodules parent, tests
 

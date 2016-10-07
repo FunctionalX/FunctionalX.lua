@@ -714,7 +714,8 @@ local members = {
   "_strings",
   "_directory",
   "_fn",
-  "_table"
+  "_table",
+  "_numeric"
 }
 return TK.module.submodules(parent, members)
 
@@ -1436,6 +1437,38 @@ M.take = function(n, list)
     end
   end
   return aux(n, list, { })
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._numeric" ] = function( ... ) local arg = _G.arg;
+local TK = require("PackageToolkit")
+local parent = ...
+local members = {
+  "_range"
+}
+return TK.module.subfunctions(parent, members)
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._numeric._range" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.range = function(start, stop, step)
+  if step == nil then
+    step = 1
+  end
+  local output = { }
+  for i = start, stop, step do
+    output[#output + 1] = i
+  end
+  return output
 end
 return M
 

@@ -5,6 +5,7 @@ local members = {
   "_strings",
   "_directory",
   "_fn",
-  "_table"
+  "_table",
+  "_numeric"
 }
 return TK.module.submodules(parent, members)
