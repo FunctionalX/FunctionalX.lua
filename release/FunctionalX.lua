@@ -715,7 +715,8 @@ local members = {
   "_directory",
   "_fn",
   "_table",
-  "_numeric"
+  "_numeric",
+  "_os"
 }
 return TK.module.submodules(parent, members)
 
@@ -1469,6 +1470,38 @@ M.range = function(start, stop, step)
     output[#output + 1] = i
   end
   return output
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._os" ] = function( ... ) local arg = _G.arg;
+local TK = require("PackageToolkit")
+local parent = ...
+local members = {
+  "_windows"
+}
+return TK.module.subfunctions(parent, members)
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_FunctionalX._os._windows" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+local parent = ...
+local root_parent = TK.module.root(parent)
+local L = require(root_parent .. "._lists")
+local S = require(root_parent .. "._strings")
+M.windows = function()
+  local dir_separator = L.head(S.split(package.config))
+  print(dir_separator)
+  return dir_separator == '\\'
 end
 return M
 
