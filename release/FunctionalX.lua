@@ -706,9 +706,9 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
-local parent = "app"
+local parent = "appFunctionalX"
 local members = {
   "_lists",
   "_strings",
@@ -725,7 +725,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._directory" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._directory" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -740,7 +740,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._directory._cart" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._directory._cart" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -783,7 +783,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._directory._cart2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._directory._cart2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -819,7 +819,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._directory._path" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._directory._path" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -854,7 +854,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._fn" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._fn" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -867,7 +867,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._fn._map" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._fn._map" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local M = { }
 local me = ...
@@ -896,7 +896,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -925,7 +925,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._append" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._append" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -971,7 +971,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._cart" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._cart" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1014,7 +1014,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._cart2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._cart2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -1060,7 +1060,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._concat" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._concat" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1087,7 +1087,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._concat2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._concat2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.concat2 = function(list1, list2)
   local condition1 = (type(list1)) == "table"
@@ -1124,7 +1124,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._drop" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._drop" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local me = ...
 local TK = require("PackageToolkit")
@@ -1153,7 +1153,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._flatten" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._flatten" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1184,7 +1184,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._head" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._head" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.head = function(list)
   if (type(list)) ~= "table" then
@@ -1202,7 +1202,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._initial" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._initial" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.init = function(list)
   if (type(list)) ~= "table" then
@@ -1226,7 +1226,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._merge" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._merge" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1260,7 +1260,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._merge2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._merge2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.merge2 = function(table1, table2)
   local condition1 = (type(table1)) == "table"
@@ -1294,7 +1294,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._next" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._next" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.next = function(list)
   if (type(list)) ~= "table" then
@@ -1313,7 +1313,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._prepend" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._prepend" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.prepend = function(item, list)
   if (type(list)) ~= "table" then
@@ -1338,7 +1338,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._replicate" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._replicate" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -1363,7 +1363,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._reverse" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._reverse" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -1388,7 +1388,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._tail" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._tail" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.tail = function(list, start_index)
   if start_index == nil then
@@ -1415,7 +1415,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._lists._take" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._lists._take" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local me = ...
 local TK = require("PackageToolkit")
@@ -1446,7 +1446,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._numeric" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._numeric" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -1459,7 +1459,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._numeric._range" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._numeric._range" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.range = function(start, stop, step)
   if step == nil then
@@ -1478,7 +1478,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._os" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._os" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -1491,7 +1491,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._os._windows" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._os._windows" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -1509,7 +1509,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._strings" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._strings" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -1526,7 +1526,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._strings._batch_format" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._strings._batch_format" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local parent = ...
 local TK = require("PackageToolkit")
@@ -1551,7 +1551,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._strings._cart" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._strings._cart" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1594,7 +1594,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._strings._cart2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._strings._cart2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1629,7 +1629,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._strings._join" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._strings._join" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1662,7 +1662,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._strings._split" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._strings._split" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.split = function(str, symbol)
   if symbol == nil then
@@ -1683,7 +1683,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._table" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._table" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -1698,7 +1698,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._table._keys" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._table._keys" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1727,7 +1727,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._table._str" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._table._str" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1794,7 +1794,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "app._table._tcl" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._table._tcl" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1854,5 +1854,5 @@ end
 end
 
 package.path = package.path..";?/init.lua"
-local M = require("app")
+local M = require("appFunctionalX")
 return M
