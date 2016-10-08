@@ -706,9 +706,9 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
-local parent = "core_FunctionalX"
+local parent = "app"
 local members = {
   "_lists",
   "_strings",
@@ -725,7 +725,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._directory" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._directory" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -740,7 +740,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._directory._cart" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._directory._cart" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -783,7 +783,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._directory._cart2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._directory._cart2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -819,7 +819,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._directory._path" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._directory._path" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -854,7 +854,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._fn" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._fn" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -867,7 +867,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._fn._map" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._fn._map" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local M = { }
 local me = ...
@@ -896,7 +896,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -925,7 +925,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._append" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._append" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -971,7 +971,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._cart" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._cart" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1014,7 +1014,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._cart2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._cart2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -1060,7 +1060,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._concat" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._concat" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1087,7 +1087,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._concat2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._concat2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.concat2 = function(list1, list2)
   local condition1 = (type(list1)) == "table"
@@ -1124,7 +1124,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._drop" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._drop" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local me = ...
 local TK = require("PackageToolkit")
@@ -1153,7 +1153,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._flatten" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._flatten" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1184,7 +1184,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._head" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._head" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.head = function(list)
   if (type(list)) ~= "table" then
@@ -1202,7 +1202,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._initial" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._initial" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.init = function(list)
   if (type(list)) ~= "table" then
@@ -1226,7 +1226,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._merge" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._merge" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1260,7 +1260,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._merge2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._merge2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.merge2 = function(table1, table2)
   local condition1 = (type(table1)) == "table"
@@ -1294,7 +1294,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._next" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._next" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.next = function(list)
   if (type(list)) ~= "table" then
@@ -1313,7 +1313,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._prepend" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._prepend" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.prepend = function(item, list)
   if (type(list)) ~= "table" then
@@ -1338,7 +1338,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._replicate" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._replicate" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -1363,7 +1363,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._reverse" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._reverse" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -1388,7 +1388,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._tail" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._tail" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.tail = function(list, start_index)
   if start_index == nil then
@@ -1415,7 +1415,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._lists._take" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._lists._take" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local me = ...
 local TK = require("PackageToolkit")
@@ -1446,7 +1446,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._numeric" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._numeric" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -1459,7 +1459,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._numeric._range" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._numeric._range" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.range = function(start, stop, step)
   if step == nil then
@@ -1478,7 +1478,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._os" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._os" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -1491,7 +1491,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._os._windows" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._os._windows" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local parent = ...
@@ -1500,7 +1500,6 @@ local L = require(root_parent .. "._lists")
 local S = require(root_parent .. "._strings")
 M.windows = function()
   local dir_separator = L.head(S.split(package.config))
-  print(dir_separator)
   return dir_separator == '\\'
 end
 return M
@@ -1510,7 +1509,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._strings" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._strings" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -1527,7 +1526,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._strings._batch_format" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._strings._batch_format" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local parent = ...
 local TK = require("PackageToolkit")
@@ -1552,7 +1551,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._strings._cart" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._strings._cart" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1595,7 +1594,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._strings._cart2" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._strings._cart2" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1630,7 +1629,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._strings._join" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._strings._join" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1663,7 +1662,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._strings._split" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._strings._split" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.split = function(str, symbol)
   if symbol == nil then
@@ -1684,7 +1683,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._table" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._table" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
@@ -1699,15 +1698,27 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._table._keys" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._table._keys" ] = function( ... ) local arg = _G.arg;
 local M = { }
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local concat = TK.module.require(root_parent .. "._lists._concat", "concat")
 M.keys = function(t)
-  local output = { }
+  local strs = { }
+  local numbers = { }
+  local others = { }
   for k, v in pairs(t) do
-    output[#output + 1] = k
+    if type(k) == "number" then
+      numbers[#numbers + 1] = k
+    elseif type(k) == "string" then
+      strs[#strs + 1] = k
+    else
+      others[#others + 1] = k
+    end
   end
-  table.sort(output)
-  return output
+  table.sort(strs)
+  return concat(numbers, strs, others)
 end
 return M
 
@@ -1716,7 +1727,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._table._str" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._table._str" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1733,12 +1744,28 @@ M.str = function(t, indent)
   add_brackets = function(s, prefix)
     return string.format("{\n%s%s%s\n%s}", prefix, indent, s, prefix)
   end
-  local format_key
-  format_key = function(k)
-    if string.match(k, "%s") then
-      return string.format("[\"%s\"]", k)
+  local bracket
+  bracket = function(obj)
+    if type(obj) == "string" and string.match(obj, "%s") then
+      return string.format("[%s]", obj)
     else
-      return k
+      return tostring(obj)
+    end
+  end
+  local quote
+  quote = function(obj)
+    if type(obj) == "string" and string.match(obj, "%s") then
+      return string.format("\"%s\"", obj)
+    else
+      return tostring(obj)
+    end
+  end
+  local format_item
+  format_item = function(k, v)
+    if type(k) == "number" then
+      return string.format("%s", v)
+    else
+      return string.format("%s = %s", (bracket((quote(k)))), v)
     end
   end
   local aux
@@ -1752,9 +1779,9 @@ M.str = function(t, indent)
       if type(dict[k]) == "table" then
         v = aux(dict[k], (get_keys(dict[k])), { }, indent)
       else
-        v = tostring(dict[k])
+        v = quote(dict[k])
       end
-      local new_item = string.format("%s = %s", (format_key(k)), v)
+      local new_item = format_item(k, v)
       return aux(dict, (tail(keys)), (append(accum, new_item)), prefix)
     end
   end
@@ -1767,7 +1794,7 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_FunctionalX._table._tcl" ] = function( ... ) local arg = _G.arg;
+package.preload[ "app._table._tcl" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local TK = require("PackageToolkit")
 local me = ...
@@ -1784,12 +1811,20 @@ M.tcl = function(t, indent)
   add_brackets = function(s, prefix)
     return string.format("{\n%s%s%s\n%s}", prefix, indent, s, prefix)
   end
-  local format_key
-  format_key = function(k)
-    if string.match(k, "%s") then
-      return string.format("\"%s\"", k)
+  local quote
+  quote = function(obj)
+    if type(obj) == "string" and string.match(obj, "%s") then
+      return string.format("\"%s\"", obj)
     else
-      return k
+      return tostring(obj)
+    end
+  end
+  local format_item
+  format_item = function(k, v)
+    if type(k) == "number" then
+      return string.format("%s", v)
+    else
+      return string.format("%s %s", (quote(k)), v)
     end
   end
   local aux
@@ -1803,9 +1838,9 @@ M.tcl = function(t, indent)
       if type(dict[k]) == "table" then
         v = aux(dict[k], (get_keys(dict[k])), { }, indent)
       else
-        v = tostring(dict[k])
+        v = quote(dict[k])
       end
-      local new_item = string.format("%s %s", (format_key(k)), v)
+      local new_item = format_item(k, v)
       return aux(dict, (tail(keys)), (append(accum, new_item)), prefix)
     end
   end
@@ -1819,5 +1854,5 @@ end
 end
 
 package.path = package.path..";?/init.lua"
-local M = require("core_FunctionalX")
+local M = require("app")
 return M
