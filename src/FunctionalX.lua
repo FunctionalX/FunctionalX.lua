@@ -1,3 +1,3 @@
 package.path = package.path..";?/init.lua"
-local M = require("app")
+local M = require("appFunctionalX")
 return M
