@@ -1,10 +1,22 @@
 local M = { }
+local TK = require("PackageToolkit")
+local me = ...
+local root_parent = TK.module.root(me)
+local concat = TK.module.require(root_parent .. "._lists._concat", "concat")
 M.keys = function(t)
-  local output = { }
+  local strs = { }
+  local numbers = { }
+  local others = { }
   for k, v in pairs(t) do
-    output[#output + 1] = k
+    if type(k) == "number" then
+      numbers[#numbers + 1] = k
+    elseif type(k) == "string" then
+      strs[#strs + 1] = k
+    else
+      others[#others + 1] = k
+    end
   end
-  table.sort(output)
-  return output
+  table.sort(strs)
+  return concat(numbers, strs, others)
 end
 return M

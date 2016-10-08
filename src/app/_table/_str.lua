@@ -14,10 +14,18 @@ M.str = function(t, indent)
   add_brackets = function(s, prefix)
     return string.format("{\n%s%s%s\n%s}", prefix, indent, s, prefix)
   end
+  local bracket
+  bracket = function(obj)
+    if type(obj) == "string" and string.match(obj, "%s") then
+      return string.format("[%s]", obj)
+    else
+      return tostring(obj)
+    end
+  end
   local quote
   quote = function(obj)
     if type(obj) == "string" and string.match(obj, "%s") then
-      return string.format("[\"%s\"]", obj)
+      return string.format("\"%s\"", obj)
     else
       return tostring(obj)
     end
@@ -27,7 +35,7 @@ M.str = function(t, indent)
     if type(k) == "number" then
       return string.format("%s", v)
     else
-      return string.format("%s = %s", (quote(k)), v)
+      return string.format("%s = %s", (bracket((quote(k)))), v)
     end
   end
   local aux

@@ -22,6 +22,12 @@ M[name] = ->
         "table.str case 3"
     )
     
+    (case FX.table.str, 
+        {{"a 1",k2:2}}, 
+        (string.format "{\n%s\"a 1\",\n%sk2 = 2\n}", indent, indent),
+        "table.str case 4"
+    )
+    
     return true
 
 return M

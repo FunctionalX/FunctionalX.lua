@@ -11,9 +11,15 @@ append = TK.module.require root_parent.."._lists._append", "append"
 M.str = (t, indent="  ") ->
     add_brackets = (s, prefix) -> string.format "{\n%s%s%s\n%s}", prefix, indent, s, prefix
     
+    bracket = (obj) -> 
+        if type(obj) == "string" and string.match obj, "%s"
+            return string.format "[%s]", obj
+        else
+            return tostring obj
+
     quote = (obj) ->
         if type(obj) =="string" and string.match obj, "%s" -- check whether whitespace is found
-            return string.format "[\"%s\"]", obj
+            return string.format "\"%s\"", obj
         else
             return tostring obj
 
@@ -21,7 +27,7 @@ M.str = (t, indent="  ") ->
         if type(k) == "number"
             return string.format "%s", v
         else
-            return string.format "%s = %s", (quote k), v
+            return string.format "%s = %s", (bracket (quote k)), v
 
     aux = (dict, keys, accum, prefix) ->
         if #keys == 0
