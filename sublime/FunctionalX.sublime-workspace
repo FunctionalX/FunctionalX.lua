@@ -299,32 +299,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/G/DEVELOP/FunctionalX.lua/src/build.bat",
-			"settings":
-			{
-				"buffer_size": 156,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/G/DEVELOP/luapower/build.bat",
-			"settings":
-			{
-				"buffer_size": 125,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/_path.moon",
-			"settings":
-			{
-				"buffer_size": 591,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -368,15 +342,29 @@
 		"/G/DEVELOP/FunctionalX.lua/src",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory",
-		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_numeric",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_os",
 		"/G/DEVELOP/FunctionalX.lua/src/test",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_table",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_keys",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_str",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_tcl"
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_numeric",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_numeric/test_range",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_os",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_os/test_windows"
 	],
 	"file_history":
 	[
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_os/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_numeric/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_numeric/_range.moon",
+		"/G/DEVELOP/luapower/build.bat",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_os/_windows.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_os/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_os/test_windows/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/runtests.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_numeric/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_numeric/test_range/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/build.bat",
+		"/G/DEVELOP/luapower/.gitignore",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/_tcl.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_keys/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_tcl/init.moon",
@@ -388,13 +376,11 @@
 		"/G/DEVELOP/FunctionalX.lua/src/tmp.lua",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/_keys.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/PackageToolkit.lua",
-		"/G/DEVELOP/FunctionalX.lua/src/test/runtests.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_keys/init.lua",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_concat.moon",
 		"/G/DEVELOP/AppliedStochasticProcesses/seminar/Legget_lecture.txt",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_fn/test_map/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_keys/case.moon",
-		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/init.moon",
 		"/G/DEVELOP/PackageToolkit.lua/sublime/PackageToolkit.sublime-workspace",
 		"/G/DEVELOP/PackageToolkit.lua/sublime/PackageToolkit.sublime-project",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_table2str.moon",
@@ -493,18 +479,7 @@
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/init.moon",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/init.moon",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_cart.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/_cart.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concat2/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concat/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/test_concat/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_cart/case.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_cart2.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_cart2/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_concat2.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_join/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_join/init.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_strings/test_join/case.lua",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/_cart2.moon"
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/_cart.moon"
 	],
 	"find":
 	{
@@ -670,95 +645,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/G/DEVELOP/FunctionalX.lua/src/build.bat",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 156,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								156,
-								156
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Batch File/Batch File.sublime-syntax"
-						},
-						"translation.x": 121.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/G/DEVELOP/luapower/build.bat",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 125,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								80
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Batch File/Batch File.sublime-syntax"
-						},
-						"translation.x": 274.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/_path.moon",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 591,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Moonscripty/Syntaxes/MoonScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

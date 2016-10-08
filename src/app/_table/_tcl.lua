@@ -14,12 +14,20 @@ M.tcl = function(t, indent)
   add_brackets = function(s, prefix)
     return string.format("{\n%s%s%s\n%s}", prefix, indent, s, prefix)
   end
-  local format_key
-  format_key = function(k)
-    if string.match(k, "%s") then
-      return string.format("\"%s\"", k)
+  local quote
+  quote = function(obj)
+    if type(obj) == "string" and string.match(obj, "%s") then
+      return string.format("\"%s\"", obj)
     else
-      return k
+      return tostring(obj)
+    end
+  end
+  local format_item
+  format_item = function(k, v)
+    if type(k) == "number" then
+      return string.format("%s", v)
+    else
+      return string.format("%s %s", (quote(k)), v)
     end
   end
   local aux
@@ -33,9 +41,9 @@ M.tcl = function(t, indent)
       if type(dict[k]) == "table" then
         v = aux(dict[k], (get_keys(dict[k])), { }, indent)
       else
-        v = tostring(dict[k])
+        v = quote(dict[k])
       end
-      local new_item = string.format("%s %s", (format_key(k)), v)
+      local new_item = format_item(k, v)
       return aux(dict, (tail(keys)), (append(accum, new_item)), prefix)
     end
   end

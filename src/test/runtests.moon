@@ -7,9 +7,9 @@ tests = {
     -- 'test_strings'
     -- "test_directory"
     -- "test_fn"
-    -- "test_table"
+    "test_table"
     -- "test_numeric"
-    "test_os"
+    -- "test_os"
 }
 M = TK.module.submodules parent, tests
 

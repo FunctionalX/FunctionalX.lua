@@ -1,5 +1,5 @@
 TK = require("PackageToolkit")
-parent = "core_FunctionalX"
+parent = "app"
 members = {
     "_lists"
     "_strings"
