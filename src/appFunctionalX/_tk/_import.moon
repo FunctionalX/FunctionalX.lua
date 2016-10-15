@@ -2,7 +2,11 @@ M = {}
 M.import = (me, module_name) ->
     -- 'me': the current caller's module path which is captured by "..."
     -- "module_name": name of the module that lives in the same directory as the caller
-    --
+    -- user note: if you call this 'import' inside init.lua, make sure prepend thd module_name
+    --     by the name of the caller module folder. 
+    --     This is because init.lua is a special file. "..." is expanded to 'folder' not 'folder.init'
+    
+
     -- developer's note: ".-" matches any character 0 or more times as few as possible
     -- "(.-)" captures the matching
     -- [^%./] means any character not in the set where "%" is the escaping symbol
