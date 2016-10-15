@@ -716,7 +716,8 @@ local members = {
   "_fn",
   "_table",
   "_numeric",
-  "_os"
+  "_os",
+  "_tk"
 }
 return TK.module.submodules(parent, members)
 
@@ -1845,6 +1846,36 @@ M.tcl = function(t, indent)
     end
   end
   return aux(t, (get_keys(t)), { }, "")
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "appFunctionalX._tk" ] = function( ... ) local arg = _G.arg;
+local TK = require("PackageToolkit")
+local parent = ...
+local members = {
+  "_import"
+}
+return TK.module.subfunctions(parent, members)
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "appFunctionalX._tk._import" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.import = function(me, module_name)
+  if (string.match(me, "[/%.]")) == nil then
+    return module_name
+  else
+    local current_path = string.match(me, "(.-)[/%.]?[^%./]+$")
+    return require((string.format("%s/%s", current_path, module_name)))
+  end
 end
 return M
 
