@@ -7,6 +7,7 @@ local members = {
   "_fn",
   "_table",
   "_numeric",
-  "_os"
+  "_os",
+  "_tk"
 }
 return TK.module.submodules(parent, members)

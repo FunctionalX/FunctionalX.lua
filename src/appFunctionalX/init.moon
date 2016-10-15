@@ -8,5 +8,6 @@ members = {
     "_table"
     "_numeric"
     "_os"
+    "_tk"
 }
 return TK.module.submodules parent, members

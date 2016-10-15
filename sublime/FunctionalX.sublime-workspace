@@ -299,6 +299,24 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/G/DEVELOP/FunctionalX.lua/src/appFunctionalX/init.moon",
+			"settings":
+			{
+				"buffer_size": 209,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/G/DEVELOP/FunctionalX.lua/src/FunctionalX.lua",
+			"settings":
+			{
+				"buffer_size": 87,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -339,19 +357,33 @@
 	"expanded_folders":
 	[
 		"/G/DEVELOP/FunctionalX.lua",
+		"/G/DEVELOP/FunctionalX.lua/release",
 		"/G/DEVELOP/FunctionalX.lua/src",
-		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX",
-		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory",
-		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_numeric",
-		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_os",
+		"/G/DEVELOP/FunctionalX.lua/src/appFunctionalX",
 		"/G/DEVELOP/FunctionalX.lua/src/test",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_numeric",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_numeric/test_range",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_os",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_os/test_windows"
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_os/test_windows",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_keys",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_str",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_tcl"
 	],
 	"file_history":
 	[
+		"/G/DEVELOP/pandas_tutorial/climate_timeseries/data/greenhouse_gaz/co2_mm_global.txt",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_str/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/runtests.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/app/_table/_keys.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/app/_table/_str.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_keys/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/app/_table/_tcl.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/app/init.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/FunctionalX.lua",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/_tcl.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/_str.moon",
+		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_cart2.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_os/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_numeric/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_numeric/_range.moon",
@@ -360,16 +392,11 @@
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_os/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_os/test_windows/init.moon",
-		"/G/DEVELOP/FunctionalX.lua/src/test/runtests.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_numeric/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_numeric/test_range/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/build.bat",
 		"/G/DEVELOP/luapower/.gitignore",
-		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/_tcl.moon",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_keys/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_tcl/init.moon",
-		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/_str.moon",
-		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/test_str/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_table/init.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/tmp.moon",
 		"/G/DEVELOP/FunctionalX.lua/src/test/test_table/init.moon",
@@ -472,18 +499,11 @@
 		"/C/Users/Steven/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1",
 		"/C/Users/Steven/DEVELOP/Meetings/.gitignore",
 		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/_concat.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_lists/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/test_cart/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/test/test_directory/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/init.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_strings/_cart.moon",
-		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_directory/_cart.moon"
+		"/C/Users/Steven/DEVELOP/FunctionalX.lua/src/core_FunctionalX/_lists/init.moon"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
@@ -498,6 +518,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"string",
+			"s",
+			"tail",
+			"output",
+			"k",
+			")\n",
+			"format_key",
+			"quote",
+			"add_quotes",
+			"format_key",
 			"table.str",
 			"str",
 			"FX.table.str",
@@ -615,17 +645,7 @@
 			"()\n",
 			"train",
 			"schoolSize",
-			"urban",
-			"publicSchool",
-			"schoolHasLibrary",
-			"minutesPerWeekEnglish",
-			"read30MinsADay",
-			"computerForSchoolwork",
-			"englishAtHome",
-			"motherBornUS",
-			"train",
-			"corel",
-			"recitation2"
+			"urban"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -645,8 +665,65 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/G/DEVELOP/FunctionalX.lua/src/appFunctionalX/init.moon",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								55,
+								55
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Moonscripty/Syntaxes/MoonScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/G/DEVELOP/FunctionalX.lua/src/FunctionalX.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 87,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								87,
+								87
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
