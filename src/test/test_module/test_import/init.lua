@@ -11,7 +11,9 @@ M[name] = function()
     local m = FX.module.import(me, 'm', 'm2')
     return m.hello()
   end
-  case(fn, { }, "hello from m1", "numeric.range case 1")
+  case(fn, { }, {
+    "hello from m1"
+  }, "numeric.range case 1")
   return true
 end
 return M

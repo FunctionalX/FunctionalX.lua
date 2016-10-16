@@ -10,20 +10,24 @@ M[name] = function()
     1,
     5
   }, {
-    1,
-    2,
-    3,
-    4,
-    5
+    {
+      1,
+      2,
+      3,
+      4,
+      5
+    }
   }, "numeric.range case 1")
   case(fn, {
     1,
     5,
     2
   }, {
-    1,
-    3,
-    5
+    {
+      1,
+      3,
+      5
+    }
   }, "numeric.range case 2")
   return true
 end

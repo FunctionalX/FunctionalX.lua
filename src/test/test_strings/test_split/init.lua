@@ -8,6 +8,10 @@ M.test_split = function()
     "b",
     "c"
   })
+  case("a", ".", {
+    "a"
+  })
+  case("", ".", { })
   return true
 end
 return M

@@ -12,9 +12,11 @@ M[name] = function()
       k3 = 3
     }
   }, {
-    "k",
-    "k2",
-    "k3"
+    {
+      "k",
+      "k2",
+      "k3"
+    }
   }, "table.keys case 1")
   case(FX.table.keys, {
     {
@@ -23,9 +25,11 @@ M[name] = function()
       3
     }
   }, {
-    1,
-    2,
-    "k 2"
+    {
+      1,
+      2,
+      "k 2"
+    }
   }, "table.keys case 2")
   return true
 end
