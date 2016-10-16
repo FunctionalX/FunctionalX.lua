@@ -192,24 +192,6 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit._lists._head" ] = function( ... ) local arg = _G.arg;
-local M = { }
-M.head = function(list)
-  if (type(list)) ~= "table" then
-    return nil
-  end
-  if #list == 0 then
-    return nil
-  end
-  return list[1]
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
 package.preload[ "core_PackageToolkit.._ui._dashed_line" ] = function( ... ) local arg = _G.arg;
 local M = { }
 M.dashed_line = function(n, symbol)
@@ -233,21 +215,16 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit._ui._dashed_line" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_PackageToolkit._lists._head" ] = function( ... ) local arg = _G.arg;
 local M = { }
-M.dashed_line = function(n, symbol)
-  if symbol == nil then
-    symbol = "-"
+M.head = function(list)
+  if (type(list)) ~= "table" then
+    return nil
   end
-  local aux
-  aux = function(n, symbol, accum)
-    if n == 0 then
-      return accum
-    else
-      return aux((n - 1), symbol, accum .. symbol)
-    end
+  if #list == 0 then
+    return nil
   end
-  return aux(n, symbol, "")
+  return list[1]
 end
 return M
 
@@ -264,12 +241,83 @@ local members = {
   "remove_prefix",
   "require",
   "subfunctions",
-  "submodules"
+  "submodules",
+  "import"
 }
 local M = { }
 for _index_0 = 1, #members do
   local name = members[_index_0]
   M[name] = require(parent .. "._" .. name)[name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module._import" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local parent = ...
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+local root1 = (split(parent, "."))[1]
+local tail = require(root1 .. "." .. "._lists._tail")["tail"]
+M.import = function(me, ...)
+  local chop
+  chop = function(path)
+    if (string.match(path, "[/%.]")) == nil then
+      return path
+    else
+      return string.match(path, "(.-)[/%.]?[^%./]+$")
+    end
+  end
+  local aux
+  aux = function(args, prefix)
+    if #args == 0 then
+      return prefix
+    else
+      if args[1] == "." then
+        return aux((tail(args)), prefix)
+      elseif args[1] == ".." then
+        return aux((tail(args)), (chop(prefix)))
+      else
+        return aux((tail(args)), (string.format("%s.%s", prefix, args[1])))
+      end
+    end
+  end
+  return (require((aux({
+    ...
+  }, me))))
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit.._lists._head" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.head = function(list)
+  if (type(list)) ~= "table" then
+    return nil
+  end
+  if #list == 0 then
+    return nil
+  end
+  return list[1]
 end
 return M
 
@@ -355,24 +403,6 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit.._lists._head" ] = function( ... ) local arg = _G.arg;
-local M = { }
-M.head = function(list)
-  if (type(list)) ~= "table" then
-    return nil
-  end
-  if #list == 0 then
-    return nil
-  end
-  return list[1]
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
 package.preload[ "core_PackageToolkit.._test._equal_lists" ] = function( ... ) local arg = _G.arg;
 local parent = ...
 local split
@@ -449,6 +479,29 @@ M.merge = function(table1, table2)
     end
   end
   return output
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._ui._dashed_line" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.dashed_line = function(n, symbol)
+  if symbol == nil then
+    symbol = "-"
+  end
+  local aux
+  aux = function(n, symbol, accum)
+    if n == 0 then
+      return accum
+    else
+      return aux((n - 1), symbol, accum .. symbol)
+    end
+  end
+  return aux(n, symbol, "")
 end
 return M
 

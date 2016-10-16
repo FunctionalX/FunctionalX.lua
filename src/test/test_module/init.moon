@@ -1,7 +1,7 @@
 TK = require "PackageToolkit"
 M = {}
 me = ...
-name = "test_tk"
+name = "test_module"
 members = {
     "test_import"
 }

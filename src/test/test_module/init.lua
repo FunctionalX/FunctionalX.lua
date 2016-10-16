@@ -1,7 +1,7 @@
 local TK = require("PackageToolkit")
 local M = { }
 local me = ...
-local name = "test_tk"
+local name = "test_module"
 local members = {
   "test_import"
 }
