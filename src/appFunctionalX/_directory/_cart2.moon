@@ -1,10 +1,8 @@
 M = {}
-TK = require("PackageToolkit")
-me = ...
-root = TK.module.root me
-tail = TK.module.require root.."._lists._tail", "tail"
-append = TK.module.require root.."._lists._append", "append"
-path = TK.module.require root.."._directory._path", "path"
+T = require("PackageToolkit").module
+path = (T.import ..., "..", "_path").path
+tail  = (T.import ..., "..", "..", "_lists", "_tail").tail
+append  = (T.import ..., "..", "..", "_lists", "_append").append
 
 -- take a the Cartesian product of two lists
 M.cart2 = (list1, list2) -> 
