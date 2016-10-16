@@ -1,8 +1,7 @@
+me = ...
 M = {}
 TK = require("PackageToolkit")
-parent = ...
-root_parent = TK.module.root parent
-tail   = TK.module.require  root_parent.."._lists._tail", "tail"
+tail = (TK.module.import me, '..', '_tail').tail
 
 -- append an item a list
 M.append = (list, ...) ->
