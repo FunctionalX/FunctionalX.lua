@@ -3,7 +3,6 @@ T = require("PackageToolkit").module
 head  = (T.import ..., "..", "..", "_lists", "_head").head
 tail  = (T.import ..., "..", "..", "_lists", "_tail").tail
 
-
 -- Join many strings by a separtor symbol
 M.join = (...) ->
     args = {...}
