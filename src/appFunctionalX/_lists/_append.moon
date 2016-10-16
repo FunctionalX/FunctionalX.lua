@@ -1,7 +1,6 @@
-me = ...
 M = {}
 TK = require("PackageToolkit")
-tail = (TK.module.import me, '..', '_tail').tail
+tail = (TK.module.import ..., '..', '_tail').tail
 
 -- append an item a list
 M.append = (list, ...) ->

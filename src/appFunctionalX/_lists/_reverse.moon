@@ -1,9 +1,7 @@
 M = {}
 TK = require("PackageToolkit")
-parent = ...
-root_parent = TK.module.root parent
-prepend = TK.module.require  root_parent.."._lists._prepend", "prepend"
-tail   = TK.module.require  root_parent.."._lists._tail", "tail"
+prepend = (TK.module.import ..., "..", "_prepend").prepend
+tail = (TK.module.import ..., "..", "_tail").tail
 
 -- Reverse a list
 M.reverse = (list) -> 

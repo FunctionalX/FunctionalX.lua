@@ -1,10 +1,8 @@
 M = {}
 TK = require("PackageToolkit")
-me = ...
-root_parent = TK.module.root me
-head = TK.module.require root_parent.."._lists._head", "head"
-tail = TK.module.require root_parent.."._lists._tail", "tail"
-append = TK.module.require root_parent.."._lists._append", "append"
+head = (TK.module.import ..., "..", "_head").head
+tail = (TK.module.import ..., "..", "_tail").tail
+append = (TK.module.import ..., "..", "_append").append
 
 -- flatten all the lists/non-lists and combine them into one list
 M.flatten = (...) ->

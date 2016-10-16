@@ -1,10 +1,8 @@
 M = {}
 TK = require("PackageToolkit")
-parent = ...
-root_parent = TK.module.root parent
-append = TK.module.require  root_parent.."._lists._append", "append"
-tail   = TK.module.require  root_parent.."._lists._tail", "tail"
-flatten   = TK.module.require  root_parent.."._lists._flatten", "flatten"
+append = (TK.module.import ..., "..", "_append").append
+tail   = (TK.module.import ..., "..", "_tail").tail
+flatten   = (TK.module.import ..., "..", "_flatten").flatten
 
 -- take a the Cartesian product of two lists
 M.cart2 = (list1, list2, merge=false) -> 
