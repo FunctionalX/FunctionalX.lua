@@ -1,9 +1,7 @@
 local M = { }
 local TK = require("PackageToolkit")
-local me = ...
-local root_parent = TK.module.root(me)
-local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
-local merge2 = TK.module.require(root_parent .. "._lists._merge2", "merge2")
+local tail = (TK.module.import(..., "..", "_tail")).tail
+local merge2 = (TK.module.import(..., "..", "_merge2")).merge2
 M.merge = function(...)
   local tables = {
     ...

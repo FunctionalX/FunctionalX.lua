@@ -1,7 +1,6 @@
-local me = ...
 local M = { }
 local TK = require("PackageToolkit")
-local tail = (TK.module.import(me, '..', '_tail')).tail
+local tail = (TK.module.import(..., '..', '_tail')).tail
 M.append = function(list, ...)
   local items = {
     ...

@@ -1,8 +1,6 @@
 local M = { }
-local me = ...
 local TK = require("PackageToolkit")
-local root_parent = TK.module.root(me)
-local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local tail = (TK.module.import(..., "..", "_tail")).tail
 M.drop = function(n, list)
   if (type(list)) ~= "table" then
     return { }

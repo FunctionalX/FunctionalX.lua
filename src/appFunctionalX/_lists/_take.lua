@@ -1,10 +1,8 @@
 local M = { }
-local me = ...
 local TK = require("PackageToolkit")
-local root_parent = TK.module.root(me)
-local append = TK.module.require(root_parent .. "._lists._append", "append")
-local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
-local head = TK.module.require(root_parent .. "._lists._head", "head")
+local append = (TK.module.import(..., "..", "_append")).append
+local tail = (TK.module.import(..., "..", "_tail")).tail
+local head = (TK.module.import(..., "..", "_head")).head
 M.take = function(n, list)
   if (type(list)) ~= "table" then
     return { }
