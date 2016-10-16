@@ -1,9 +1,7 @@
 local M = { }
-local TK = require("PackageToolkit")
-local parent = ...
-local root_parent = TK.module.root(parent)
-local L = require(root_parent .. "._lists")
-local S = require(root_parent .. "._strings")
+local T = require("PackageToolkit").module
+local L = T.import(..., "..", "..", "_lists")
+local S = T.import(..., "..", "..", "_strings")
 M.windows = function()
   local dir_separator = L.head(S.split(package.config))
   return dir_separator == '\\'
