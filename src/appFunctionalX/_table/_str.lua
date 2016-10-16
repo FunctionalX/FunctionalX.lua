@@ -1,11 +1,9 @@
 local M = { }
-local TK = require("PackageToolkit")
-local me = ...
-local root_parent = TK.module.root(me)
-local get_keys = TK.module.require(root_parent .. "._table._keys", "keys")
-local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
-local head = TK.module.require(root_parent .. "._lists._head", "head")
-local append = TK.module.require(root_parent .. "._lists._append", "append")
+local T = require("PackageToolkit").module
+local head = (T.import(..., "..", "..", "_lists", "_head")).head
+local tail = (T.import(..., "..", "..", "_lists", "_tail")).tail
+local append = (T.import(..., "..", "..", "_lists", "_append")).append
+local get_keys = (T.import(..., "..", "_keys")).keys
 M.str = function(t, indent)
   if indent == nil then
     indent = "  "

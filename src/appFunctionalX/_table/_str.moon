@@ -1,12 +1,10 @@
 -- Convert a Lua table to a string representation
 M = {}
-TK = require("PackageToolkit")
-me = ...
-root_parent = TK.module.root me
-get_keys = TK.module.require root_parent.."._table._keys", "keys"
-tail = TK.module.require root_parent.."._lists._tail", "tail"
-head = TK.module.require root_parent.."._lists._head", "head"
-append = TK.module.require root_parent.."._lists._append", "append"
+T = require("PackageToolkit").module
+head  = (T.import ..., "..", "..", "_lists", "_head").head
+tail  = (T.import ..., "..", "..", "_lists", "_tail").tail
+append  = (T.import ..., "..", "..", "_lists", "_append").append
+get_keys = (T.import ..., "..", "_keys").keys
 
 M.str = (t, indent="  ") ->
     add_brackets = (s, prefix) -> string.format "{\n%s%s%s\n%s}", prefix, indent, s, prefix

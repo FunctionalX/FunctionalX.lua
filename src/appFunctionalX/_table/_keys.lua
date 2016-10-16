@@ -1,8 +1,6 @@
 local M = { }
-local TK = require("PackageToolkit")
-local me = ...
-local root_parent = TK.module.root(me)
-local concat = TK.module.require(root_parent .. "._lists._concat", "concat")
+local T = require("PackageToolkit").module
+local concat = (T.import(..., "..", "..", "_lists", "_concat")).concat
 M.keys = function(t)
   local strs = { }
   local numbers = { }
