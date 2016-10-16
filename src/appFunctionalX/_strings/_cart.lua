@@ -1,9 +1,7 @@
 local M = { }
-local TK = require("PackageToolkit")
-local me = ...
-local root_parent = TK.module.root(me)
-local cart2 = TK.module.require(root_parent .. "._strings._cart2", "cart2")
-local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
+local T = require("PackageToolkit").module
+local tail = (T.import(..., "..", "..", "_lists", "_tail")).tail
+local cart2 = (T.import(..., "..", "_cart2")).cart2
 M.cart = function(...)
   local aux
   aux = function(list1, other_lists)

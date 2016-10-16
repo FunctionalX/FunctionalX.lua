@@ -1,9 +1,8 @@
 M = {}
-TK = require("PackageToolkit")
-me = ...
-root_parent = TK.module.root me
-tail = TK.module.require root_parent.."._lists._tail", "tail"
-head = TK.module.require root_parent.."._lists._head", "head"
+T = require("PackageToolkit").module
+head  = (T.import ..., "..", "..", "_lists", "_head").head
+tail  = (T.import ..., "..", "..", "_lists", "_tail").tail
+
 
 -- Join many strings by a separtor symbol
 M.join = (...) ->

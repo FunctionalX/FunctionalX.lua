@@ -1,9 +1,7 @@
 M = {}
-TK = require("PackageToolkit")
-me = ...
-root_parent = TK.module.root me
-cart2 = TK.module.require root_parent.."._strings._cart2", "cart2"
-tail = TK.module.require root_parent.."._lists._tail", "tail"
+T = require("PackageToolkit").module
+tail  = (T.import ..., "..", "..", "_lists", "_tail").tail
+cart2 = (T.import ..., "..", "_cart2").cart2
 
 -- take a the Cartesian product for more than two lists
 -- The input is a list of lists

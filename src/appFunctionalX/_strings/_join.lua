@@ -1,9 +1,7 @@
 local M = { }
-local TK = require("PackageToolkit")
-local me = ...
-local root_parent = TK.module.root(me)
-local tail = TK.module.require(root_parent .. "._lists._tail", "tail")
-local head = TK.module.require(root_parent .. "._lists._head", "head")
+local T = require("PackageToolkit").module
+local head = (T.import(..., "..", "..", "_lists", "_head")).head
+local tail = (T.import(..., "..", "..", "_lists", "_tail")).tail
 M.join = function(...)
   local args = {
     ...
