@@ -1,7 +1,7 @@
 M = {}
 T = require("PackageToolkit").module
-L  = T.import ..., "..", "..", "_lists"
-S  = T.import ..., "..", "..", "_strings"
+L  = T.import ..., "../_lists"
+S  = T.import ..., "../_strings"
 
 -- return a path string given the subdirectories
 M.path = (...) ->

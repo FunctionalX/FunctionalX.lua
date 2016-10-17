@@ -1,9 +1,9 @@
 local M = { }
 local T = (require("PackageToolkit")).module
-local split = (T.import(..., "..", "..", "_strings", "_split")).split
-local join = (T.import(..., "..", "..", "_strings", "_join")).join
-local tail = (T.import(..., "..", "..", "_lists", "_tail")).tail
-local append = (T.import(..., "..", "..", "_lists", "_append")).append
+local split = (T.import(..., "_split")).split
+local join = (T.import(..., "_join")).join
+local tail = (T.import(..., "../_lists/_tail")).tail
+local append = (T.import(..., "../_lists/_append")).append
 M.parseNumbers = function(sep, ...)
   local to_numbers
   to_numbers = function(xs)

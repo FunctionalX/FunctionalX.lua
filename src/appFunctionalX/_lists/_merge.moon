@@ -1,8 +1,8 @@
 -- Merge any number of hash tables (nil values will be removed)
 M = {}
 TK = require("PackageToolkit")
-tail = (TK.module.import ..., "..", "_tail").tail
-merge2 = (TK.module.import ..., "..", "_merge2").merge2
+tail = (TK.module.import ..., "_tail").tail
+merge2 = (TK.module.import ..., "_merge2").merge2
 
 M.merge = (...) ->
     tables = {...}

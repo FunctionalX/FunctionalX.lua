@@ -1,7 +1,7 @@
 -- drop n items from a list
 M = {}
 TK = require("PackageToolkit")
-tail = (TK.module.import ..., "..", "_tail").tail
+tail = (TK.module.import ..., "_tail").tail
 
 M.drop = (n, list) ->
     return {} if (type list) != "table"

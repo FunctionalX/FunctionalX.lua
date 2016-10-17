@@ -1,9 +1,9 @@
 -- take n items from a list
 M = {}
 TK = require("PackageToolkit")
-append = (TK.module.import ..., "..", "_append").append
-tail = (TK.module.import ..., "..", "_tail").tail
-head = (TK.module.import ..., "..", "_head").head
+append = (TK.module.import ..., "_append").append
+tail = (TK.module.import ..., "_tail").tail
+head = (TK.module.import ..., "_head").head
 
 M.take = (n, list) ->
     return {} if (type list) != "table"

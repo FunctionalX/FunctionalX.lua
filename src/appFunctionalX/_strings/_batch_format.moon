@@ -1,6 +1,6 @@
 M = {}
 T = require("PackageToolkit").module
-L  = T.import ..., "..", "..", "_lists"
+L  = T.import ...,  "../_lists"
 
 -- return a list of strings for a given template using a variable list
 M.batch_format = (format_template, variable_list) -> 

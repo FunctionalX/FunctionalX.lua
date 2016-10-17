@@ -1,6 +1,6 @@
 local M = { }
 local T = require("PackageToolkit").module
-local L = T.import(..., "..", "..", "_lists")
+local L = T.import(..., "../_lists")
 M.batch_format = function(format_template, variable_list)
   local aux
   aux = function(format_template, variable_list, accum)

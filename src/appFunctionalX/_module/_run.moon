@@ -1,11 +1,11 @@
 M = {}
 T = (require "PackageToolkit").module 
-parse = (T.import ..., "..", "..", "_strings", "_parseNumbers").parseNumbers
-head = (T.import ..., "..", "..", "_lists", "_head").head
-tail = (T.import ..., "..", "..", "_lists", "_tail").tail
-append = (T.import ..., "..", "..", "_lists", "_append").append
-range = (T.import ..., "..", "..", "_numeric", "_range").range
-join = (T.import ..., "..", "..", "_strings", "_join").join
+parse = (T.import ..., "../_strings/_parseNumbers").parseNumbers
+head = (T.import ..., "../_lists/_head").head
+tail = (T.import ..., "../_lists/_tail").tail
+append = (T.import ..., "../_lists/_append").append
+range = (T.import ..., "../_numeric/_range").range
+join = (T.import ..., "../_strings/_join").join
 
 M.run = (modules, ...) ->
     sep = ","

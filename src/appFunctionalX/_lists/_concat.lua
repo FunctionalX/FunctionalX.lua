@@ -1,7 +1,7 @@
 local M = { }
 local TK = require("PackageToolkit")
-local tail = (TK.module.import(..., "..", "_tail")).tail
-local concat2 = (TK.module.import(..., "..", "_concat2")).concat2
+local tail = (TK.module.import(..., "_tail")).tail
+local concat2 = (TK.module.import(..., "_concat2")).concat2
 M.concat = function(...)
   local args = {
     ...

@@ -1,7 +1,7 @@
 local M = { }
 local T = require("PackageToolkit").module
-local L = T.import(..., "..", "..", "_lists")
-local S = T.import(..., "..", "..", "_strings")
+local L = T.import(..., "../_lists")
+local S = T.import(..., "../_strings")
 M.path = function(...)
   local dir_separator = L.head(S.split(package.config))
   local aux

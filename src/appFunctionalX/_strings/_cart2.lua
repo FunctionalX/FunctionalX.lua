@@ -1,6 +1,6 @@
 local M = { }
 local T = require("PackageToolkit").module
-local L = T.import(..., "..", "..", "_lists")
+local L = T.import(..., "../_lists")
 local tail = L.tail
 local append = L.append
 M.cart2 = function(list1, list2)

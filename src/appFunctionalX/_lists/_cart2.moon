@@ -1,8 +1,8 @@
 M = {}
 TK = require("PackageToolkit")
-append = (TK.module.import ..., "..", "_append").append
-tail   = (TK.module.import ..., "..", "_tail").tail
-flatten   = (TK.module.import ..., "..", "_flatten").flatten
+append = (TK.module.import ..., "_append").append
+tail   = (TK.module.import ..., "_tail").tail
+flatten   = (TK.module.import ..., "_flatten").flatten
 
 -- take a the Cartesian product of two lists
 M.cart2 = (list1, list2, merge=false) -> 

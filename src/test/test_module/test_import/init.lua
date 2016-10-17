@@ -8,7 +8,7 @@ M[name] = function()
   local fn
   fn = function()
     print(me)
-    local m = FX.module.import(me, 'm', 'm2')
+    local m = FX.module.initimport(me, 'm/m2')
     return m.hello()
   end
   case(fn, { }, {

@@ -1,9 +1,9 @@
 local M = { }
 local T = require("PackageToolkit").module
-local head = (T.import(..., "..", "..", "_lists", "_head")).head
-local tail = (T.import(..., "..", "..", "_lists", "_tail")).tail
-local append = (T.import(..., "..", "..", "_lists", "_append")).append
-local get_keys = (T.import(..., "..", "_keys")).keys
+local head = (T.import(..., "../_lists/_head")).head
+local tail = (T.import(..., "../_lists/_tail")).tail
+local append = (T.import(..., "../_lists/_append")).append
+local get_keys = (T.import(..., "_keys")).keys
 M.tcl = function(t, indent)
   if indent == nil then
     indent = "  "

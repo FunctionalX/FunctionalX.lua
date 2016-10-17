@@ -1,9 +1,9 @@
 M = {}
 T = (require "PackageToolkit").module
-split = (T.import ..., "..", "..", "_strings", "_split").split
-join  = (T.import ..., "..", "..", "_strings", "_join").join
-tail  = (T.import ..., "..", "..", "_lists", "_tail").tail
-append  = (T.import ..., "..", "..", "_lists", "_append").append
+split = (T.import ..., "_split").split
+join  = (T.import ..., "_join").join
+tail  = (T.import ..., "../_lists/_tail").tail
+append  = (T.import ..., "../_lists/_append").append
 
 
 -- Return two lists L1 and L2

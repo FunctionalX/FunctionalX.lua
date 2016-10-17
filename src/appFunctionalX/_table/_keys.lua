@@ -1,6 +1,6 @@
 local M = { }
 local T = require("PackageToolkit").module
-local concat = (T.import(..., "..", "..", "_lists", "_concat")).concat
+local concat = (T.import(..., "../_lists/_concat")).concat
 M.keys = function(t)
   local strs = { }
   local numbers = { }

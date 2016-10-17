@@ -1,8 +1,8 @@
 local TK = require("PackageToolkit")
 local M = { }
-local tail = (TK.module.import(..., '..', "..", '_lists', '_tail')).tail
-local head = (TK.module.import(..., '..', "..", '_lists', '_head')).head
-local append = (TK.module.import(..., '..', '..', '_lists', '_append')).append
+local tail = (TK.module.import(..., '../_lists/_tail')).tail
+local head = (TK.module.import(..., '../_lists/_head')).head
+local append = (TK.module.import(..., '../_lists/_append')).append
 M.map = function(f, list)
   local aux
   aux = function(f, list, accum)

@@ -1,11 +1,11 @@
 local M = { }
 local T = (require("PackageToolkit")).module
-local parse = (T.import(..., "..", "..", "_strings", "_parseNumbers")).parseNumbers
-local head = (T.import(..., "..", "..", "_lists", "_head")).head
-local tail = (T.import(..., "..", "..", "_lists", "_tail")).tail
-local append = (T.import(..., "..", "..", "_lists", "_append")).append
-local range = (T.import(..., "..", "..", "_numeric", "_range")).range
-local join = (T.import(..., "..", "..", "_strings", "_join")).join
+local parse = (T.import(..., "../_strings/_parseNumbers")).parseNumbers
+local head = (T.import(..., "../_lists/_head")).head
+local tail = (T.import(..., "../_lists/_tail")).tail
+local append = (T.import(..., "../_lists/_append")).append
+local range = (T.import(..., "../_numeric/_range")).range
+local join = (T.import(..., "../_strings/_join")).join
 M.run = function(modules, ...)
   local sep = ","
   if #{

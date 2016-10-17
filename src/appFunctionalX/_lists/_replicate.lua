@@ -1,7 +1,7 @@
 local M = { }
 local TK = require("PackageToolkit")
-local append = (TK.module.import(..., "..", "_append")).append
-local tail = (TK.module.import(..., "..", "_tail")).tail
+local append = (TK.module.import(..., "_append")).append
+local tail = (TK.module.import(..., "_tail")).tail
 M.replicate = function(n, item)
   local aux
   aux = function(n, item, accum)

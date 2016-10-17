@@ -1,6 +1,6 @@
 M = {}
 T = require("PackageToolkit").module
-L  = T.import ..., "..", "..", "_lists"
+L  = T.import ..., "../_lists"
 tail = L.tail
 append = L.append
 

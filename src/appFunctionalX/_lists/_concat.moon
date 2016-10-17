@@ -1,8 +1,8 @@
 -- concatenate many lists into one
 M = {}
 TK = require("PackageToolkit")
-tail = (TK.module.import ..., "..", "_tail").tail
-concat2 = (TK.module.import ..., "..", "_concat2").concat2
+tail = (TK.module.import ..., "_tail").tail
+concat2 = (TK.module.import ..., "_concat2").concat2
 
 -- concatenate many lists
 M.concat = (...) ->

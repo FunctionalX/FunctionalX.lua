@@ -1,8 +1,8 @@
 local M = { }
 local TK = require("PackageToolkit")
-local append = (TK.module.import(..., "..", "_append")).append
-local tail = (TK.module.import(..., "..", "_tail")).tail
-local flatten = (TK.module.import(..., "..", "_flatten")).flatten
+local append = (TK.module.import(..., "_append")).append
+local tail = (TK.module.import(..., "_tail")).tail
+local flatten = (TK.module.import(..., "_flatten")).flatten
 M.cart2 = function(list1, list2, merge)
   if merge == nil then
     merge = false

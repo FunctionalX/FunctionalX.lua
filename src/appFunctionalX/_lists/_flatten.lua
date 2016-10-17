@@ -1,8 +1,8 @@
 local M = { }
 local TK = require("PackageToolkit")
-local head = (TK.module.import(..., "..", "_head")).head
-local tail = (TK.module.import(..., "..", "_tail")).tail
-local append = (TK.module.import(..., "..", "_append")).append
+local head = (TK.module.import(..., "_head")).head
+local tail = (TK.module.import(..., "_tail")).tail
+local append = (TK.module.import(..., "_append")).append
 M.flatten = function(...)
   local args = {
     ...

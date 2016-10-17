@@ -1,7 +1,7 @@
 local M = { }
 local T = require("PackageToolkit").module
-local head = (T.import(..., "..", "..", "_lists", "_head")).head
-local tail = (T.import(..., "..", "..", "_lists", "_tail")).tail
+local head = (T.import(..., "../_lists/_head")).head
+local tail = (T.import(..., "../_lists/_tail")).tail
 M.join = function(...)
   local args = {
     ...

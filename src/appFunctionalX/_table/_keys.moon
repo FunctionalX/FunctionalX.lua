@@ -1,7 +1,7 @@
 -- Return all the (sorted) keys of a table
 M = {}
 T = require("PackageToolkit").module
-concat  = (T.import ..., "..", "..", "_lists", "_concat").concat
+concat  = (T.import ...,"../_lists/_concat").concat
 
 M.keys = (t) ->
     strs = {}

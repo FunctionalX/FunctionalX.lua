@@ -1,7 +1,7 @@
 local M = { }
 local TK = require("PackageToolkit")
-local prepend = (TK.module.import(..., "..", "_prepend")).prepend
-local tail = (TK.module.import(..., "..", "_tail")).tail
+local prepend = (TK.module.import(..., "_prepend")).prepend
+local tail = (TK.module.import(..., "_tail")).tail
 M.reverse = function(list)
   local aux
   aux = function(list, accum)

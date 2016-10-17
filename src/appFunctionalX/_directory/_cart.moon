@@ -1,7 +1,7 @@
 M = {}
 T = require("PackageToolkit").module
-cart2 = (T.import ..., "..", "_cart2").cart2
-tail  = (T.import ..., "..", "..", "_lists", "_tail").tail
+cart2 = (T.import ..., "_cart2").cart2
+tail  = (T.import ..., "../_lists/_tail").tail
 
 -- take a the Cartesian product for more than two lists
 -- The input is a list of lists
