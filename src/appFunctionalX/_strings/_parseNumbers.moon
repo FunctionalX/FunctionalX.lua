@@ -25,7 +25,6 @@ M.parseNumbers = (sep, ...) ->
         args = {...}
         arg_str = args[1]
         arg_groups = split arg_str, sep
-        print unpack arg_groups
         if #arg_groups > 1
             return (to_numbers (split arg_groups[1])), {join(sep, unpack(tail(arg_groups)))}
         else
