@@ -2061,7 +2061,7 @@ M.parseNumbers = function(sep, ...)
     local arg_groups = split(arg_str, sep)
     if #arg_groups > 1 then
       return (to_numbers((split(arg_groups[1])))), {
-        join(tail(arg_groups), sep)
+        join(sep, unpack(tail(arg_groups)))
       }
     else
       return (to_numbers((split(arg_groups[1])))), { }
