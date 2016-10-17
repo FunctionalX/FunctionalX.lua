@@ -97,6 +97,17 @@ M[name] = function()
       "  3"
     }
   }, "strings.parseNumbers case 9"))
+  _ = (case(fn, {
+    ",",
+    "2,1,1"
+  }, {
+    {
+      2
+    },
+    {
+      "1,1"
+    }
+  }, "strings.parseNumbers case 10"))
   return true
 end
 return M
