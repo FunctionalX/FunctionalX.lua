@@ -6,6 +6,6 @@ M.main = (...) ->
     m = {
         T.import me,  "n2"
     }
-    return unpack (FX.module.run m, ...)
+    return unpack (FX.module.call m, ...)
 
 return M

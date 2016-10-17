@@ -3,13 +3,6 @@ local parent = "test"
 local TK = require("PackageToolkit")
 local FX = require("FunctionalX")
 local tests = {
-  "test_lists",
-  'test_strings',
-  "test_directory",
-  "test_fn",
-  "test_table",
-  "test_numeric",
-  "test_os",
   "test_module"
 }
 local M = TK.module.submodules(parent, tests)

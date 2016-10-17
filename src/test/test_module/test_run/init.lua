@@ -8,8 +8,11 @@ local m3 = TK.module.initimport(..., "m3")
 local m4 = TK.module.initimport(..., "m4")
 local case = TK.test.case
 M[name] = function()
-  local fn = FX.module.run
-  case(fn, {
+  local fn1 = FX.module.call
+  local fn2 = FX.module.run
+  print(fn1)
+  print(fn2)
+  case(fn1, {
     {
       m1
     }
@@ -18,7 +21,7 @@ M[name] = function()
       "m1"
     }
   }, "module.run case 1")
-  case(fn, {
+  case(fn1, {
     {
       m1
     },
@@ -26,7 +29,7 @@ M[name] = function()
   }, {
     { }
   }, "module.run case 2")
-  case(fn, {
+  case(fn1, {
     {
       m1,
       m2
@@ -37,7 +40,7 @@ M[name] = function()
       "m1"
     }
   }, "module.run case 3")
-  case(fn, {
+  case(fn1, {
     {
       m1,
       m2
@@ -48,7 +51,7 @@ M[name] = function()
       "m2"
     }
   }, "module.run case 4")
-  case(fn, {
+  case(fn1, {
     {
       m1,
       m2
@@ -60,7 +63,7 @@ M[name] = function()
       "m2"
     }
   }, "module.run case 5")
-  case(fn, {
+  case(fn1, {
     {
       m1,
       m2,
@@ -72,29 +75,29 @@ M[name] = function()
       "n1"
     }
   }, "module.run case 6")
-  case(fn, {
+  case(fn1, {
     {
       m1,
       m2,
       m4
     },
-    "3,1,1"
+    "3,1,1,1"
   }, {
     {
-      "p1"
+      "hello 1"
     }
   }, "module.run case 7")
-  case(fn, {
+  case(fn1, {
     {
       m1,
       m2,
       m4
     },
-    "1 3,1,1"
+    "1 3,1,1,2"
   }, {
     {
       "m1",
-      "p1"
+      "hello 2"
     }
   }, "module.run case 8")
   return true

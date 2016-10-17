@@ -1,8 +1,8 @@
 M = {}
 T = (require "PackageToolkit").module 
 runmodule = (T.import ..., "_runmodule").runmodule
-M.run = (modules, ...) ->
-   return runmodule modules, true, ...
+M.call = (modules, ...) ->
+   return runmodule modules, false, ...
 return M
 
 
