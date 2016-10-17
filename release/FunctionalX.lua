@@ -1800,9 +1800,35 @@ package.preload[ "appFunctionalX._numeric" ] = function( ... ) local arg = _G.ar
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
-  "_range"
+  "_range",
+  "_indices"
 }
 return TK.module.subfunctions(parent, members)
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "appFunctionalX._numeric._indices" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.indices = function(n, ...)
+  local args = {
+    ...
+  }
+  if #args == 0 then
+    local _accum_0 = { }
+    local _len_0 = 1
+    for i = 1, n do
+      _accum_0[_len_0] = i
+      _len_0 = _len_0 + 1
+    end
+    return _accum_0
+  else
+    return args
+  end
+end
+return M
 
 end
 end
