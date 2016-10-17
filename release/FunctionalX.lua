@@ -123,7 +123,7 @@ M.initimport = function(me, module_path)
       end
     end
   end
-  local err = "ERROR HINT: there must be two arguments for import/initimport, i.e. (init)import(..., 'a/b')"
+  local err = (string.format("%s\n%s\n", "ERROR HINT: there must be two arguments for import/initimport, i.e. (init)import(..., 'a/b')", (string.format("Your input is: (init)import(%s, %s)", me, module_path))))
   if me == nil or module_path == nil then
     print(err)
     return nil
@@ -1033,7 +1033,7 @@ M.initimport = function(me, module_path)
       end
     end
   end
-  local err = "ERROR HINT: there must be two arguments for import/initimport, i.e. (init)import(..., 'a/b')"
+  local err = (string.format("%s\n%s\n", "ERROR HINT: there must be two arguments for import/initimport, i.e. (init)import(..., 'a/b')", (string.format("Your input is: (init)import(%s, %s)", me, module_path))))
   if me == nil or module_path == nil then
     print(err)
     return nil
