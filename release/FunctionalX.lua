@@ -1824,6 +1824,7 @@ local TK = require("PackageToolkit")
 local parent = ...
 local members = {
   "_import",
+  "_initimport",
   "_run",
   "_call"
 }
@@ -1852,6 +1853,17 @@ package.preload[ "appFunctionalX._module._import" ] = function( ... ) local arg 
 local M = { }
 local TK = require("PackageToolkit")
 M.import = TK.module.import
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "appFunctionalX._module._initimport" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+M.initimport = TK.module.initimport
 return M
 
 end
