@@ -123,7 +123,13 @@ M.initimport = function(me, module_path)
       end
     end
   end
-  return (require((aux((split(module_path, "/")), me))))
+  local err = "ERROR HINT: there must be two arguments for import/initimport, i.e. (init)import(..., 'a/b')"
+  if me == nil or module_path == nil then
+    print(err)
+    return nil
+  else
+    return (require((aux((split(module_path, "/")), me))))
+  end
 end
 return M
 
@@ -1027,7 +1033,13 @@ M.initimport = function(me, module_path)
       end
     end
   end
-  return (require((aux((split(module_path, "/")), me))))
+  local err = "ERROR HINT: there must be two arguments for import/initimport, i.e. (init)import(..., 'a/b')"
+  if me == nil or module_path == nil then
+    print(err)
+    return nil
+  else
+    return (require((aux((split(module_path, "/")), me))))
+  end
 end
 return M
 
