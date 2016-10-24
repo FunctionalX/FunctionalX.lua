@@ -4,7 +4,7 @@ local windows = T.import(..., "_windows").windows
 M.path = function(env)
   if windows() then
     if env == "HOME" then
-      return os.getenv("HOMEPATH")
+      return string.format("C:%s", os.getenv("HOMEPATH"))
     else
       return ""
     end

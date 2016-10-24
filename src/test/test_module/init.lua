@@ -3,7 +3,7 @@ local M = { }
 local me = ...
 local name = "test_module"
 local members = {
-  "test_run"
+  "test_import"
 }
 local T = TK.module.submodules(me, members)
 M[name] = function()
