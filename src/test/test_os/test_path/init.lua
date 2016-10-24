@@ -8,6 +8,8 @@ M[name] = function()
   local fn = FX.os.path
   print(fn("HOME"))
   print("---------------------")
+  print("path separator: " .. FX.os.pathsep())
+  print("---------------------")
   return true
 end
 return M
