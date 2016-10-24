@@ -10,9 +10,6 @@ M[name] = ->
         m = FX.module.initimport me, 'm/m2'
         return m.hello()
     case fn, {}, {"hello from m1"}, "numeric.range case 1"
-    print "----------------------------"
-    print FX.module.fpath("module1")
-    print "----------------------------"
     return true
 
 return M

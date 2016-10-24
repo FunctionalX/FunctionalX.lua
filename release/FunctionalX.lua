@@ -4,24 +4,6 @@ do
 
 do
 local _ENV = _ENV
-package.preload[ "C:\\Users\\Steven.umolflow" ] = function( ... ) local arg = _G.arg;
-local M = {}
-M.path = function(which)
-    local root = "D:\\DEVELOP\\umolFlow\\src"
-    if which == "fn" then 
-        return string.format("%s.%s", root, "fn")
-    elseif which == "script" then
-        return string.format("%s.%s", rootn, "script")
-    else
-        return ""
-    end 
-end
-return M
-end
-end
-
-do
-local _ENV = _ENV
 package.preload[ "PackageToolkit" ] = function( ... ) local arg = _G.arg;
 
 
@@ -1975,9 +1957,7 @@ local members = {
   "_run",
   "_call",
   "_ipath",
-  "_path",
-  "_fimport",
-  "_fpath"
+  "_path"
 }
 return TK.module.subfunctions(parent, members)
 
@@ -1992,44 +1972,6 @@ local T = (require("PackageToolkit")).module
 local runmodule = (T.import(..., "_runmodule")).runmodule
 M.call = function(modules, ...)
   return runmodule(modules, false, ...)
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "appFunctionalX._module._fimport" ] = function( ... ) local arg = _G.arg;
-local M = { }
-local TK = require("PackageToolkit")
-local fpath = (TK.module.import(..., "_fpath")).fpath
-M.fimport = function(module_name)
-  if module_name == nil then
-    print("ERROR HINT: must give at least one input. usage example: fimport(\"module1\")")
-    return nil
-  else
-    return require(fpath(module_name))
-  end
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "appFunctionalX._module._fpath" ] = function( ... ) local arg = _G.arg;
-local M = { }
-local TK = require("PackageToolkit")
-local os_path = (TK.module.import(..., "../_os/_path")).path
-local path = (require((string.format("%s.%s", os_path("HOME"), "umolflow")))).path
-M.fpath = function(module_name)
-  if module_name == nil then
-    return path("fn")
-  else
-    return string.format("%s.%s", path("fn"), module_name)
-  end
 end
 return M
 

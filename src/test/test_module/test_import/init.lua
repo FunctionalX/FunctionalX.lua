@@ -14,9 +14,6 @@ M[name] = function()
   case(fn, { }, {
     "hello from m1"
   }, "numeric.range case 1")
-  print("----------------------------")
-  print(FX.module.fpath("module1"))
-  print("----------------------------")
   return true
 end
 return M

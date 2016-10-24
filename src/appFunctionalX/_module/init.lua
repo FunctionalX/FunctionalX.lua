@@ -6,8 +6,6 @@ local members = {
   "_run",
   "_call",
   "_ipath",
-  "_path",
-  "_fimport",
-  "_fpath"
+  "_path"
 }
 return TK.module.subfunctions(parent, members)
