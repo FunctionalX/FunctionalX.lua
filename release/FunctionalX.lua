@@ -2153,9 +2153,36 @@ package.preload[ "appFunctionalX._os" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
 local members = {
-  "_windows"
+  "_windows",
+  "_path"
 }
 return TK.module.subfunctions(parent, members)
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "appFunctionalX._os._path" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local T = require("PackageToolkit").module
+local windows = T.import(..., "_windows").windows
+M.path = function(env)
+  if windows() then
+    if env == "HOME" then
+      return os.getenv("HOMEPATH")
+    else
+      return ""
+    end
+  else
+    if env == "HOME" then
+      return os.getenv("HOME")
+    else
+      return ""
+    end
+  end
+end
+return M
 
 end
 end

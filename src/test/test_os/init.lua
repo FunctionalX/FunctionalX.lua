@@ -3,7 +3,8 @@ local M = { }
 local me = ...
 local name = "test_os"
 local members = {
-  "test_windows"
+  "test_windows",
+  "test_path"
 }
 local T = TK.module.submodules(me, members)
 M[name] = function()
