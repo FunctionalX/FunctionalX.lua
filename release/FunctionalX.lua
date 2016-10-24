@@ -1260,7 +1260,8 @@ local parent = ...
 local members = {
   "_path",
   "_cart2",
-  "_cart"
+  "_cart",
+  "_chop"
 }
 return TK.module.subfunctions(parent, members)
 
@@ -1336,6 +1337,25 @@ M.cart2 = function(list1, list2)
     return { }
   end
   return aux(list1, list2, { })
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "appFunctionalX._directory._chop" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local TK = require("PackageToolkit")
+local pathsep = (TK.module.import(..., "../_os/_pathsep")).pathsep
+M.chop = function(path)
+  if (string.match(path, "[/\\%.]")) == nil then
+    return ""
+  else
+    local result, _ = string.gsub((string.match(path, "(.-)[/\\%.]?[^%./\\]+$")), "%.", pathsep())
+    return result
+  end
 end
 return M
 
@@ -2154,7 +2174,8 @@ local TK = require("PackageToolkit")
 local parent = ...
 local members = {
   "_windows",
-  "_path"
+  "_path",
+  "_pathsep"
 }
 return TK.module.subfunctions(parent, members)
 
@@ -2181,6 +2202,21 @@ M.path = function(env)
       return ""
     end
   end
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "appFunctionalX._os._pathsep" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local T = require("PackageToolkit").module
+local L = T.import(..., "../_lists")
+local S = T.import(..., "../_strings")
+M.pathsep = function()
+  return L.head(S.split(package.config))
 end
 return M
 
