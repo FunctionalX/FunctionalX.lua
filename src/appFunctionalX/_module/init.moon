@@ -5,5 +5,7 @@ members = {
     "_initimport"
     "_run"
     "_call"
+    "_ipath"
+    "_path"
 }
 return TK.module.subfunctions parent, members
