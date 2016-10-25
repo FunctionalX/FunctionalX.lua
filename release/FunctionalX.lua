@@ -2061,25 +2061,31 @@ local _ENV = _ENV
 package.preload[ "appFunctionalX._module._runmodule" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local T = (require("PackageToolkit")).module
-local parseNumbers = (T.import(..., "../_strings/_parseNumbers")).parseNumbers
+local parseFirstNumberGroup = (T.import(..., "../_strings/_parseFirstNumberGroup")).parseFirstNumberGroup
 local head = (T.import(..., "../_lists/_head")).head
 local tail = (T.import(..., "../_lists/_tail")).tail
 local append = (T.import(..., "../_lists/_append")).append
 local range = (T.import(..., "../_numeric/_range")).range
 local join = (T.import(..., "../_strings/_join")).join
-M.runmodule = function(modules, exe, ...)
-  local sep = ","
+M.runmodule = function(modules, exe, arg_str, sep1, sep2)
+  if arg_str == nil then
+    arg_str = ""
+  end
+  if sep1 == nil then
+    sep1 = ","
+  end
+  if sep2 == nil then
+    sep2 = " "
+  end
   if #{
     modules
   } == 0 then
     return { }
   end
-  if #{
-    ...
-  } == 0 then
-    return M.runmodule(modules, exe, (join(" ", unpack((range(1, #modules, 1))))))
+  if arg_str == "" then
+    return M.runmodule(modules, exe, (join(sep2, unpack((range(1, #modules, 1))))))
   end
-  local indices, rest = parseNumbers(sep, ...)
+  local indices, rest_str = parseFirstNumberGroup(arg_str, sep1, sep2)
   local aux
   aux = function(indices, modules, accum)
     if #indices == 0 then
@@ -2093,10 +2099,10 @@ M.runmodule = function(modules, exe, ...)
         local result = nil
         if exe == true then
           local _
-          indices, _ = parseNumbers(sep, unpack(rest))
+          indices, _ = parseFirstNumberGroup(rest_str, sep1, sep2)
           result = modules[i].main(unpack(indices))
         else
-          result = modules[i].main(unpack(rest))
+          result = modules[i].main(rest_str)
         end
         return aux((tail(indices)), modules, (append(accum, result)))
       end
@@ -2127,7 +2133,12 @@ do
 local _ENV = _ENV
 package.preload[ "appFunctionalX._numeric._indices" ] = function( ... ) local arg = _G.arg;
 local M = { }
+local T = require("PackageToolkit").module
+local parseNumbers = (T.import(..., "../_strings/_parseNumbers")).parseNumbers
 M.indices = function(n, ...)
+  if n == nil then
+    n = 1
+  end
   local args = {
     ...
   }
@@ -2140,7 +2151,14 @@ M.indices = function(n, ...)
     end
     return _accum_0
   else
-    return args
+    if type(args[1]) == "number" then
+      return args
+    elseif type(args[1]) == "string" then
+      return parseNumbers(args[1], " ")
+    else
+      print("WARNING: unrecognized second argument to FX.numeric.indices(): " .. tostring(args[1]))
+      return { }
+    end
   end
 end
 return M
@@ -2250,7 +2268,8 @@ local members = {
   "_split",
   "_batch_format",
   "_join",
-  "_parseNumbers"
+  "_parseNumbers",
+  "_parseFirstNumberGroup"
 }
 return TK.module.subfunctions(parent, members)
 
@@ -2388,14 +2407,23 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "appFunctionalX._strings._parseNumbers" ] = function( ... ) local arg = _G.arg;
+package.preload[ "appFunctionalX._strings._parseFirstNumberGroup" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local T = (require("PackageToolkit")).module
 local split = (T.import(..., "_split")).split
 local join = (T.import(..., "_join")).join
 local tail = (T.import(..., "../_lists/_tail")).tail
 local append = (T.import(..., "../_lists/_append")).append
-M.parseNumbers = function(sep, ...)
+M.parseFirstNumberGroup = function(arg_str, sep1, sep2)
+  if arg_str == nil then
+    arg_str = ""
+  end
+  if sep1 == nil then
+    sep1 = ","
+  end
+  if sep2 == nil then
+    sep2 = "%s"
+  end
   local to_numbers
   to_numbers = function(xs)
     local _accum_0 = { }
@@ -2407,22 +2435,14 @@ M.parseNumbers = function(sep, ...)
     end
     return _accum_0
   end
-  if #{
-    ...
-  } == 0 then
-    return { }, { }
+  if arg_str == "" then
+    return { }, ""
   else
-    local args = {
-      ...
-    }
-    local arg_str = args[1]
-    local arg_groups = split(arg_str, sep)
+    local arg_groups = split(arg_str, sep1)
     if #arg_groups > 1 then
-      return (to_numbers((split(arg_groups[1])))), {
-        join(sep, unpack(tail(arg_groups)))
-      }
+      return (to_numbers((split(arg_groups[1], sep2)))), join(sep1, unpack(tail(arg_groups)))
     else
-      return (to_numbers((split(arg_groups[1])))), { }
+      return (to_numbers((split(arg_groups[1], sep2)))), ""
     end
   end
 end
@@ -2433,15 +2453,50 @@ end
 
 do
 local _ENV = _ENV
+package.preload[ "appFunctionalX._strings._parseNumbers" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local T = require("PackageToolkit").module
+local split = (T.import(..., "_split")).split
+local range = (T.import(..., "../_numeric/_range")).range
+M.parseNumbers = function(arg_str, sep)
+  if arg_str == nil then
+    arg_str = ""
+  end
+  if sep == nil then
+    sep = " "
+  end
+  local to_numbers
+  to_numbers = function(xs)
+    local _accum_0 = { }
+    local _len_0 = 1
+    for _index_0 = 1, #xs do
+      local i = xs[_index_0]
+      _accum_0[_len_0] = tonumber(i)
+      _len_0 = _len_0 + 1
+    end
+    return _accum_0
+  end
+  return (to_numbers((split(arg_str, sep))))
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
 package.preload[ "appFunctionalX._strings._split" ] = function( ... ) local arg = _G.arg;
 local M = { }
-M.split = function(str, symbol)
-  if symbol == nil then
-    symbol = "%s"
+M.split = function(str, sep)
+  if str == nil then
+    str = ""
+  end
+  if sep == nil then
+    sep = " \t"
   end
   local _accum_0 = { }
   local _len_0 = 1
-  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+  for x in string.gmatch(str, "([^" .. sep .. "]+)") do
     _accum_0[_len_0] = x
     _len_0 = _len_0 + 1
   end
