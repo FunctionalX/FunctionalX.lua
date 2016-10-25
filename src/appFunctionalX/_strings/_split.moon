@@ -1,5 +1,5 @@
 M = {}
 -- Split a string
-M.split = (str, symbol="%s") -> [x for x in string.gmatch(str, "([^"..symbol.."]+)")]
+M.split = (str="", sep=" \t") -> [x for x in string.gmatch(str, "([^"..sep.."]+)")]
 return M
 

@@ -7,6 +7,7 @@ members = {
     -- "test_split"
     -- "test_batch_format"
     -- "test_join"
+    'test_parseFirstNumberGroup'
     'test_parseNumbers'
 }
 T = TK.module.submodules me, members
