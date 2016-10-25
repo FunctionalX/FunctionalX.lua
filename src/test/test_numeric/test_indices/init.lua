@@ -25,6 +25,15 @@ M[name] = function()
       2
     }
   }, "numeric.indices case 2")
+  case(fn, {
+    3,
+    "1 2"
+  }, {
+    {
+      1,
+      2
+    }
+  }, "numeric.indices case 3")
   return true
 end
 return M

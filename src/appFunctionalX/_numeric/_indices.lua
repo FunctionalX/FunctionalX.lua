@@ -1,5 +1,10 @@
 local M = { }
+local T = require("PackageToolkit").module
+local parseNumbers = (T.import(..., "../_strings/_parseNumbers")).parseNumbers
 M.indices = function(n, ...)
+  if n == nil then
+    n = 1
+  end
   local args = {
     ...
   }
@@ -12,7 +17,14 @@ M.indices = function(n, ...)
     end
     return _accum_0
   else
-    return args
+    if type(args[1]) == "number" then
+      return args
+    elseif type(args[1]) == "string" then
+      return parseNumbers(args[1], " ")
+    else
+      print("WARNING: unrecognized second argument to FX.numeric.indices(): " .. tostring(args[1]))
+      return { }
+    end
   end
 end
 return M
