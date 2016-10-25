@@ -1,23 +1,26 @@
 M = {}
 T = (require "PackageToolkit").module 
-parseNumbers = (T.import ..., "../_strings/_parseNumbers").parseNumbers
+parseFirstNumberGroup = (T.import ..., "../_strings/_parseFirstNumberGroup").parseFirstNumberGroup
 head = (T.import ..., "../_lists/_head").head
 tail = (T.import ..., "../_lists/_tail").tail
 append = (T.import ..., "../_lists/_append").append
 range = (T.import ..., "../_numeric/_range").range
 join = (T.import ..., "../_strings/_join").join
 
-M.runmodule = (modules, exe, ...) ->
+-- Examples: 
+--   run({m1,m2}) will run all the modules m1 and m2
+--   run({m1,m2}, "1,1") will run m1 and give the list {1} to m2.main()
+--   run({m1,m2}, "1,1 2") will run m1 and give the list {1,2} to m2.main()
+M.runmodule = (modules, exe, arg_str="", sep1=",", sep2=" ") ->
     -- if exe==true, pass the indices to each module's main()
     -- otherwise pass the rest of the argument string
-    sep = ","
     if #{modules} == 0
         return {}
 
-    if #{...} == 0 
-        return M.runmodule modules, exe, (join " ", unpack (range 1, #modules, 1))
+    if arg_str == ""
+        return M.runmodule modules, exe, (join sep2, unpack (range 1, #modules, 1))
 
-    indices, rest = parseNumbers sep, ...
+    indices, rest_str = parseFirstNumberGroup arg_str, sep1, sep2
 
     aux = (indices, modules, accum) ->
         if #indices == 0
@@ -30,10 +33,10 @@ M.runmodule = (modules, exe, ...) ->
             else
                 result = nil
                 if exe == true
-                    indices, _ = parseNumbers sep, unpack rest
+                    indices, _ = parseFirstNumberGroup rest_str, sep1, sep2
                     result = modules[i].main unpack indices
                 else
-                    result = modules[i].main unpack rest
+                    result = modules[i].main rest_str
                 return aux (tail indices), modules, (append accum, result)
     return aux indices, modules, {}
 return M

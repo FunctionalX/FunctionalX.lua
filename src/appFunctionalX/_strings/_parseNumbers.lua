@@ -7,7 +7,7 @@ M.parseNumbers = function(arg_str, sep)
     arg_str = ""
   end
   if sep == nil then
-    sep = "%s"
+    sep = " "
   end
   local to_numbers
   to_numbers = function(xs)
