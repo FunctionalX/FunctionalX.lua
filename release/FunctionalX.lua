@@ -1370,7 +1370,7 @@ local T = require("PackageToolkit").module
 local L = T.import(..., "../_lists")
 local S = T.import(..., "../_strings")
 M.path = function(...)
-  local dir_separator = L.head(S.split(package.config))
+  local dir_separator = L.head((S.split(package.config, "%s")))
   local aux
   aux = function(subdirs, accum)
     if #subdirs == 0 then
@@ -2492,7 +2492,7 @@ M.split = function(str, sep)
     str = ""
   end
   if sep == nil then
-    sep = " \t"
+    sep = "%s"
   end
   local _accum_0 = { }
   local _len_0 = 1

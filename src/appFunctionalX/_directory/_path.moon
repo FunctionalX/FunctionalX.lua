@@ -5,7 +5,7 @@ S  = T.import ..., "../_strings"
 
 -- return a path string given the subdirectories
 M.path = (...) ->
-    dir_separator = L.head S.split package.config
+    dir_separator = L.head (S.split package.config, "%s")
     aux = (subdirs, accum) ->
         if #subdirs == 0
             return accum

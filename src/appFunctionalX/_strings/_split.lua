@@ -4,7 +4,7 @@ M.split = function(str, sep)
     str = ""
   end
   if sep == nil then
-    sep = " \t"
+    sep = "%s"
   end
   local _accum_0 = { }
   local _len_0 = 1
