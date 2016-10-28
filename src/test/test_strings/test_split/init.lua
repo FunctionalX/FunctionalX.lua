@@ -12,6 +12,10 @@ M.test_split = function()
     "a"
   })
   case("", ".", { })
+  case("abc,1", ",", {
+    "abc",
+    "1"
+  })
   return true
 end
 return M
