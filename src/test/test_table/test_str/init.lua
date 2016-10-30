@@ -16,12 +16,37 @@ M[name] = function()
   }, "table.str case 1"))
   _ = (case(FX.table.str, {
     {
+      {
+        {
+          k1 = 1,
+          k2 = 2
+        },
+        {
+          "1 2"
+        }
+      }
+    }
+  }, {
+    [[{
+  {
+    {
+      k1 = 1,
+      k2 = 2
+    },
+    {
+      "1 2"
+    }
+  }
+}]]
+  }, "table.str case 2"))
+  _ = (case(FX.table.str, {
+    {
       ["k 1"] = 1,
       k2 = 2
     }
   }, {
     (string.format("{\n%s[\"k 1\"] = 1,\n%sk2 = 2\n}", indent, indent))
-  }, "table.str case 2"))
+  }, "table.str case 3"))
   _ = (case(FX.table.str, {
     {
       ["k 1"] = {
@@ -32,7 +57,7 @@ M[name] = function()
     }
   }, {
     (string.format("{\n%s[\"k 1\"] = {\n%s%sh1 = 1,\n%s%sh2 = 2\n%s},\n%sk2 = 2\n}", indent, indent, indent, indent, indent, indent, indent))
-  }, "table.str case 3"))
+  }, "table.str case 4"))
   _ = (case(FX.table.str, {
     {
       "a 1",
@@ -40,7 +65,7 @@ M[name] = function()
     }
   }, {
     (string.format("{\n%s\"a 1\",\n%sk2 = 2\n}", indent, indent))
-  }, "table.str case 4"))
+  }, "table.str case 5"))
   return true
 end
 return M

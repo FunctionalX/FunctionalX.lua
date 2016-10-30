@@ -35,7 +35,7 @@ M.str = (t, indent="  ") ->
             k = head keys
             v = ""
             if type(dict[k]) == "table"
-                v = aux dict[k], (get_keys dict[k]), {}, indent
+                v = aux dict[k], (get_keys dict[k]), {}, prefix .. indent
             else
                 v = quote dict[k]
             new_item = format_item k, v
