@@ -1148,7 +1148,7 @@ M.str = function(t, indent)
       local k = head(keys)
       local v = ""
       if type(dict[k]) == "table" then
-        v = aux(dict[k], (get_keys(dict[k])), { }, indent)
+        v = aux(dict[k], (get_keys(dict[k])), { }, prefix .. indent)
       else
         v = quote(dict[k])
       end
@@ -2599,7 +2599,7 @@ M.str = function(t, indent)
       local k = head(keys)
       local v = ""
       if type(dict[k]) == "table" then
-        v = aux(dict[k], (get_keys(dict[k])), { }, indent)
+        v = aux(dict[k], (get_keys(dict[k])), { }, prefix .. indent)
       else
         v = quote(dict[k])
       end
