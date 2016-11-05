@@ -2623,13 +2623,20 @@ local head = (T.import(..., "../_lists/_head")).head
 local tail = (T.import(..., "../_lists/_tail")).tail
 local append = (T.import(..., "../_lists/_append")).append
 local get_keys = (T.import(..., "_keys")).keys
-M.tcl = function(t, indent)
+M.tcl = function(t, pretty, indent)
+  if pretty == nil then
+    pretty = false
+  end
   if indent == nil then
     indent = "  "
   end
-  local add_brackets
-  add_brackets = function(s, prefix)
+  local add_brackets_pretty
+  add_brackets_pretty = function(s, prefix)
     return string.format("{\n%s%s%s\n%s}", prefix, indent, s, prefix)
+  end
+  local add_brackets
+  add_brackets = function(s)
+    return string.format("{ %s }", s)
   end
   local quote
   quote = function(obj)
@@ -2651,7 +2658,11 @@ M.tcl = function(t, indent)
   aux = function(dict, keys, accum, prefix)
     if #keys == 0 then
       local sep = string.format("\n%s%s", prefix, indent)
-      return add_brackets((table.concat(accum, sep)), prefix)
+      if pretty == true then
+        return add_brackets_pretty((table.concat(accum, sep)), prefix)
+      else
+        return add_brackets((table.concat(accum, " ")))
+      end
     else
       local k = head(keys)
       local v = ""

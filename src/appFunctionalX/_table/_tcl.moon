@@ -6,8 +6,9 @@ tail  = (T.import ..., "../_lists/_tail").tail
 append  = (T.import ..., "../_lists/_append").append
 get_keys = (T.import ..., "_keys").keys
 
-M.tcl = (t, indent="  ") ->
-    add_brackets = (s, prefix) -> string.format "{\n%s%s%s\n%s}", prefix, indent, s, prefix
+M.tcl = (t, pretty=false, indent="  ") ->
+    add_brackets_pretty = (s, prefix) -> string.format "{\n%s%s%s\n%s}", prefix, indent, s, prefix
+    add_brackets = (s) -> string.format "{ %s }", s
     
     quote = (obj) ->
         if type(obj) =="string" and string.match obj, "%s" -- check whether whitespace is found
@@ -24,7 +25,10 @@ M.tcl = (t, indent="  ") ->
     aux = (dict, keys, accum, prefix) ->
         if #keys == 0
             sep = string.format "\n%s%s", prefix, indent
-            return add_brackets (table.concat accum, sep), prefix
+            if pretty == true
+                return add_brackets_pretty (table.concat accum, sep), prefix
+            else
+                return add_brackets (table.concat accum, " ")
         else
             k = head keys
             v = ""
