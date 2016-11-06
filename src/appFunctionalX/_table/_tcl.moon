@@ -3,6 +3,7 @@ M = {}
 T = require("PackageToolkit").module
 head  = (T.import ..., "../_lists/_head").head
 tail  = (T.import ..., "../_lists/_tail").tail
+trim  = (T.import ..., "../_strings/_trim").trim
 append  = (T.import ..., "../_lists/_append").append
 get_keys = (T.import ..., "_keys").keys
 add_brackets = (T.import ..., "_tcl_add_brackets").add_brackets
@@ -13,7 +14,7 @@ M.tcl = (t, pretty=false, expand=false, indent="  ") ->
             if expand == true 
                 return string.format "[ join [ list %s ] ]", obj
             else
-                return string.format "{%s}", obj
+                return string.format "{%s}", (trim obj, "%s")
         else
             return tostring obj
 

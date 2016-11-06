@@ -2269,7 +2269,8 @@ local members = {
   "_batch_format",
   "_join",
   "_parseNumbers",
-  "_parseFirstNumberGroup"
+  "_parseFirstNumberGroup",
+  "_trim"
 }
 return TK.module.subfunctions(parent, members)
 
@@ -2509,6 +2510,22 @@ end
 
 do
 local _ENV = _ENV
+package.preload[ "appFunctionalX._strings._trim" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.trim = function(str, chars)
+  if chars == nil then
+    chars = "%s"
+  end
+  local pattern = string.format("^%s*(.-)%s*$", chars, chars)
+  return string.match(str, pattern)
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
 package.preload[ "appFunctionalX._table" ] = function( ... ) local arg = _G.arg;
 local TK = require("PackageToolkit")
 local parent = ...
@@ -2621,6 +2638,7 @@ local M = { }
 local T = require("PackageToolkit").module
 local head = (T.import(..., "../_lists/_head")).head
 local tail = (T.import(..., "../_lists/_tail")).tail
+local trim = (T.import(..., "../_strings/_trim")).trim
 local append = (T.import(..., "../_lists/_append")).append
 local get_keys = (T.import(..., "_keys")).keys
 local add_brackets = (T.import(..., "_tcl_add_brackets")).add_brackets
@@ -2640,7 +2658,7 @@ M.tcl = function(t, pretty, expand, indent)
       if expand == true then
         return string.format("[ join [ list %s ] ]", obj)
       else
-        return string.format("{%s}", obj)
+        return string.format("{%s}", (trim(obj, "%s")))
       end
     else
       return tostring(obj)
