@@ -13,7 +13,7 @@ M.tcl = (t, pretty=false, expand=false, indent="  ") ->
             if expand == true 
                 return string.format "[ join [ list %s ] ]", obj
             else
-                return string.format "\"%s\"", obj
+                return string.format "{%s}", obj
         else
             return tostring obj
 

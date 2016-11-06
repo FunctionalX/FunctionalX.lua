@@ -2640,7 +2640,7 @@ M.tcl = function(t, pretty, expand, indent)
       if expand == true then
         return string.format("[ join [ list %s ] ]", obj)
       else
-        return string.format("\"%s\"", obj)
+        return string.format("{%s}", obj)
       end
     else
       return tostring(obj)

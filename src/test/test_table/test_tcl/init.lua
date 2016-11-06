@@ -25,7 +25,7 @@ M[name] = function()
     true,
     false
   }, {
-    (string.format("{\n%s\"k 1\" 1\n%sk2 2\n}", indent, indent))
+    (string.format("{\n%s{k 1} 1\n%sk2 2\n}", indent, indent))
   }, "table.tcl case 2"))
   _ = (case(fn, {
     {
@@ -38,7 +38,7 @@ M[name] = function()
     true,
     false
   }, {
-    (string.format("{\n%s\"k 1\" {\n%s%sh1 1\n%s%sh2 2\n%s}\n%sk2 2\n}", indent, indent, indent, indent, indent, indent, indent))
+    (string.format("{\n%s{k 1} {\n%s%sh1 1\n%s%sh2 2\n%s}\n%sk2 2\n}", indent, indent, indent, indent, indent, indent, indent))
   }, "table.tcl case 3"))
   _ = (case(fn, {
     {
