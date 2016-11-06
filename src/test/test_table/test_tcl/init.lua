@@ -12,7 +12,8 @@ M[name] = function()
       k1 = 1,
       k2 = 2
     },
-    true
+    true,
+    false
   }, {
     (string.format("{\n%sk1 1\n%sk2 2\n}", indent, indent))
   }, "table.tcl case 1"))
@@ -21,7 +22,8 @@ M[name] = function()
       ["k 1"] = 1,
       k2 = 2
     },
-    true
+    true,
+    false
   }, {
     (string.format("{\n%s\"k 1\" 1\n%sk2 2\n}", indent, indent))
   }, "table.tcl case 2"))
@@ -33,7 +35,8 @@ M[name] = function()
       },
       k2 = 2
     },
-    true
+    true,
+    false
   }, {
     (string.format("{\n%s\"k 1\" {\n%s%sh1 1\n%s%sh2 2\n%s}\n%sk2 2\n}", indent, indent, indent, indent, indent, indent, indent))
   }, "table.tcl case 3"))
@@ -41,10 +44,29 @@ M[name] = function()
     {
       a = 1
     },
+    false,
     false
   }, {
     "{ a 1 }"
   }, "table.tcl case 4"))
+  _ = (case(fn, {
+    {
+      a = 1
+    },
+    false,
+    true
+  }, {
+    "[ list a 1 ]"
+  }, "table.tcl case 5"))
+  _ = (case(fn, {
+    {
+      a = "1 2"
+    },
+    false,
+    true
+  }, {
+    "[ list a [ join [ list 1 2 ] ] ]"
+  }, "table.tcl case 6"))
   return true
 end
 return M

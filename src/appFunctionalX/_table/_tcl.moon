@@ -5,14 +5,15 @@ head  = (T.import ..., "../_lists/_head").head
 tail  = (T.import ..., "../_lists/_tail").tail
 append  = (T.import ..., "../_lists/_append").append
 get_keys = (T.import ..., "_keys").keys
+add_brackets = (T.import ..., "_tcl_add_brackets").add_brackets
 
-M.tcl = (t, pretty=false, indent="  ") ->
-    add_brackets_pretty = (s, prefix) -> string.format "{\n%s%s%s\n%s}", prefix, indent, s, prefix
-    add_brackets = (s) -> string.format "{ %s }", s
-    
+M.tcl = (t, pretty=false, expand=false, indent="  ") ->
     quote = (obj) ->
         if type(obj) =="string" and string.match obj, "%s" -- check whether whitespace is found
-            return string.format "\"%s\"", obj
+            if expand == true 
+                return string.format "[ join [ list %s ] ]", obj
+            else
+                return string.format "\"%s\"", obj
         else
             return tostring obj
 
@@ -24,11 +25,11 @@ M.tcl = (t, pretty=false, indent="  ") ->
 
     aux = (dict, keys, accum, prefix) ->
         if #keys == 0
-            sep = string.format "\n%s%s", prefix, indent
             if pretty == true
-                return add_brackets_pretty (table.concat accum, sep), prefix
+                sep = string.format "\n%s%s", prefix, indent
+                return add_brackets (table.concat accum, sep), prefix, indent, true, expand
             else
-                return add_brackets (table.concat accum, " ")
+                return add_brackets (table.concat accum, " "), "", "", false, expand
         else
             k = head keys
             v = ""
