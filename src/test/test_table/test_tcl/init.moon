@@ -14,7 +14,7 @@ M[name] = ->
         "table.tcl case 1"
     )
     (case fn, 
-        {{["k 1"]:1, k2:2}, true, false}, 
+        {{["k 1 "]:1, k2:2}, true, false}, 
         {(string.format "{\n%s{k 1} 1\n%sk2 2\n}", indent, indent)}, 
         "table.tcl case 2"
     )

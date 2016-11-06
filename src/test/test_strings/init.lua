@@ -3,7 +3,7 @@ local M = { }
 local me = ...
 local name = "test_strings"
 local members = {
-  "test_split"
+  "test_trim"
 }
 local T = TK.module.submodules(me, members)
 M[name] = function()

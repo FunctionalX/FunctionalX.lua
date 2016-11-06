@@ -4,11 +4,12 @@ me = ...
 name = "test_strings"
 members = {
     -- "test_cart2"
-    "test_split"
+    -- "test_split"
     -- "test_batch_format"
     -- "test_join"
     -- 'test_parseFirstNumberGroup'
     -- 'test_parseNumbers'
+    "test_trim"
 }
 T = TK.module.submodules me, members
 M[name] = () -> TK.test.self T

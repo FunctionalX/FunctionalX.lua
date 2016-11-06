@@ -19,7 +19,7 @@ M[name] = function()
   }, "table.tcl case 1"))
   _ = (case(fn, {
     {
-      ["k 1"] = 1,
+      ["k 1 "] = 1,
       k2 = 2
     },
     true,

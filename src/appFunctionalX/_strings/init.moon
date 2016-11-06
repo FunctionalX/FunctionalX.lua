@@ -8,5 +8,6 @@ members = {
     "_join"
     "_parseNumbers"
     "_parseFirstNumberGroup"
+    "_trim"
 }
 return TK.module.subfunctions parent, members

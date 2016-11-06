@@ -7,6 +7,7 @@ local members = {
   "_batch_format",
   "_join",
   "_parseNumbers",
-  "_parseFirstNumberGroup"
+  "_parseFirstNumberGroup",
+  "_trim"
 }
 return TK.module.subfunctions(parent, members)
