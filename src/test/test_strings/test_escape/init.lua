@@ -6,8 +6,12 @@ local TK = require("PackageToolkit")
 local case = TK.test.case
 M[name] = function()
   local fn = FX.strings.escape
-  local indent = "  "
   local _ = (case(fn, {
+    "a"
+  }, {
+    "a"
+  }, "strings.parseNumbers case 0"))
+  _ = (case(fn, {
     "a",
     { }
   }, {

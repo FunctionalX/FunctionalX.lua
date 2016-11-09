@@ -2383,6 +2383,9 @@ local M = { }
 local T = require("PackageToolkit").module
 local tail = (T.import(..., "../_lists/_tail")).tail
 M.escape = function(str, chars)
+  if chars == nil then
+    chars = { }
+  end
   if #chars == 0 then
     return str
   else

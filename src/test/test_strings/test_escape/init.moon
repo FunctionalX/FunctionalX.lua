@@ -7,7 +7,11 @@ TK = require("PackageToolkit")
 case = TK.test.case
 M[name] = -> 
     fn = FX.strings.escape
-    indent = "  "
+    (case fn, 
+        {"a"}, 
+        {"a"}, 
+        "strings.parseNumbers case 0"
+    )
     (case fn, 
         {"a", {}}, 
         {"a"}, 
