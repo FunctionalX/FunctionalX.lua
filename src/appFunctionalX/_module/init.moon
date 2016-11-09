@@ -7,5 +7,6 @@ members = {
     "_call"
     "_ipath"
     "_path"
+    "_dir"
 }
 return TK.module.subfunctions parent, members

@@ -60,7 +60,8 @@ local members = {
   "import",
   "initimport",
   "ipath",
-  "path"
+  "path",
+  "dir"
 }
 local M = { }
 for _index_0 = 1, #members do
@@ -159,14 +160,14 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit.._module._trim" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_PackageToolkit._module._remove_prefix" ] = function( ... ) local arg = _G.arg;
 local M = { }
-M.trim = function(path)
-  if (string.match(path, "[/\\%.]")) == nil then
-    return ""
-  else
-    return string.match(path, "(.-)[/\\%.]?[^%./\\]+$")
+M.remove_prefix = function(str, symbol)
+  if symbol == nil then
+    symbol = "_"
   end
+  local pattern = string.format("^%s+", symbol)
+  return string.gsub(str, pattern, "")
 end
 return M
 
@@ -350,32 +351,20 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit._lists._merge" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_PackageToolkit" ] = function( ... ) local arg = _G.arg;
+local parent = "core_PackageToolkit"
+local submodule_names = {
+  "lists",
+  "strings",
+  "module",
+  "test",
+  "ui",
+  "os"
+}
 local M = { }
-M.merge = function(table1, table2)
-  local condition1 = (type(table1)) == "table"
-  local condition2 = (type(table2)) == "table"
-  if (not condition1) and (not condition2) then
-    return { }
-  end
-  if not condition2 then
-    return table1
-  end
-  if not condition1 then
-    return table2
-  end
-  local output = { }
-  for k, v in pairs(table1) do
-    if v ~= nil then
-      output[k] = v
-    end
-  end
-  for k, v in pairs(table2) do
-    if v ~= nil then
-      output[k] = v
-    end
-  end
-  return output
+for _index_0 = 1, #submodule_names do
+  local name = submodule_names[_index_0]
+  M[name] = require(parent .. "._" .. name)
 end
 return M
 
@@ -442,16 +431,54 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit.._lists._head" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_PackageToolkit._module._subfunctions" ] = function( ... ) local arg = _G.arg;
+local parent = ...
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+local root1 = (split(parent, "."))[1]
+local root2 = (split(parent, "."))[2]
+local module_root = root1 .. "." .. root2
+local get_full_name = require(module_root .. "._full_name")["full_name"]
+local remove_prefix = require(module_root .. "._remove_prefix")["remove_prefix"]
+local tail = require(root1 .. "." .. "._lists._tail")["tail"]
+local merge = require(root1 .. "." .. "._lists._merge")["merge"]
 local M = { }
-M.head = function(list)
-  if (type(list)) ~= "table" then
-    return nil
+M.subfunctions = function(parent_name, name_list)
+  if (type(name_list)) ~= 'table' then
+    return { }
   end
-  if #list == 0 then
-    return nil
+  local aux
+  aux = function(name_list, accum)
+    if #name_list == 0 then
+      return accum
+    else
+      local raw_name = name_list[1]
+      local bare_name = remove_prefix(raw_name, "_")
+      local full_name = get_full_name(parent_name, raw_name)
+      local m = (require(full_name))
+      if m == nil then
+        return error("ERROR: cannot import module " .. full_name)
+      elseif (type(m)) == "boolean" then
+        return error(string.format("ERROR HINT: module %s doesn't reutrn a module table", full_name))
+      else
+        return aux((tail(name_list)), (merge(accum, {
+          [bare_name] = m[bare_name]
+        })))
+      end
+    end
   end
-  return list[1]
+  return aux(name_list, { })
 end
 return M
 
@@ -460,25 +487,34 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit._lists._tail" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_PackageToolkit._module._import" ] = function( ... ) local arg = _G.arg;
 local M = { }
-M.tail = function(list, start_index)
-  if start_index == nil then
-    start_index = 1
-  end
-  if (type(list)) ~= "table" then
-    return { }
-  end
-  if #list <= 1 then
-    return { }
+local parent = ...
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
   end
   local _accum_0 = { }
   local _len_0 = 1
-  for i = (start_index + 1), #list do
-    _accum_0[_len_0] = list[i]
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
     _len_0 = _len_0 + 1
   end
   return _accum_0
+end
+local root1 = (split(parent, "."))[1]
+local tail = require(root1 .. "." .. "._lists._tail").tail
+local initimport = require(root1 .. "." .. "._module._initimport").initimport
+local trim = require(root1 .. "." .. "._module._trim").trim
+M.import = function(current_module_path, module_path)
+  local err = (string.format("%s\n%s\n", "ERROR HINT: there must be two arguments for import, i.e. import(..., 'a/b')", (string.format("Your input is: import(%s, %s)", current_module_path, module_path))))
+  if current_module_path == nil or module_path == nil then
+    print(err)
+    return nil
+  else
+    return initimport(trim(current_module_path), module_path)
+  end
 end
 return M
 
@@ -521,13 +557,26 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit._module._require" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_PackageToolkit._os._pathsep" ] = function( ... ) local arg = _G.arg;
 local M = { }
-M.require = function(module_name, function_name)
-  if function_name == nil then
-    return require(module_name)[module_name]
+local __ = ...
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
   end
-  return require(module_name)[function_name]
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+local root1 = (split(__, "."))[1]
+local head = require(root1 .. "." .. "._lists._head").head
+M.pathsep = function()
+  return head(split(package.config))
 end
 return M
 
@@ -671,19 +720,85 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit._strings._split" ] = function( ... ) local arg = _G.arg;
+package.preload[ "core_PackageToolkit.._lists._concat2" ] = function( ... ) local arg = _G.arg;
 local M = { }
-M.split = function(str, symbol)
-  if symbol == nil then
-    symbol = "%s"
+M.concat2 = function(list1, list2)
+  local condition1 = (type(list1)) == "table"
+  local condition2 = (type(list2)) == "table"
+  if (not condition1) and (not condition2) then
+    return { }
   end
-  local _accum_0 = { }
-  local _len_0 = 1
-  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
-    _accum_0[_len_0] = x
-    _len_0 = _len_0 + 1
+  if not condition2 then
+    return list1
   end
-  return _accum_0
+  if not condition1 then
+    return list2
+  end
+  local output
+  do
+    local _accum_0 = { }
+    local _len_0 = 1
+    for i = 1, #list1 do
+      _accum_0[_len_0] = list1[i]
+      _len_0 = _len_0 + 1
+    end
+    output = _accum_0
+  end
+  for _index_0 = 1, #list2 do
+    local item = list2[_index_0]
+    output[#output + 1] = item
+  end
+  return output
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._os" ] = function( ... ) local arg = _G.arg;
+local __ = ...
+local members = {
+  "pathsep"
+}
+local M = { }
+for _index_0 = 1, #members do
+  local name = members[_index_0]
+  M[name] = require(__ .. "._" .. name)[name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit.._os" ] = function( ... ) local arg = _G.arg;
+local __ = ...
+local members = {
+  "pathsep"
+}
+local M = { }
+for _index_0 = 1, #members do
+  local name = members[_index_0]
+  M[name] = require(__ .. "._" .. name)[name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit.._module._trim" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.trim = function(path)
+  if (string.match(path, "[/\\%.]")) == nil then
+    return ""
+  else
+    return string.match(path, "(.-)[/\\%.]?[^%./\\]+$")
+  end
 end
 return M
 
@@ -702,6 +817,57 @@ M.head = function(list)
     return nil
   end
   return list[1]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._ui._dashed_line" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.dashed_line = function(n, symbol)
+  if symbol == nil then
+    symbol = "-"
+  end
+  local aux
+  aux = function(n, symbol, accum)
+    if n == 0 then
+      return accum
+    else
+      return aux((n - 1), symbol, accum .. symbol)
+    end
+  end
+  return aux(n, symbol, "")
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit.._os._pathsep" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local __ = ...
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+local root1 = (split(__, "."))[1]
+local head = require(root1 .. "." .. "._lists._head").head
+M.pathsep = function()
+  return head(split(package.config))
 end
 return M
 
@@ -785,204 +951,6 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit.._lists._concat2" ] = function( ... ) local arg = _G.arg;
-local M = { }
-M.concat2 = function(list1, list2)
-  local condition1 = (type(list1)) == "table"
-  local condition2 = (type(list2)) == "table"
-  if (not condition1) and (not condition2) then
-    return { }
-  end
-  if not condition2 then
-    return list1
-  end
-  if not condition1 then
-    return list2
-  end
-  local output
-  do
-    local _accum_0 = { }
-    local _len_0 = 1
-    for i = 1, #list1 do
-      _accum_0[_len_0] = list1[i]
-      _len_0 = _len_0 + 1
-    end
-    output = _accum_0
-  end
-  for _index_0 = 1, #list2 do
-    local item = list2[_index_0]
-    output[#output + 1] = item
-  end
-  return output
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_PackageToolkit._ui._dashed_line" ] = function( ... ) local arg = _G.arg;
-local M = { }
-M.dashed_line = function(n, symbol)
-  if symbol == nil then
-    symbol = "-"
-  end
-  local aux
-  aux = function(n, symbol, accum)
-    if n == 0 then
-      return accum
-    else
-      return aux((n - 1), symbol, accum .. symbol)
-    end
-  end
-  return aux(n, symbol, "")
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_PackageToolkit._module._trim" ] = function( ... ) local arg = _G.arg;
-local M = { }
-M.trim = function(path)
-  if (string.match(path, "[/\\%.]")) == nil then
-    return ""
-  else
-    return string.match(path, "(.-)[/\\%.]?[^%./\\]+$")
-  end
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_PackageToolkit.._ui._dashed_line" ] = function( ... ) local arg = _G.arg;
-local M = { }
-M.dashed_line = function(n, symbol)
-  if symbol == nil then
-    symbol = "-"
-  end
-  local aux
-  aux = function(n, symbol, accum)
-    if n == 0 then
-      return accum
-    else
-      return aux((n - 1), symbol, accum .. symbol)
-    end
-  end
-  return aux(n, symbol, "")
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_PackageToolkit._module._import" ] = function( ... ) local arg = _G.arg;
-local M = { }
-local parent = ...
-local split
-split = function(str, symbol)
-  if symbol == nil then
-    symbol = "%s"
-  end
-  local _accum_0 = { }
-  local _len_0 = 1
-  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
-    _accum_0[_len_0] = x
-    _len_0 = _len_0 + 1
-  end
-  return _accum_0
-end
-local root1 = (split(parent, "."))[1]
-local tail = require(root1 .. "." .. "._lists._tail").tail
-local initimport = require(root1 .. "." .. "._module._initimport").initimport
-local trim = require(root1 .. "." .. "._module._trim").trim
-M.import = function(current_module_path, module_path)
-  local err = (string.format("%s\n%s\n", "ERROR HINT: there must be two arguments for import, i.e. import(..., 'a/b')", (string.format("Your input is: import(%s, %s)", current_module_path, module_path))))
-  if current_module_path == nil or module_path == nil then
-    print(err)
-    return nil
-  else
-    return initimport(trim(current_module_path), module_path)
-  end
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_PackageToolkit._ui" ] = function( ... ) local arg = _G.arg;
-local parent = ...
-local submodule_names = {
-  "dashed_line"
-}
-local M = { }
-for _index_0 = 1, #submodule_names do
-  local name = submodule_names[_index_0]
-  M[name] = require(parent .. "._" .. name)[name]
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_PackageToolkit._module._root" ] = function( ... ) local arg = _G.arg;
-local M = { }
-local split
-split = function(str, symbol)
-  if symbol == nil then
-    symbol = "%s"
-  end
-  local _accum_0 = { }
-  local _len_0 = 1
-  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
-    _accum_0[_len_0] = x
-    _len_0 = _len_0 + 1
-  end
-  return _accum_0
-end
-M.root = function(full_module_name)
-  return (split(full_module_name, "."))[1] or ""
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_PackageToolkit" ] = function( ... ) local arg = _G.arg;
-local parent = "core_PackageToolkit"
-local submodule_names = {
-  "lists",
-  "strings",
-  "module",
-  "test",
-  "ui"
-}
-local M = { }
-for _index_0 = 1, #submodule_names do
-  local name = submodule_names[_index_0]
-  M[name] = require(parent .. "._" .. name)
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
 package.preload[ "core_PackageToolkit.._test._equal_lists" ] = function( ... ) local arg = _G.arg;
 local parent = ...
 local split
@@ -1033,54 +1001,29 @@ end
 
 do
 local _ENV = _ENV
-package.preload[ "core_PackageToolkit._module._subfunctions" ] = function( ... ) local arg = _G.arg;
-local parent = ...
-local split
-split = function(str, symbol)
-  if symbol == nil then
-    symbol = "%s"
-  end
-  local _accum_0 = { }
-  local _len_0 = 1
-  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
-    _accum_0[_len_0] = x
-    _len_0 = _len_0 + 1
-  end
-  return _accum_0
-end
-local root1 = (split(parent, "."))[1]
-local root2 = (split(parent, "."))[2]
-local module_root = root1 .. "." .. root2
-local get_full_name = require(module_root .. "._full_name")["full_name"]
-local remove_prefix = require(module_root .. "._remove_prefix")["remove_prefix"]
-local tail = require(root1 .. "." .. "._lists._tail")["tail"]
-local merge = require(root1 .. "." .. "._lists._merge")["merge"]
+package.preload[ "core_PackageToolkit._module._require" ] = function( ... ) local arg = _G.arg;
 local M = { }
-M.subfunctions = function(parent_name, name_list)
-  if (type(name_list)) ~= 'table' then
-    return { }
+M.require = function(module_name, function_name)
+  if function_name == nil then
+    return require(module_name)[module_name]
   end
-  local aux
-  aux = function(name_list, accum)
-    if #name_list == 0 then
-      return accum
-    else
-      local raw_name = name_list[1]
-      local bare_name = remove_prefix(raw_name, "_")
-      local full_name = get_full_name(parent_name, raw_name)
-      local m = (require(full_name))
-      if m == nil then
-        return error("ERROR: cannot import module " .. full_name)
-      elseif (type(m)) == "boolean" then
-        return error(string.format("ERROR HINT: module %s doesn't reutrn a module table", full_name))
-      else
-        return aux((tail(name_list)), (merge(accum, {
-          [bare_name] = m[bare_name]
-        })))
-      end
-    end
+  return require(module_name)[function_name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module._trim" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.trim = function(path)
+  if (string.match(path, "[/\\%.]")) == nil then
+    return ""
+  else
+    return string.match(path, "(.-)[/\\%.]?[^%./\\]+$")
   end
-  return aux(name_list, { })
 end
 return M
 
@@ -1168,6 +1111,199 @@ end
 
 do
 local _ENV = _ENV
+package.preload[ "core_PackageToolkit.._lists._head" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.head = function(list)
+  if (type(list)) ~= "table" then
+    return nil
+  end
+  if #list == 0 then
+    return nil
+  end
+  return list[1]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._ui" ] = function( ... ) local arg = _G.arg;
+local parent = ...
+local submodule_names = {
+  "dashed_line"
+}
+local M = { }
+for _index_0 = 1, #submodule_names do
+  local name = submodule_names[_index_0]
+  M[name] = require(parent .. "._" .. name)[name]
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._lists._tail" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.tail = function(list, start_index)
+  if start_index == nil then
+    start_index = 1
+  end
+  if (type(list)) ~= "table" then
+    return { }
+  end
+  if #list <= 1 then
+    return { }
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for i = (start_index + 1), #list do
+    _accum_0[_len_0] = list[i]
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit.._ui._dashed_line" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.dashed_line = function(n, symbol)
+  if symbol == nil then
+    symbol = "-"
+  end
+  local aux
+  aux = function(n, symbol, accum)
+    if n == 0 then
+      return accum
+    else
+      return aux((n - 1), symbol, accum .. symbol)
+    end
+  end
+  return aux(n, symbol, "")
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module._root" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+M.root = function(full_module_name)
+  return (split(full_module_name, "."))[1] or ""
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._lists._merge" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.merge = function(table1, table2)
+  local condition1 = (type(table1)) == "table"
+  local condition2 = (type(table2)) == "table"
+  if (not condition1) and (not condition2) then
+    return { }
+  end
+  if not condition2 then
+    return table1
+  end
+  if not condition1 then
+    return table2
+  end
+  local output = { }
+  for k, v in pairs(table1) do
+    if v ~= nil then
+      output[k] = v
+    end
+  end
+  for k, v in pairs(table2) do
+    if v ~= nil then
+      output[k] = v
+    end
+  end
+  return output
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._strings._split" ] = function( ... ) local arg = _G.arg;
+local M = { }
+M.split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "core_PackageToolkit._module._dir" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local __ = ...
+local split
+split = function(str, symbol)
+  if symbol == nil then
+    symbol = "%s"
+  end
+  local _accum_0 = { }
+  local _len_0 = 1
+  for x in string.gmatch(str, "([^" .. symbol .. "]+)") do
+    _accum_0[_len_0] = x
+    _len_0 = _len_0 + 1
+  end
+  return _accum_0
+end
+local root1 = (split(__, "."))[1]
+local os = require(root1 .. "." .. "._os")
+M.dir = function(module_path)
+  return string.gsub(module_path, "[.]", os.pathsep())
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
 package.preload[ "core_PackageToolkit._module._ipath" ] = function( ... ) local arg = _G.arg;
 local M = { }
 local parent = ...
@@ -1220,22 +1356,6 @@ M.ipath = function(this_path, module_path)
   else
     return (aux((split(module_path, "/")), this_path))
   end
-end
-return M
-
-end
-end
-
-do
-local _ENV = _ENV
-package.preload[ "core_PackageToolkit._module._remove_prefix" ] = function( ... ) local arg = _G.arg;
-local M = { }
-M.remove_prefix = function(str, symbol)
-  if symbol == nil then
-    symbol = "_"
-  end
-  local pattern = string.format("^%s+", symbol)
-  return string.gsub(str, pattern, "")
 end
 return M
 
