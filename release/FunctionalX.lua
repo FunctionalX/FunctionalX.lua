@@ -2270,7 +2270,8 @@ local members = {
   "_join",
   "_parseNumbers",
   "_parseFirstNumberGroup",
-  "_trim"
+  "_trim",
+  "_escape"
 }
 return TK.module.subfunctions(parent, members)
 
@@ -2369,6 +2370,26 @@ M.cart2 = function(list1, list2)
     return { }
   end
   return aux(list1, list2, { })
+end
+return M
+
+end
+end
+
+do
+local _ENV = _ENV
+package.preload[ "appFunctionalX._strings._escape" ] = function( ... ) local arg = _G.arg;
+local M = { }
+local T = require("PackageToolkit").module
+local tail = (T.import(..., "../_lists/_tail")).tail
+M.escape = function(str, chars)
+  if #chars == 0 then
+    return str
+  else
+    local pattern = string.format("[%s]", chars[1])
+    local replacement = string.format("\\%s", chars[1])
+    return M.escape((string.gsub(str, pattern, replacement)), (tail(chars)))
+  end
 end
 return M
 

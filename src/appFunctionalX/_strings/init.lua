@@ -8,6 +8,7 @@ local members = {
   "_join",
   "_parseNumbers",
   "_parseFirstNumberGroup",
-  "_trim"
+  "_trim",
+  "_escape"
 }
 return TK.module.subfunctions(parent, members)

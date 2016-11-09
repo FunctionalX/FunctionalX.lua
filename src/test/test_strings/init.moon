@@ -8,8 +8,9 @@ members = {
     -- "test_batch_format"
     -- "test_join"
     -- 'test_parseFirstNumberGroup'
-    'test_parseNumbers'
+    -- 'test_parseNumbers'
     -- "test_trim"
+    "test_escape"
 }
 T = TK.module.submodules me, members
 M[name] = () -> TK.test.self T
